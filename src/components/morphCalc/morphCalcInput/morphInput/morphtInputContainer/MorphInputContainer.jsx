@@ -1,9 +1,19 @@
+import styled from "styled-components";
+import MorphInputBox from "./MorphInputBox";
+import MorphInputList from "./MorphInputList";
+
+const Container = styled.div`
+  border: 2px solid orangered;
+  padding: 0.5rem;
+`
+
 
 const MorphInputContainer = () => {
   return (
-    <div>
-      MorphInputContainer 렌더링 test
-    </div>
+    <Container>
+      <MorphInputBox />
+      <MorphInputList />
+    </Container>
   );
 };
 
