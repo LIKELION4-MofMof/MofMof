@@ -1,7 +1,11 @@
 import './App.css';
+import Layout from './components/Layout/Layout';
 
 function App() {
-  return <div className="App">안녕하세요. MofMof 입니다. 😊</div>;
-}
+  return (
+  <div className="App">
+    <Layout/>
+  </div>
+)}
 
 export default App;
