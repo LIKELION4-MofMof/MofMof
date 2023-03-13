@@ -1,7 +1,12 @@
 import './App.css';
+import MorphCalcInput from './components/morphCalc/morphCalcInput/MorphCalcInput';
 
 function App() {
-  return <div className="App">안녕하세요. MofMof 입니다. 😊</div>;
+  return (
+    <div className="App">
+      <MorphCalcInput />
+    </div>
+  );
 }
 
 export default App;
