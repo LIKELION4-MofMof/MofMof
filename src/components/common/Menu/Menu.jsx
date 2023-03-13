@@ -1,4 +1,5 @@
-import menuIcon from "../../assets/menuIcon.svg";
+import { useState } from "react";
+import menuIcon from "../../../assets/menuIcon.svg";
 import styled from "styled-components";
 
 const StyledMenu = styled.div`
@@ -12,9 +13,10 @@ const MenuButton = styled.button`
 
 
 export const Menu = ({children, ...restProps}) => {
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <StyledMenu>
-      <MenuButton>
+      <MenuButton onClick={() => setShowMenu(!showMenu)}>
         <img src={menuIcon} alt={children} {...restProps}/>
       </MenuButton>
       {/* <ul>

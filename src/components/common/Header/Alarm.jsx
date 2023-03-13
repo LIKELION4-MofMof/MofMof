@@ -1,4 +1,4 @@
-import alarm from "../../assets/alarm.svg";
+import alarm from "../../../assets/alarm.svg";
 export const Alarm = ({children, ...restProps}) => {
   return (
     <div>

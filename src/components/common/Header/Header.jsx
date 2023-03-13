@@ -1,7 +1,7 @@
 
-import { Logo } from "../Logo/Logo";
+import { Logo } from "./Logo";
 import { Menu } from "../Menu/Menu";
-import { Alarm } from "../Alarm/Alarm";
+import { Alarm } from "./Alarm";
 import styled from "styled-components";
 
 
