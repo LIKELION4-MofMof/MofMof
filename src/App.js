@@ -1,10 +1,10 @@
 import './App.css';
-import MorphCalcInput from './components/morphCalc/morphCalcInput/MorphCalcInput';
+import MorphCalc from './components/morphCalc/MorphCalc';
 
 function App() {
   return (
     <div className="App">
-      <MorphCalcInput />
+      <MorphCalc />
     </div>
   );
 }

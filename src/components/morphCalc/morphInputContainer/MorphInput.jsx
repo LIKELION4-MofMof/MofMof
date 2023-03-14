@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+
+
 const Input = styled.input`
   width: 100%;
   ${'' /* box-sizing: border-box; */}
@@ -7,12 +9,14 @@ const Input = styled.input`
   border-radius: 5px;
 `
 
-const MorphInputBox = () => {
+
+const MorphInput = ({showButtonList}) => {
   return (
     <div>
-      <Input type="text" placeholder="아빠 모프를 입력해주세요." />
+      <h2> 모프 입력</h2>
+      <Input type="text" placeholder="아빠 도마뱀의 모프를 입력해주세요." onClick={showButtonList} />
     </div>
   );
 };
 
-export default MorphInputBox;
+export default MorphInput;
