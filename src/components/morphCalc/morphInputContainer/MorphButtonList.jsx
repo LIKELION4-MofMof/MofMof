@@ -12,8 +12,8 @@ const MorphButtonList = ({morphList}) => {
   return (
     <ButtonUl>
       {morphList.map(morph=>(
-        <li>
-          <MorphButton morph={morph} key={morph.korName} />
+        <li key={morph.id}>
+          <MorphButton morph={morph} />
         </li>
       ))}
     </ButtonUl>
