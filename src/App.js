@@ -1,15 +1,15 @@
 import './App.css';
 
+import { Header } from './components/common/Header/Header';
+import { Navigation } from './components/common/Navigation/Navigation';
+
+
 function App() {
   return (
     <div className="App">
-      <h2>안녕하세요.</h2> MofMof 입니다. 😊
-      <ul>
-        <li>list1</li>
-        <li>list2</li>
-      </ul>
+      <Header/>
+      <Navigation />
     </div>
-  );
-}
+)}
 
 export default App;
