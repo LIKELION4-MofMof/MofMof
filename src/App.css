@@ -1,8 +1,7 @@
 .App {
-  min-width: 280px;
-  max-width: 370px;
-  width: 360px;
+  width: 375px;
   border: 1px solid black;
   border-radius: 10px;
   height: 100vh;
+  padding-top: 30px;
 }
