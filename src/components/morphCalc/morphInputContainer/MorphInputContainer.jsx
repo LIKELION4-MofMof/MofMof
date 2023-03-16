@@ -115,7 +115,7 @@ const MorphInputContainer = ({ children, title }) => {
         <Search className="searchIcon" />
         <input
           type="text"
-          placeholder="아빠를 검색해 보세요."
+          placeholder={`${title}를 검색해보세요.`}
           className="searchInput"
         />
         <button
