@@ -94,7 +94,7 @@ const InputWrapper = styled.div`
     border: none;
   }
   ${(props) =>
-    props.showDropBox &&
+    (props.showDropBox || props.filterDropBox) &&
     css`
       border-radius: 10px 10px 0 0px;
     `}
@@ -147,7 +147,7 @@ const MorphInputContainer = ({ title }) => {
       <InputTitle>
         <h2>{title}</h2>
       </InputTitle>
-      <InputWrapper showDropBox={showDropBox}>
+      <InputWrapper showDropBox={showDropBox} filterDropBox={filterDropBox}>
         <Search className="searchIcon" />
         <input
           type="text"
