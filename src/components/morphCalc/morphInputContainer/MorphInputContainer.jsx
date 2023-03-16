@@ -98,12 +98,30 @@ const InputWrapper = styled.div`
     `}
 `;
 
-const MorphInputContainer = ({ children, title }) => {
+const MorphInputContainer = ({ title }) => {
   const [showDropBox, setShowDropBox] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const [filterDropBox, setFilterDropbox] = useState(false);
+  const [morphList, setMorphList] = useState([]);
 
   const toggleMorphList = () => {
     console.log('button 클릭');
     setShowDropBox(!showDropBox);
+  };
+  const changeDropBox = (boolean) => {
+    setShowDropBox(!boolean);
+  };
+  const changeInputValue = (e) => {
+    setInputValue(e.target.value);
+    if (e.target.value !== '') {
+      const filterMorph = fattailMorph.filter((morph) =>
+        morph.korName.includes(inputValue),
+      );
+      changeDropBox(true);
+      setFilterDropbox(true);
+      setMorphList(filterMorph);
+    }
+    console.log(inputValue);
   };
 
   return (
@@ -117,6 +135,8 @@ const MorphInputContainer = ({ children, title }) => {
           type="text"
           placeholder={`${title}를 검색해보세요.`}
           className="searchInput"
+          value={inputValue}
+          onChange={changeInputValue}
         />
         <button
           type="button"
@@ -125,6 +145,7 @@ const MorphInputContainer = ({ children, title }) => {
         ></button>
       </InputWrapper>
       {showDropBox && <MorphListDropBox morphList={fattailMorph} />}
+      {filterDropBox && <MorphListDropBox morphList={morphList} />}
     </section>
   );
 };
