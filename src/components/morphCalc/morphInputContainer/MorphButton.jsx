@@ -13,8 +13,12 @@ const Button = styled.button`
   }
 `;
 
-const MorphButton = ({ morph }) => {
-  return <Button>{morph.korName}</Button>;
+const MorphButton = ({ morph, insertSelectedBox }) => {
+  const selectMorph = () => {
+    insertSelectedBox(morph);
+  };
+
+  return <Button onClick={selectMorph}>{morph.korName}</Button>;
 };
 
 export default MorphButton;

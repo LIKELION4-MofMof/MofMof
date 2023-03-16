@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
-import { ReactComponent as Search } from '../../../assets/icon/Search.svg';
-// import { ReactComponent as ArrowChevron } from '../../../assets/icon/ArrowChevron.svg';
+import { ReactComponent as Search } from 'assets/icon/Search.svg';
+import ArrowChevron from 'assets/icon/ArrowChevron.svg';
 import MorphListDropBox from './MorphListDropBox';
+import SelectedBtn from './SelectedBtn';
 
 const fattailMorph = [
   {
@@ -88,8 +89,9 @@ const InputWrapper = styled.div`
   .btnShowMorphList {
     width: 24px;
     height: 24px;
-    background: url(../../../assets/icon/ArrowChevron.svg) no-repeat 0 0;
+    background: url(${ArrowChevron}) no-repeat 0 0 / cover;
     cursor: pointer;
+    border: none;
   }
   ${(props) =>
     props.showDropBox &&
@@ -97,15 +99,28 @@ const InputWrapper = styled.div`
       border-radius: 10px 10px 0 0px;
     `}
 `;
+const SelectedBox = styled.ul`
+  border: 2px dashed #f26a3b;
+  border-radius: 10px;
+  margin-top: 88px;
+  width: 335px;
+  height: 90px;
+  padding: 11px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 8px;
+`;
 
 const MorphInputContainer = ({ title }) => {
   const [showDropBox, setShowDropBox] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [filterDropBox, setFilterDropbox] = useState(false);
   const [morphList, setMorphList] = useState([]);
+  const [selectedMorph, setSelectedMorph] = useState([]);
 
   const toggleMorphList = () => {
-    console.log('button 클릭');
     setShowDropBox(!showDropBox);
   };
   const changeDropBox = (boolean) => {
@@ -122,6 +137,9 @@ const MorphInputContainer = ({ title }) => {
       setMorphList(filterMorph);
     }
     console.log(inputValue);
+  };
+  const insertSelectedBox = (newSelectedMorph) => {
+    setSelectedMorph(selectedMorph.concat(newSelectedMorph));
   };
 
   return (
@@ -144,8 +162,25 @@ const MorphInputContainer = ({ title }) => {
           onClick={toggleMorphList}
         ></button>
       </InputWrapper>
-      {showDropBox && <MorphListDropBox morphList={fattailMorph} />}
-      {filterDropBox && <MorphListDropBox morphList={morphList} />}
+      {showDropBox && (
+        <MorphListDropBox
+          morphList={fattailMorph}
+          insertSelectedBox={insertSelectedBox}
+        />
+      )}
+      {filterDropBox && (
+        <MorphListDropBox
+          morphList={morphList}
+          insertSelectedBox={insertSelectedBox}
+        />
+      )}
+      <SelectedBox>
+        {selectedMorph.map((morph) => (
+          <li key={morph.id}>
+            <SelectedBtn morph={morph} />
+          </li>
+        ))}
+      </SelectedBox>
     </section>
   );
 };

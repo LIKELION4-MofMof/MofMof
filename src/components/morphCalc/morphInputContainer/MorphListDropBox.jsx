@@ -9,12 +9,12 @@ const ButtonUl = styled.ul`
   padding: 11px;
 `;
 
-const MorphListDropBox = ({ morphList }) => {
+const MorphListDropBox = ({ morphList, insertSelectedBox }) => {
   return (
     <ButtonUl>
       {morphList.map((morph) => (
         <li key={morph.id}>
-          <MorphButton morph={morph} />
+          <MorphButton morph={morph} insertSelectedBox={insertSelectedBox} />
         </li>
       ))}
     </ButtonUl>
