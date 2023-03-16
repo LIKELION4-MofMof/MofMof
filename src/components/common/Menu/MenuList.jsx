@@ -1,36 +1,28 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-
-
-const AccordionBtn = styled.button`
-  border-style: none;
-  background: transparent;
-  cursor: pointer;
-`
-
-const AccordionTitle = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
+import { useState } from "react";
+import {styled} from 'styled-components';
+import data from "./data";
+import MenuDropDown from "./MenuDropDown";
 
 
 
-const MenuList = ({title, list}) => {
 
 
-  const [activeList, setActiveList] = useState(false);
-  return (
-    <div>
-      <AccordionTitle>
-        <h4>{title}</h4>
-        <AccordionBtn onClick={() => setActiveList(!activeList)}>
-          {activeList ? 'close' : 'open'}
-        </AccordionBtn>
-      </AccordionTitle>
-      {activeList && <p>{list}</p>}
-    </div>
+
+const MenuList = () => {
+  const [menuLists, setMenuLists] = useState(data);
+  
+  return(
+    <>
+      <div>
+        <ul>
+          {menuLists.map((menuList) => {
+            return <li><MenuDropDown key={menuList.id} {...menuList}/></li>
+          })}
+        </ul>
+      </div> 
+    </>
+    
   )
-};
+}
 
 export default MenuList;
