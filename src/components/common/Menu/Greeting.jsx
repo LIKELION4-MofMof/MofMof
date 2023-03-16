@@ -39,7 +39,7 @@ const LoginIndex = styled.p`
 `
 
 
-function GeustGreeting(props) {
+function GuestGreeting(props) {
   return (
   <LoginRegister>
     <Circle />
@@ -69,7 +69,7 @@ export function Greeting(props) {
   const isLoggedIn = props.isLoggedIn;
   return (
     <>
-    { isLoggedIn ? (<UserGreeting />) : (<GeustGreeting />)}
+    { isLoggedIn ? (<UserGreeting />) : (<GuestGreeting />)}
     </>
   )
 }
