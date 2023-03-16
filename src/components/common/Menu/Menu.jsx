@@ -1,50 +1,13 @@
 import { useState, useRef, useEffect } from "react";
-import { Logo } from '../Header/Logo';
+import Logo from 'components/common/Header/Logo';
+
+import { Greeting } from "components/common/Menu/Greeting";
+import close from "assets/icon/close.svg";
+import { HeaderMenu, MenuButton, Bar, CloseBtn } from "./Menu.styled"
 import MenuList from './MenuList';
-import { Greeting } from "./Greeting";
-import styled from "styled-components";
-import close from "../../../assets/icon/close.svg";
-import menuIcon from "../../../assets/icon/menuIcon.svg";
 
 
-const MenuButton = styled.button`
-  background: url(${menuIcon});
-  border-style: none;
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  position: relative;
-`
-
-const HeaderMenu = styled.div`
-  display: ${(props) => (props.toggleMenu ? "block" : "none")};
-  flex-direction: column;
-  align-items: center;
-  width: 287px;
-  height: 100%;
-  background: #F26A3B;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 102px;
-  position: absolute;
-  color: #ffff;
-`
-
-const Bar = styled.div`
-  border-top: 1px solid #ffff;
-  margin: 17px 0;
-`
-
-const CloseBtn = styled.button`
-  border: none;
-  background: transparent;
-  cursor: pointer;
-`
-
-
-export const Menu = ({children, ...restProps}) => {
+const Menu = ({children, ...restProps}) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const menuRef = useRef();
 
@@ -71,7 +34,7 @@ export const Menu = ({children, ...restProps}) => {
           {/* {<img src={menuIcon} alt={children} {...restProps}/>} */}
         </MenuButton>
         <HeaderMenu toggleMenu={toggleMenu} ref={menuRef} >
-          <Logo color="#ffff" />
+          {/* <Logo color="#ffff" /> */}
           <CloseBtn onClick={() => setToggleMenu(false)}><img src={close} /></CloseBtn>
           <Greeting />
           <Bar/>
@@ -88,3 +51,5 @@ export const Menu = ({children, ...restProps}) => {
     </>
   )
 }
+
+export default Menu;

@@ -1,10 +1,6 @@
 import { useState } from "react";
-import {styled} from 'styled-components';
-import data from "./data";
-import MenuDropDown from "./MenuDropDown";
-
-
-
+import data from "components/common/Menu/data";
+import MenuDropDown from "components/common/Menu/MenuDropDown";
 
 
 

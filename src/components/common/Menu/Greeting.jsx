@@ -1,42 +1,5 @@
-import styled from "styled-components";
+import { LoginRegister, LoginWrapper, Circle, LoginBtn, LoginIndex } from "./Menu.styled"
 
-
-const LoginRegister = styled.section`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin: 25px 0 ;
-  padding: 0 20px;
-`
-
-const LoginWrapper = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center; */
-  width: 150px;
-`
-
-const Circle = styled.span`
-  display: inline-block;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  background: #D9D9D9;
-`
-
-const LoginBtn = styled.button`
-  border: none;
-  background: transparent;
-  color: #ffff;
-  font-size: 20px;
-  font-weight: 500;
-  padding: 0;
-`
-const LoginIndex = styled.p`
-  font-size: 12px;
-  display: inline-block;
-`
 
 
 function GuestGreeting(props) {

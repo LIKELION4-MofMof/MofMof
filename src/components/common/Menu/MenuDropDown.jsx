@@ -1,36 +1,7 @@
 import { useState } from 'react';
-import styled from 'styled-components';
-import down from '../../../assets/icon/down.svg'
-import up from '../../../assets/icon/up.svg'
-import carrot from "../../../assets/icon/carrot.svg"
-
-const AccordionBtn = styled.button`
-  border-style: none;
-  background: transparent;
-  cursor: pointer;
-`
-
-const AccordionTitle = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 50px;
-`
-
-const GeckoList = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-const GeckoListTitle = styled.h4`
-  &::before{
-    content: "";
-    background: url(${carrot});
-    width: 24px;
-    height: 24px;
-    background-size: 24px;
-    display: inline-block;
-  }
-`
+import down from 'assets/icon/down.svg';
+import up from 'assets/icon/up.svg';
+import { AccordionBtn, AccordionTitle, GeckoList, GeckoListTitle } from 'components/common/Menu/Menu.styled';
 
 
 const MenuDropDown = ({title, list}) => {
