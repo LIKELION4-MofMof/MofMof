@@ -1,17 +1,19 @@
 
+import styled from "styled-components";
 import { Logo } from "./Logo";
 import { Menu } from "../Menu/Menu";
-import { Alarm } from "./Alarm";
-import styled from "styled-components";
+import { Notification } from "./Notification";
 
 
 const StyledHeader = styled.header`
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  background: '#fffff';
-  height: 100px;
+  /* background: '#fffff'; */
+  background: pink;
+  height: 70px;
+  padding: 0 20px;
 `
 
 export function Header() {
@@ -20,7 +22,7 @@ export function Header() {
     <StyledHeader>
       <Menu />
       <Logo />
-      <Alarm />
+      <Notification />
     </StyledHeader>
   )
 }
