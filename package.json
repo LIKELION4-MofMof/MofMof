@@ -27,6 +27,9 @@
       "react-app/jest"
     ]
   },
+  "babel": {
+    "plugins" : ["babel-plugin-styled-components"]
+  },
   "browserslist": {
     "production": [
       ">0.2%",

@@ -45,9 +45,9 @@ const Menu = ({children, ...restProps}) => {
               <li>고객지원</li>
               <li>설정</li>
               <li>로그아웃</li>
-            </ul> 
-          </div>     
-        </HeaderMenu>  
+            </ul>
+          </div>
+        </HeaderMenu>
     </>
   )
 }
