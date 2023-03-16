@@ -1,11 +1,54 @@
-import styled from 'styled-components';
+import { useState } from 'react';
+import styled, { css } from 'styled-components';
 import { ReactComponent as Search } from '../../../assets/icon/Search.svg';
 // import { ReactComponent as ArrowChevron } from '../../../assets/icon/ArrowChevron.svg';
-import MorphInput from './MorphInput';
+import MorphListDropBox from './MorphListDropBox';
 
-const Container = styled.section`
-  ${'' /* border: 2px solid orangered; */}
-`;
+const fattailMorph = [
+  {
+    id: 'fm1',
+    engName: 'Normal',
+    korName: '노말',
+    type: 'dominant',
+  },
+  {
+    id: 'fm2',
+    engName: 'Oreo',
+    korName: '오레오',
+    type: 'recessive',
+  },
+  {
+    id: 'fm3',
+    engName: 'Whiteout',
+    korName: '화이트아웃',
+    type: 'dominant',
+  },
+  {
+    id: 'fm4',
+    engName: 'Stripe',
+    korName: '스트라이프',
+    type: 'dominant',
+  },
+  {
+    id: 'fm5',
+    engName: 'Zero',
+    korName: '제로',
+    type: 'recessive',
+  },
+  {
+    id: 'fm6',
+    engName: 'Caramel',
+    korName: '카라멜',
+    type: 'recessive',
+  },
+  {
+    id: 'fm7',
+    engName: 'Ghost',
+    korName: '고스트',
+    type: 'recessive',
+  },
+];
+
 const InputTitle = styled.div`
   width: 335px;
   height: 30px;
@@ -48,27 +91,41 @@ const InputWrapper = styled.div`
     background: url(../../../assets/icon/ArrowChevron.svg) no-repeat 0 0;
     cursor: pointer;
   }
+  ${(props) =>
+    props.showDropBox &&
+    css`
+      border-radius: 10px 10px 0 0px;
+    `}
 `;
 
 const MorphInputContainer = ({ children, title }) => {
-  const showMorphList = () => {};
+  const [showDropBox, setShowDropBox] = useState(false);
+
+  const toggleMorphList = () => {
+    console.log('button 클릭');
+    setShowDropBox(!showDropBox);
+  };
 
   return (
-    <Container>
+    <section>
       <InputTitle>
         <h2>{title}</h2>
       </InputTitle>
-      <InputWrapper>
+      <InputWrapper showDropBox={showDropBox}>
         <Search className="searchIcon" />
         <input
           type="text"
           placeholder="아빠를 검색해 보세요."
           className="searchInput"
         />
-        <button type="button" className="btnShowMorphList"></button>
+        <button
+          type="button"
+          className="btnShowMorphList"
+          onClick={toggleMorphList}
+        ></button>
       </InputWrapper>
-      <div>{children}</div>
-    </Container>
+      {showDropBox && <MorphListDropBox morphList={fattailMorph} />}
+    </section>
   );
 };
 
