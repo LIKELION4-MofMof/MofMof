@@ -1,10 +1,22 @@
 import './App.css';
-import MorphCalc from './components/morphCalc/MorphCalc';
+// import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Layout from './components/common/Layout/Layout';
+import Fattail from './components/main/Fattail';
+import Crested from './components/main/Crested';
+import Leopard from './components/main/Leopard';
+
+import { Header } from './components/common/Header/Header';
+import { Navigation } from './components/common/Navigation/Navigation';
 
 function App() {
   return (
     <div className="App">
-      <MorphCalc />
+      <Header />
+      <Navigation />
+
+      <Fattail />
+      <Crested />
+      <Leopard />
     </div>
   );
 }
