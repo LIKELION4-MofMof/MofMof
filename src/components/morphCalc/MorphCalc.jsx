@@ -60,8 +60,7 @@ const MorphCalc = () => {
 
   return (
     <div>
-      <h2>모프계산기</h2>
-      <MorphInputContainer>
+      <MorphInputContainer title={'아빠'}>
         <MorphInput
           showDropDownMorphList={showDropDownMorphList}
           fattailMorph={fattailMorph}
