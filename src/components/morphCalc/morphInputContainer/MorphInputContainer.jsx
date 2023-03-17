@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { ReactComponent as Search } from 'assets/icon/search.svg';
 import MorphListDropBox from './MorphListDropBox';
 import SelectedBtn from './SelectedBtn';
@@ -63,21 +63,31 @@ const MorphInputContainer = ({ title }) => {
   const toggleMorphList = () => {
     setShowDropBox(!showDropBox);
   };
-  const changeDropBox = (boolean) => {
-    setShowDropBox(!boolean);
-  };
-  const changeInputValue = (e) => {
-    setInputValue(e.target.value);
-    if (e.target.value !== '') {
+  const changeInputValue = useCallback(
+    (e) => {
+      setInputValue(e.target.value);
+      // if (e.target.value !== '') {
+      //   const filterMorph = fattailMorph.filter((morph) =>
+      //     morph.korName.includes(inputValue),
+      //   );
+      // }
+      console.log(inputValue);
+    },
+    [inputValue],
+  );
+  const showFilterDropBox = () => {
+    if (inputValue === '') {
+      setFilterDropbox(false);
+    } else {
+      setFilterDropbox(true);
       const filterMorph = fattailMorph.filter((morph) =>
         morph.korName.includes(inputValue),
       );
-      changeDropBox(true);
-      setFilterDropbox(true);
       setMorphList(filterMorph);
     }
-    console.log(inputValue);
   };
+  useEffect(showFilterDropBox, [inputValue]);
+
   const insertSelectedBox = (newSelectedMorph) => {
     selectedMorph.length === 5
       ? alert('모프 입력은 5개까지만 가능합니다.')
@@ -131,6 +141,7 @@ const MorphInputContainer = ({ title }) => {
           </li>
         ))}
       </SelectedBox>
+      <div>{inputValue}</div>
     </section>
   );
 };
