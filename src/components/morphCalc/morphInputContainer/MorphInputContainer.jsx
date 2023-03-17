@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
-import { ReactComponent as Search } from 'assets/icon/Search.svg';
+import { ReactComponent as Search } from 'assets/icon/search.svg';
 import ArrowChevron from 'assets/icon/ArrowChevron.svg';
 import MorphListDropBox from './MorphListDropBox';
 import SelectedBtn from './SelectedBtn';
