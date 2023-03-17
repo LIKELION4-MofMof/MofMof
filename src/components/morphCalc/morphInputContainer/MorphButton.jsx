@@ -1,17 +1,4 @@
-import styled from 'styled-components';
-
-const Button = styled.button`
-  width: 100%;
-  text-align: left;
-  background: none;
-  cursor: pointer;
-  border: none;
-  font-size: 16px;
-
-  &:hover {
-    background: #f2f4f7;
-  }
-`;
+import { Button } from './MorphInputContainer.styled';
 
 const MorphButton = ({ morph, insertSelectedBox }) => {
   const selectMorph = () => {
