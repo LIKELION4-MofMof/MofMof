@@ -79,8 +79,10 @@ const MorphInputContainer = ({ title }) => {
     console.log(inputValue);
   };
   const insertSelectedBox = (newSelectedMorph) => {
-    selectedMorph.filter((morph) => morph.id === newSelectedMorph.id).length ===
-    0
+    selectedMorph.length === 5
+      ? alert('모프 입력은 5개까지만 가능합니다.')
+      : selectedMorph.filter((morph) => morph.id === newSelectedMorph.id)
+          .length === 0
       ? setSelectedMorph(selectedMorph.concat(newSelectedMorph))
       : alert('이미 선택한 모프입니다.');
   };
