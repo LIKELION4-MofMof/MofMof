@@ -79,7 +79,15 @@ const MorphInputContainer = ({ title }) => {
     console.log(inputValue);
   };
   const insertSelectedBox = (newSelectedMorph) => {
-    setSelectedMorph(selectedMorph.concat(newSelectedMorph));
+    selectedMorph.filter((morph) => morph.id === newSelectedMorph.id).length ===
+    0
+      ? setSelectedMorph(selectedMorph.concat(newSelectedMorph))
+      : alert('이미 선택한 모프입니다.');
+  };
+  const removeSelectedBox = (cancleMorph) => {
+    setSelectedMorph(
+      selectedMorph.filter((morph) => morph.id !== cancleMorph.id),
+    );
   };
 
   return (
@@ -117,7 +125,7 @@ const MorphInputContainer = ({ title }) => {
       <SelectedBox>
         {selectedMorph.map((morph) => (
           <li key={morph.id}>
-            <SelectedBtn morph={morph} />
+            <SelectedBtn morph={morph} removeSelectedBox={removeSelectedBox} />
           </li>
         ))}
       </SelectedBox>

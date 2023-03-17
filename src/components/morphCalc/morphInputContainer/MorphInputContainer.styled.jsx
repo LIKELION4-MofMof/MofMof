@@ -110,4 +110,5 @@ export const SelectedBtnClose = styled.button`
   width: 20px;
   height: 20px;
   border: none;
+  cursor: pointer;
 `;
