@@ -76,12 +76,12 @@ export const ButtonUl = styled.ul`
   position: absolute;
   z-index: 2;
   background: #ffffff;
+  text-align: center;
 `;
 
 /* Morph Button */
 export const Button = styled.button`
   width: 100%;
-  text-align: center;
   background: none;
   cursor: pointer;
   border: none;
