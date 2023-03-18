@@ -1,22 +1,5 @@
+import { Nav, Lists, IconWrapper } from "components/common/Navigation/Navigation.styled";
 
-import styled from "styled-components";
-
-const Nav = styled.nav`
-`
-
-const Lists = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 90px;
-  width: 388px;
-  position: fixed;
-  bottom: 0;
-  background: skyblue;
-`
-
-const IconWrapper = styled.div` 
-`
 
 const navLists = [
   {
