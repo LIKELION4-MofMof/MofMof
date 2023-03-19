@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { ReactComponent as Search } from 'assets/icon/search.svg';
 import MorphListDropBox from './MorphListDropBox';
-import SelectedBtn from './SelectedBtn';
 import {
   InputTitle,
   InputWrapper,
@@ -53,28 +52,18 @@ const fattailMorph = [
   },
 ];
 
-const MorphInputContainer = ({ title }) => {
+const MorphInputContainer = ({ title, insert, children }) => {
   const [showDropBox, setShowDropBox] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [filterDropBox, setFilterDropbox] = useState(false);
   const [morphList, setMorphList] = useState([]);
-  const [selectedMorph, setSelectedMorph] = useState([]);
 
   const toggleMorphList = () => {
     setShowDropBox(!showDropBox);
   };
-  const changeInputValue = useCallback(
-    (e) => {
-      setInputValue(e.target.value);
-      // if (e.target.value !== '') {
-      //   const filterMorph = fattailMorph.filter((morph) =>
-      //     morph.korName.includes(inputValue),
-      //   );
-      // }
-      console.log(inputValue);
-    },
-    [inputValue],
-  );
+  const changeInputValue = useCallback((e) => {
+    setInputValue(e.target.value);
+  }, []);
   const showFilterDropBox = () => {
     if (inputValue === '') {
       setFilterDropbox(false);
@@ -87,20 +76,6 @@ const MorphInputContainer = ({ title }) => {
     }
   };
   useEffect(showFilterDropBox, [inputValue]);
-
-  const insertSelectedBox = (newSelectedMorph) => {
-    selectedMorph.length === 5
-      ? alert('모프 입력은 5개까지만 가능합니다.')
-      : selectedMorph.filter((morph) => morph.id === newSelectedMorph.id)
-          .length === 0
-      ? setSelectedMorph(selectedMorph.concat(newSelectedMorph))
-      : alert('이미 선택한 모프입니다.');
-  };
-  const removeSelectedBox = (cancleMorph) => {
-    setSelectedMorph(
-      selectedMorph.filter((morph) => morph.id !== cancleMorph.id),
-    );
-  };
 
   return (
     <section>
@@ -123,25 +98,12 @@ const MorphInputContainer = ({ title }) => {
         ></button>
       </InputWrapper>
       {showDropBox && (
-        <MorphListDropBox
-          morphList={fattailMorph}
-          insertSelectedBox={insertSelectedBox}
-        />
+        <MorphListDropBox morphList={fattailMorph} insert={insert} />
       )}
       {filterDropBox && (
-        <MorphListDropBox
-          morphList={morphList}
-          insertSelectedBox={insertSelectedBox}
-        />
+        <MorphListDropBox morphList={morphList} insert={insert} />
       )}
-      <SelectedBox>
-        {selectedMorph.map((morph) => (
-          <li key={morph.id}>
-            <SelectedBtn morph={morph} removeSelectedBox={removeSelectedBox} />
-          </li>
-        ))}
-      </SelectedBox>
-      <div>{inputValue}</div>
+      <SelectedBox>{children}</SelectedBox>
     </section>
   );
 };
