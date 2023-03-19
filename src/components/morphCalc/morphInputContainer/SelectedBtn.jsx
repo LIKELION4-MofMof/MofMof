@@ -8,7 +8,7 @@ const SelectedBtn = ({ morph, removeSelectedBox }) => {
     removeSelectedBox(morph);
   };
   return (
-    <SelectedBtnContainer>
+    <SelectedBtnContainer type={morph.type}>
       <span>{morph.korName}</span>
       <SelectedBtnClose
         type="button"
