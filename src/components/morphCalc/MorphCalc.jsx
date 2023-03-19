@@ -20,6 +20,7 @@ const DivMorphCalc = styled.div`
 
 const MorphCalc = () => {
   const [FSelectedMorph, setFSelectedMorph] = useState([]);
+  const [MSelectedMorph, setMSelectedMorph] = useState([]);
 
   // const [parentList1, setParentList1] = useState([]);
   // const [parentList2, setParentList2] = useState([]);
@@ -44,8 +45,28 @@ const MorphCalc = () => {
     },
     [FSelectedMorph],
   );
+  const insertMSelectedBox = useCallback(
+    (newSelectedMorph) => {
+      MSelectedMorph.length === 5
+        ? alert('모프 입력은 5개까지만 가능합니다.')
+        : MSelectedMorph.filter((morph) => morph.id === newSelectedMorph.id)
+            .length === 0
+        ? setMSelectedMorph(MSelectedMorph.concat(newSelectedMorph))
+        : alert('이미 선택한 모프입니다.');
+    },
+    [MSelectedMorph],
+  );
+  const removeMSelectedBox = useCallback(
+    (cancleMorph) => {
+      setMSelectedMorph(
+        MSelectedMorph.filter((morph) => morph.id !== cancleMorph.id),
+      );
+    },
+    [MSelectedMorph],
+  );
 
   console.log(FSelectedMorph);
+  console.log(MSelectedMorph);
 
   return (
     <DivMorphCalc>
@@ -57,7 +78,13 @@ const MorphCalc = () => {
         ))}
       </MorphInputContainer>
       <Mate />
-      <MorphInputContainer title={'엄마'}></MorphInputContainer>
+      <MorphInputContainer title={'엄마'} insert={insertMSelectedBox}>
+        {MSelectedMorph.map((morph) => (
+          <li key={morph.id}>
+            <SelectedBtn morph={morph} remove={removeMSelectedBox} />
+          </li>
+        ))}
+      </MorphInputContainer>
     </DivMorphCalc>
   );
 };
