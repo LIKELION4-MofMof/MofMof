@@ -21,9 +21,8 @@ const DivMorphCalc = styled.div`
 const MorphCalc = () => {
   const [FSelectedMorph, setFSelectedMorph] = useState([]);
   const [MSelectedMorph, setMSelectedMorph] = useState([]);
-
-  // const [parentList1, setParentList1] = useState([]);
-  // const [parentList2, setParentList2] = useState([]);
+  const parentList1 = [];
+  const parentList2 = [];
   const [result, setResult] = useState([]);
 
   const insertFSelectedBox = useCallback(
@@ -65,8 +64,10 @@ const MorphCalc = () => {
     [MSelectedMorph],
   );
 
-  console.log(FSelectedMorph);
-  console.log(MSelectedMorph);
+  FSelectedMorph.map((morph) => parentList1.push(morph.korName));
+  MSelectedMorph.map((morph) => parentList2.push(morph.korName));
+  console.log(parentList1);
+  console.log(parentList2);
 
   return (
     <DivMorphCalc>
