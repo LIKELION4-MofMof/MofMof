@@ -1,22 +1,12 @@
-import styled from 'styled-components';
 import MorphInputContainer from './morphInputContainer/MorphInputContainer';
 import { ReactComponent as Mate } from 'assets/icon/close.svg';
 import { useCallback, useState } from 'react';
 import SelectedBtn from 'components/morphCalc/morphInputContainer/SelectedBtn';
-
-const DivMorphCalc = styled.div`
-  width: 375px;
-  border: 1px solid black;
-  border-radius: 10px;
-  height: 100vh;
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 8px;
-`;
+import {
+  BtnCalc,
+  DivMorphCalc,
+  MorphCalcBtnContainer,
+} from './MorphCalc.styled';
 
 const MorphCalc = () => {
   const [FSelectedMorph, setFSelectedMorph] = useState([]);
@@ -66,9 +56,12 @@ const MorphCalc = () => {
 
   FSelectedMorph.map((morph) => parentList1.push(morph.korName));
   MSelectedMorph.map((morph) => parentList2.push(morph.korName));
-  console.log(parentList1);
-  console.log(parentList2);
 
+  const calculate = () => {
+    console.log('모프계산기 실행!');
+    console.log(parentList1);
+    console.log(parentList2);
+  };
   return (
     <DivMorphCalc>
       <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
@@ -86,6 +79,11 @@ const MorphCalc = () => {
           </li>
         ))}
       </MorphInputContainer>
+      <MorphCalcBtnContainer>
+        <BtnCalc onClick={() => calculate(parentList1, parentList2, setResult)}>
+          계산하기
+        </BtnCalc>
+      </MorphCalcBtnContainer>
     </DivMorphCalc>
   );
 };
