@@ -1,6 +1,7 @@
 import MorphInputContainer from './morphInputContainer/MorphInputContainer';
 import { ReactComponent as Mate } from 'assets/icon/close.svg';
 import { useCallback, useState } from 'react';
+import { calculate } from './CalculateFattail';
 import SelectedBtn from 'components/morphCalc/morphInputContainer/SelectedBtn';
 import {
   BtnCalc,
@@ -57,11 +58,6 @@ const MorphCalc = () => {
   FSelectedMorph.map((morph) => parentList1.push(morph.korName));
   MSelectedMorph.map((morph) => parentList2.push(morph.korName));
 
-  const calculate = () => {
-    console.log('모프계산기 실행!');
-    console.log(parentList1);
-    console.log(parentList2);
-  };
   return (
     <DivMorphCalc>
       <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
