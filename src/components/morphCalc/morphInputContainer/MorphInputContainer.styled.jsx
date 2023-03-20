@@ -98,12 +98,19 @@ export const SelectedBtnContainer = styled.div`
   flex-flow: row nowrap;
   align-items: center;
   gap: 3px;
-  border: 1px solid black;
   border-radius: 10px;
   padding: 5px 8px;
   span {
     font-size: 12px;
   }
+  ${(props) =>
+    props.type === 'dominant'
+      ? css`
+          background: #f26a3b;
+        `
+      : css`
+          background: #ebbb48;
+        `}
 `;
 export const SelectedBtnClose = styled.button`
   background: url(${close}) no-repeat 0 0 / cover;

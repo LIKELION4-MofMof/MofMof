@@ -3,12 +3,12 @@ import {
   SelectedBtnContainer,
 } from './MorphInputContainer.styled';
 
-const SelectedBtn = ({ morph, removeSelectedBox }) => {
+const SelectedBtn = ({ morph, remove }) => {
   const cancleSelected = () => {
-    removeSelectedBox(morph);
+    remove(morph);
   };
   return (
-    <SelectedBtnContainer>
+    <SelectedBtnContainer type={morph.type}>
       <span>{morph.korName}</span>
       <SelectedBtnClose
         type="button"
