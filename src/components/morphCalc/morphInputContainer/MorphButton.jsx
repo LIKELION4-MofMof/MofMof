@@ -1,8 +1,8 @@
 import { Button } from './MorphInputContainer.styled';
 
-const MorphButton = ({ morph, insertSelectedBox }) => {
+const MorphButton = ({ morph, insert }) => {
   const selectMorph = () => {
-    insertSelectedBox(morph);
+    insert(morph);
   };
 
   return <Button onClick={selectMorph}>{morph.korName}</Button>;
