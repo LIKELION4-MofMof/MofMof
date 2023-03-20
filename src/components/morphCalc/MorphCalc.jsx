@@ -62,6 +62,11 @@ const MorphCalc = () => {
     console.log(parentList1);
     console.log(parentList2);
   };
+
+  const resetSelectedMorph = () => {
+    setFSelectedMorph([]);
+    setMSelectedMorph([]);
+  };
   return (
     <DivMorphCalc>
       <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
@@ -82,6 +87,9 @@ const MorphCalc = () => {
       <MorphCalcBtnContainer>
         <BtnCalc onClick={() => calculate(parentList1, parentList2, setResult)}>
           계산하기
+        </BtnCalc>
+        <BtnCalc reset={true} type="button" onClick={resetSelectedMorph}>
+          다시하기
         </BtnCalc>
       </MorphCalcBtnContainer>
     </DivMorphCalc>
