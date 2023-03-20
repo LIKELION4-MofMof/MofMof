@@ -117,4 +117,26 @@ export const calculate = (gene1, gene2, setResult) => {
 
   console.log('dfsCol입니다', col);
   console.log('dfsRow입니다', row);
+
+  // punnett square 계산
+  for (let i = 0; i < col.length; i++) {
+    for (let j = 0; j < row.length; j++) {
+      let tmp = '';
+      for (let k = 0; k < col[i].length; k++) {
+        tmp += col[i][k];
+      }
+      for (let k = 0; k < row[j].length; k++) {
+        tmp += row[j][k];
+      }
+      calRes.push(tmp);
+    }
+  }
+
+  console.log('일반 퍼넷스퀘어 결과값', calRes);
+
+  //문자열 정렬해줌 대문자 알파벳부터 소문자 알파벳으로
+  for (let i = 0; i < calRes.length; i++) {
+    calRes[i] = calRes[i].split('').sort().join('');
+  }
+  console.log('정렬한 퍼넷스퀘어', calRes);
 };
