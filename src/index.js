@@ -10,6 +10,7 @@ import LeopardHome from './pages/LeopardHome/LeopardHome';
 import FattailMofInfo from 'pages/FattailHome/FattailMofInfo';
 import { GlobalStyle } from './styles/GlobalStyle';
 import MorphCalc from 'components/morphCalc/MorphCalc';
+import MorphCalcResult from 'components/morphCalc/morphCalcResult/MorphCalcResult';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,6 +24,7 @@ root.render(
         <Route path="/leopard-home" element={<LeopardHome />} />
         <Route path="/fattail-info" element={<FattailMofInfo />} />
         <Route path="/fattail-calc" element={<MorphCalc />} />
+        <Route path="/fattail-calcResult" element={<MorphCalcResult />} />
       </Routes>
     </Router>
   </React.StrictMode>,

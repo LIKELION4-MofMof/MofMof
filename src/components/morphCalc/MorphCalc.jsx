@@ -1,6 +1,7 @@
 import MorphInputContainer from './morphInputContainer/MorphInputContainer';
 import { ReactComponent as Mate } from 'assets/icon/close.svg';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { calculate } from './CalculateFattail';
 import SelectedBtn from 'components/morphCalc/morphInputContainer/SelectedBtn';
 import {
@@ -15,6 +16,15 @@ const MorphCalc = () => {
   const parentList1 = [];
   const parentList2 = [];
   const [result, setResult] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // setParentList1(parentsName1);
+    // setParentList2(parentsName2);
+    if (result.length > 0) {
+      navigate('/fattail-calcResult', { state: result });
+    }
+  }, [result]);
 
   const insertFSelectedBox = useCallback(
     (newSelectedMorph) => {
