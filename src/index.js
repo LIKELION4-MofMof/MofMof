@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import FattailHome from "./pages/FattailHome/FattailHome";
+import FattailHome from './pages/FattailHome/FattailHome';
 import CrestedHome from './pages/CrestedHome/CrestedHome';
 import LeopardHome from './pages/LeopardHome/LeopardHome';
 import FattailMofInfo from 'pages/FattailHome/FattailMofInfo';
 import { GlobalStyle } from './styles/GlobalStyle';
+import MorphCalc from 'components/morphCalc/MorphCalc';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,9 +22,10 @@ root.render(
         <Route path="/crested-home" element={<CrestedHome />} />
         <Route path="/leopard-home" element={<LeopardHome />} />
         <Route path="/fattail-info" element={<FattailMofInfo />} />
+        <Route path="/fattail-calc" element={<MorphCalc />} />
       </Routes>
     </Router>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function
