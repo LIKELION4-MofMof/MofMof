@@ -1,4 +1,4 @@
-import { convertKorToEng, checkName } from './CalcFunc';
+import { convertKorToEng, checkName, dfsCal } from './CalcFunc';
 
 //모프 객체에 맞는 유전자 합성
 function geneDNA(parent1, parent2, geneList1, geneList2) {
@@ -48,10 +48,22 @@ function geneDNA(parent1, parent2, geneList1, geneList2) {
   // console.log('ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ?', parentName1);
   // console.log(parentsName2);
 
-  return parent1, parent2;
+  return [parent1, parent2];
 }
 
 export const calculate = (gene1, gene2, setResult) => {
+  let geneList1 = null;
+  let geneList2 = null;
+  let parent1;
+  let parent2;
+  let alphaValues = {
+    uppercase: 65,
+    lowercase: 97,
+  };
+  let tmpCol = [];
+  let tmpRow = [];
+  let col = [];
+  let row = [];
   //예외처리
   if (gene1.length === 0 || gene2.length === 0) {
     alert('모프를 입력해주세요');
@@ -65,14 +77,6 @@ export const calculate = (gene1, gene2, setResult) => {
   let geneEng2 = convertKorToEng(gene2);
 
   //한국어일때만 이함수에 들어가게 해야할거같은데 조건문 처리를 해야할듯 싶다
-  let geneList1 = null;
-  let geneList2 = null;
-  let parent1;
-  let parent2;
-  let alphaValues = {
-    uppercase: 65,
-    lowercase: 97,
-  };
 
   console.log('값 영어로 변환 :', geneEng1, geneEng2);
 
@@ -91,6 +95,26 @@ export const calculate = (gene1, gene2, setResult) => {
     }
   });
 
-  //3번째 알고리즘
-  geneDNA(parent1, parent2, geneList1, geneList2);
+  //유전자 조합
+  [parent1, parent2] = geneDNA(parent1, parent2, geneList1, geneList2);
+
+  //현재 유전자 aa bb na
+  //퍼넷스퀘어 계산 할때의 열과 행에 들어갈 유전자 배열만들기
+
+  let calRes = [];
+
+  for (let i = 0; i < parent1.length; i += 2) {
+    tmpCol.push(parent1[i] + parent1[i + 1]);
+  }
+  for (let i = 0; i < parent2.length; i += 2) {
+    tmpRow.push(parent2[i] + parent2[i + 1]);
+  }
+
+  // console.log('tmpcol:', tmpCol);
+  // console.log('tmpRow', tmpRow);
+  col = dfsCal(tmpCol, [], '', tmpCol.length); //dfs를 하면 [aa]는 a,a  [bb na]는 bn ba bn ba 이렇게 나옴
+  row = dfsCal(tmpRow, [], '', tmpRow.length);
+
+  console.log('dfsCol입니다', col);
+  console.log('dfsRow입니다', row);
 };

@@ -107,3 +107,51 @@ export const checkName = (gene, alphaValues) => {
   });
   return result;
 };
+
+//dfs알고리즘 table col row 값 계산
+export function dfsCal(list, res, value, totalLength) {
+  // console.log(
+  //   "list res value totalLength입니다 !",
+  //   list,
+  //   res,
+  //   value,
+  //   totalLength
+  // );
+  if (list.length === 0) {
+    return res;
+    //ba
+  }
+  //재귀탈출
+  let tmpRes = res;
+  let value1 = value; // ""
+  let value2 = value; // ""
+  let tmpListValue = list.shift();
+  //list 배열의 첫 번째 요소를 제거하여 bb 를 넘겨준다.
+  //tmpListValue => bb
+  //tmpListValue => an
+  // console.log("tmpListValue입니데이~", tmpListValue);
+
+  let tmpList = JSON.parse(JSON.stringify(list));
+  // console.log("tmpList입니데이~", tmpList);
+
+  //깊은복사를 해서 tmplist에 넘긴다.
+  value1 += tmpListValue[0];
+  // console.log("value1입니데이~", value1);
+
+  if (value1.length === totalLength) {
+    // 1 == 2
+    // 같지 않음, 그렇기 때문에 재귀를 돌린다.
+    //같으면 들어옴
+    tmpRes.push(value1);
+    //
+  } //aa의 길이가 첫번째요소만 넣은 배열의 길이가 전체의 길이와 똑같다면, 즉 유전자가 하나라면 이라는 얘기다.
+  //tmpRes에다가 [] 에다가 aa를 넣어준다.
+  tmpRes = dfsCal(tmpList, tmpRes, value1, totalLength);
+  //그다음 재귀돌림
+  //
+  value2 += tmpListValue[1];
+  if (value2.length === totalLength) {
+    tmpRes.push(value2);
+  }
+  return (tmpRes = dfsCal(list, tmpRes, value2, totalLength));
+}
