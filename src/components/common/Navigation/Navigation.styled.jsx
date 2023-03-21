@@ -11,9 +11,10 @@ export const Lists = styled.ul`
   width: 373px;
   position: fixed;
   bottom: 0;
-  background: skyblue;
+  background: #ffff;
   padding: 0 20px;
   margin-top: 10px;
+  box-shadow: 0 0.1px 5px 1px rgba(190, 190, 190, 0.2);
 `
 
 export const IconWrapper = styled.button`
