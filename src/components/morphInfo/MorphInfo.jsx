@@ -1,31 +1,15 @@
-import React from 'react';
-import { MorphInfoWrap, MorphInfoTop, MorphInfoBackButton, InputTest } from "./MorphInfo.styled";
-// 3개 까지 한 파일?
+import { Header } from 'components/common/Header/Header';
+import { Navigation } from 'components/common/Navigation/Navigation';
+import {} from './MorphInfo.styled';
 
-export function MorphInfo() {
+const MorphInfo = () => {
   return (
-    <MorphInfoWrap>
-      {/* 헤더 버튼 */}
-      <MorphInfoTop>
-        <MorphInfoBackButton></MorphInfoBackButton>
-        펫테일게코 모프소개
-      </MorphInfoTop>
+    <div className="App">
+      <Header />
+      <main className="mainContainer">모프소개 페이지</main>
+      <Navigation />
+    </div>
+  );
+};
 
-      <article>
-        {/* 검색창 */}
-        <form>
-          <InputTest />
-          <label></label>
-        </form>
-
-        {/* 리스트 */}
-        <div>
-          <img />
-          <span>모프 종류</span>
-          <span>모프 이름</span>
-        </div>
-      </article>
-    </MorphInfoWrap>
-  )
-}
-
+export default MorphInfo;
