@@ -1,7 +1,25 @@
 .App {
   width: 375px;
   border: 1px solid black;
-  border-radius: 10px;
   height: 100vh;
-  padding-top: 30px;
+  overflow: scroll;
+}
+
+body {
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: transparent;
+  border-style: none;
+  cursor: pointer;
+  padding: 0;
 }

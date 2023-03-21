@@ -4,6 +4,7 @@ import MorphListDropBox from './MorphListDropBox';
 import {
   InputTitle,
   InputWrapper,
+  SectionInputContainer,
   SelectedBox,
 } from './MorphInputContainer.styled';
 
@@ -78,7 +79,7 @@ const MorphInputContainer = ({ title, insert, children }) => {
   useEffect(showFilterDropBox, [inputValue]);
 
   return (
-    <section>
+    <SectionInputContainer>
       <InputTitle>
         <h2>{title}</h2>
       </InputTitle>
@@ -104,7 +105,7 @@ const MorphInputContainer = ({ title, insert, children }) => {
         <MorphListDropBox morphList={morphList} insert={insert} />
       )}
       <SelectedBox>{children}</SelectedBox>
-    </section>
+    </SectionInputContainer>
   );
 };
 
