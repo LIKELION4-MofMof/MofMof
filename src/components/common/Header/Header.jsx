@@ -1,25 +1,13 @@
-import styled from 'styled-components';
-import { Logo } from './Logo';
-import { Menu } from '../Menu/Menu';
-import { Notification } from './Notification';
-
-const StyledHeader = styled.header`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  /* background: '#fffff'; */
-  background: pink;
-  height: 100px;
-  width: 100%;
-  padding: 0 20px;
-`;
+import { StyledHeader } from './Header.styled';
+import Logo from 'components/common/Header/Logo';
+import Menu from 'components/common/Menu/Menu';
+import Notification from 'components/common/Header/Notification';
 
 export function Header() {
   return (
     <StyledHeader>
       <Menu />
-      <Logo />
+      <Logo Logo fill="#F26A3B" />
       <Notification />
     </StyledHeader>
   );
