@@ -7,6 +7,8 @@ import {
   DivMorphCalc,
   MorphCalcBtnContainer,
 } from './MorphCalc.styled';
+import { Header } from 'components/common/Header/Header';
+import { Navigation } from 'components/common/Navigation/Navigation';
 
 const MorphCalc = () => {
   const [FSelectedMorph, setFSelectedMorph] = useState([]);
@@ -68,31 +70,37 @@ const MorphCalc = () => {
     setMSelectedMorph([]);
   };
   return (
-    <DivMorphCalc>
-      <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
-        {FSelectedMorph.map((morph) => (
-          <li key={morph.id}>
-            <SelectedBtn morph={morph} remove={removeFSelectedBox} />
-          </li>
-        ))}
-      </MorphInputContainer>
-      <Mate />
-      <MorphInputContainer title={'엄마'} insert={insertMSelectedBox}>
-        {MSelectedMorph.map((morph) => (
-          <li key={morph.id}>
-            <SelectedBtn morph={morph} remove={removeMSelectedBox} />
-          </li>
-        ))}
-      </MorphInputContainer>
-      <MorphCalcBtnContainer>
-        <BtnCalc onClick={() => calculate(parentList1, parentList2, setResult)}>
-          계산하기
-        </BtnCalc>
-        <BtnCalc reset={true} type="button" onClick={resetSelectedMorph}>
-          다시하기
-        </BtnCalc>
-      </MorphCalcBtnContainer>
-    </DivMorphCalc>
+    <div className="App">
+      <Header />
+      <DivMorphCalc className="mainContainer">
+        <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
+          {FSelectedMorph.map((morph) => (
+            <li key={morph.id}>
+              <SelectedBtn morph={morph} remove={removeFSelectedBox} />
+            </li>
+          ))}
+        </MorphInputContainer>
+        <Mate />
+        <MorphInputContainer title={'엄마'} insert={insertMSelectedBox}>
+          {MSelectedMorph.map((morph) => (
+            <li key={morph.id}>
+              <SelectedBtn morph={morph} remove={removeMSelectedBox} />
+            </li>
+          ))}
+        </MorphInputContainer>
+        <MorphCalcBtnContainer>
+          <BtnCalc
+            onClick={() => calculate(parentList1, parentList2, setResult)}
+          >
+            계산하기
+          </BtnCalc>
+          <BtnCalc reset={true} type="button" onClick={resetSelectedMorph}>
+            다시하기
+          </BtnCalc>
+        </MorphCalcBtnContainer>
+      </DivMorphCalc>
+      <Navigation />
+    </div>
   );
 };
 

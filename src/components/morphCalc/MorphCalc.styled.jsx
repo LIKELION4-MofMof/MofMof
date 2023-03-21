@@ -2,11 +2,6 @@ import styled, { css } from 'styled-components';
 
 /* 모프계산기 페이지*/
 export const DivMorphCalc = styled.div`
-  width: 375px;
-  border: 1px solid black;
-  border-radius: 10px;
-  ${'' /* height: 100vh; */}
-  padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
