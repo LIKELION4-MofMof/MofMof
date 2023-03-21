@@ -11,10 +11,11 @@ export const StyledHeader = styled.header`
   padding: 0 20px;
   position: fixed;
   width: 373px;
-`
+  z-index: 100;
+`;
 
 export const NotificationIcon = styled.button`
   width: 24px;
   height: 24px;
   background: url(${notification});
-`
+`;

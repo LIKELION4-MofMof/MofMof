@@ -4,6 +4,7 @@ import { useCallback, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { calculate } from './CalculateFattail';
 import SelectedBtn from 'components/morphCalc/morphInputContainer/SelectedBtn';
+import { Header } from '../common/Header/Header';
 import {
   BtnCalc,
   DivMorphCalc,
@@ -69,28 +70,33 @@ const MorphCalc = () => {
   MSelectedMorph.map((morph) => parentList2.push(morph.korName));
 
   return (
-    <DivMorphCalc>
-      <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
-        {FSelectedMorph.map((morph) => (
-          <li key={morph.id}>
-            <SelectedBtn morph={morph} remove={removeFSelectedBox} />
-          </li>
-        ))}
-      </MorphInputContainer>
-      <Mate />
-      <MorphInputContainer title={'엄마'} insert={insertMSelectedBox}>
-        {MSelectedMorph.map((morph) => (
-          <li key={morph.id}>
-            <SelectedBtn morph={morph} remove={removeMSelectedBox} />
-          </li>
-        ))}
-      </MorphInputContainer>
-      <MorphCalcBtnContainer>
-        <BtnCalc onClick={() => calculate(parentList1, parentList2, setResult)}>
-          계산하기
-        </BtnCalc>
-      </MorphCalcBtnContainer>
-    </DivMorphCalc>
+    <div className="App">
+      <Header />
+      <DivMorphCalc>
+        <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
+          {FSelectedMorph.map((morph) => (
+            <li key={morph.id}>
+              <SelectedBtn morph={morph} remove={removeFSelectedBox} />
+            </li>
+          ))}
+        </MorphInputContainer>
+        <Mate />
+        <MorphInputContainer title={'엄마'} insert={insertMSelectedBox}>
+          {MSelectedMorph.map((morph) => (
+            <li key={morph.id}>
+              <SelectedBtn morph={morph} remove={removeMSelectedBox} />
+            </li>
+          ))}
+        </MorphInputContainer>
+        <MorphCalcBtnContainer>
+          <BtnCalc
+            onClick={() => calculate(parentList1, parentList2, setResult)}
+          >
+            계산하기
+          </BtnCalc>
+        </MorphCalcBtnContainer>
+      </DivMorphCalc>
+    </div>
   );
 };
 

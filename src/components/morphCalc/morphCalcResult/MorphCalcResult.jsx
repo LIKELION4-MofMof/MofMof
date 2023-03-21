@@ -58,7 +58,7 @@ export default function CalResult() {
             </ResultTableBody>
           </ResultTable>
         </ResultBox>
-        <Navigation></Navigation>
+        <Navigation />
       </DivMorphCalc>
     </div>
   );
