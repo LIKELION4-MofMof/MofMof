@@ -22,12 +22,11 @@ export const HeaderMenu = styled.div`
   align-items: center;
   width: 287px;
   height: 100vh;
-  background: #F26A3B;
+  background: #FF5500;
   position: fixed;
   margin: 0 auto;
-  border-radius: 0 0 0 10px;
-  z-index: 10;
-  top: -21px;
+  border-radius: 10px 0 0 10px;
+  top: -37px;
   left: -20px;
   position: relative;
   position: absolute;
@@ -48,7 +47,9 @@ export const CloseBtn = styled.button`
   cursor: pointer;
   position: absolute;
   right: 0;
-  top: 10px;
+  padding: 10px 10px;
+  width: 42px;
+  height: 42px;
 
 
 `
@@ -64,14 +65,21 @@ export const UserMenuList = styled.li`
   margin: 0 0 34px 33px;
 ` 
 
+export const UserMenuBtn = styled.button`
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffff;
+`
+
 // MenuDropDown
 export const GeckoMainMenu = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 0 34px 33px;
+  margin: 0 20px 34px 33px;
   gap: 12px;
-  padding: 0 20px 0 0;
+  /* padding: 0 20px 0 0; */
   font-weight: 500;
+  width: 236px;
 `
 
 export const DropDownBtn = styled.button`
@@ -97,16 +105,20 @@ export const GeckoMainMenuIcon = styled.span`
     display: inline-block;
 `
 
-export const GeckoMainMenuTitle = styled.h4`
+export const MainMenuTitle = styled.button`
+  color: #ffff;
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffff;
   /* width: 50px; */
 `
 
-export const GeckoMenuListItem = styled.li`
+export const GeckoMenuListItem = styled.button`
   color: #DEDEDE;
   margin-bottom: 33px;
   margin-left: 70px;
   display: flex;
-  flex-direction: column;
+  font-size: 16px;
 `
 
 //Greeting

@@ -3,7 +3,7 @@ import Logo from 'components/common/Header/Logo';
 
 import { Greeting } from "components/common/Menu/Greeting";
 import close from "assets/icon/close.svg";
-import { MenuWrapper, HeaderMenu, MenuButton, Bar, CloseBtn, UserMenu, UserMenuList, GeckoMainMenuIcon } from "./Menu.styled"
+import { MenuWrapper, HeaderMenu, MenuButton, Bar, CloseBtn, MainMenuTitle, UserMenu, UserMenuList, GeckoMainMenuIcon } from "./Menu.styled"
 import MenuList from './MenuList';
 
 
@@ -33,21 +33,21 @@ const Menu = ({children, ...restProps}) => {
 
   return (
     <MenuWrapper>
-      <MenuButton type="button" onClick={toggleChange}>
+      <MenuButton type="button" onClick={toggleChange} aria-label="메뉴">
         {/* {<img src={menuIcon} alt={children} {...restProps}/>} */}
       </MenuButton>
       <HeaderMenu toggleMenu={toggleMenu} ref={menuRef} >
-        <Logo fill="#ffff"/>
-        <CloseBtn onClick={() => setToggleMenu(false)}><img src={close} /></CloseBtn>
+        <Logo fill="#ffff" />
+        <CloseBtn aria-label="닫기" onClick={() => setToggleMenu(false)}><img src={close} /></CloseBtn>
         <Greeting />
         <Bar/>
         <MenuList />
         <Bar />
         <div>
           <UserMenu>
-            <UserMenuList><GeckoMainMenuIcon />고객지원</UserMenuList>
-            <UserMenuList><GeckoMainMenuIcon />설정</UserMenuList>
-            <UserMenuList><GeckoMainMenuIcon />로그아웃</UserMenuList>
+            <UserMenuList><GeckoMainMenuIcon /><MainMenuTitle>고객지원</MainMenuTitle></UserMenuList>
+            <UserMenuList><GeckoMainMenuIcon /><MainMenuTitle>설정</MainMenuTitle></UserMenuList>
+            <UserMenuList><GeckoMainMenuIcon /><MainMenuTitle>로그아웃</MainMenuTitle></UserMenuList>
           </UserMenu>
         </div>
       </HeaderMenu>

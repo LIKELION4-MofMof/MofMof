@@ -5,7 +5,7 @@ import notification from "assets/icon/notification.svg";
 const Notification = ({children, ...restProps}) => {
   return (
     <>
-      <NotificationIcon src={notification} alt={children} {...restProps} />
+      <NotificationIcon aria-label="알림" />
     </>
   )
 }

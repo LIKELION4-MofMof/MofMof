@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import down from 'assets/icon/down.svg';
 import up from 'assets/icon/up.svg';
-import { DropDownBtn, GeckoMainMenu, GeckoMainMenuTitle, GeckoSubMenu, GeckoMainMenuIcon, GeckoMenuListItem } from 'components/common/Menu/Menu.styled';
+import { DropDownBtn, GeckoMainMenu, MainMenuTitle, GeckoSubMenu, GeckoMainMenuIcon, GeckoMenuListItem } from 'components/common/Menu/Menu.styled';
 import menuLists from "components/common/Menu/data"
 
 
@@ -19,13 +19,15 @@ const MenuDropDown = ({title, list}) => {
     <>
       <GeckoMainMenu>
         <GeckoMainMenuIcon></GeckoMainMenuIcon>
-        <GeckoMainMenuTitle>{title}</GeckoMainMenuTitle>
-        <DropDownBtn onClick={() => setActiveList(!activeList)}>
+        <MainMenuTitle>{title}</MainMenuTitle>
+        <DropDownBtn aria-label='하위 메뉴보기' onClick={() => setActiveList(!activeList)}>
           {activeList ? <img src={up} /> : <img src={down} />}
         </DropDownBtn>
       </GeckoMainMenu>
       <GeckoSubMenu>
-        {activeList && GeckoSubMenuList}
+        <li>
+          {activeList && GeckoSubMenuList}
+        </li>
       </GeckoSubMenu>  
     </>
   )

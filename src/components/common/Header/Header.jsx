@@ -9,7 +9,7 @@ export function Header() {
   return (
     <StyledHeader>
       <Menu />
-      <Logo Logo fill="#F26A3B"/>
+        <Logo Logo fill="#F26A3B"/>
       <Notification />
     </StyledHeader>
   )

@@ -15,9 +15,9 @@ function App() {
       <Header/>
       <Navigation />
 
-      <Fattail />
+      {/* <Fattail />
       <Crested />
-      <Leopard />
+      <Leopard /> */}
     </div>
 )}
 

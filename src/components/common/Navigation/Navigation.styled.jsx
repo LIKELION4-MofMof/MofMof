@@ -16,5 +16,6 @@ export const Lists = styled.ul`
   margin-top: 10px;
 `
 
-export const IconWrapper = styled.div` 
+export const IconWrapper = styled.button`
+  
 `
