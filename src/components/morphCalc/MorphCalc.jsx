@@ -3,6 +3,7 @@ import { ReactComponent as Mate } from 'assets/icon/close.svg';
 import { useCallback, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { calculate } from './CalculateFattail';
+import { Navigation } from '../common/Navigation/Navigation';
 import SelectedBtn from 'components/morphCalc/morphInputContainer/SelectedBtn';
 import { Header } from '../common/Header/Header';
 import {
@@ -72,7 +73,7 @@ const MorphCalc = () => {
   return (
     <div className="App">
       <Header />
-      <DivMorphCalc>
+      <DivMorphCalc className="mainContainer">
         <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
           {FSelectedMorph.map((morph) => (
             <li key={morph.id}>
@@ -96,6 +97,7 @@ const MorphCalc = () => {
           </BtnCalc>
         </MorphCalcBtnContainer>
       </DivMorphCalc>
+      <Navigation />
     </div>
   );
 };

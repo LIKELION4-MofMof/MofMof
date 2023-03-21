@@ -22,8 +22,9 @@ export default function CalResult() {
 
   return (
     <div className="App">
-      <DivMorphCalc>
-        <Header />
+      <Header />
+
+      <DivMorphCalc className="mainContainer">
         <CalPieChart data={data} />
         <ResultBox>
           <ResultTable>
@@ -58,8 +59,8 @@ export default function CalResult() {
             </ResultTableBody>
           </ResultTable>
         </ResultBox>
-        <Navigation />
       </DivMorphCalc>
+      <Navigation />
     </div>
   );
 }
