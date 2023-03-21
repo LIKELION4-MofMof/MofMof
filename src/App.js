@@ -4,7 +4,6 @@ import Layout from './components/common/Layout/Layout';
 import Fattail from './components/main/Fattail';
 import Crested from './components/main/Crested';
 import Leopard from './components/main/Leopard';
-
 import { Header } from './components/common/Header/Header';
 import { Navigation } from './components/common/Navigation/Navigation';
 
@@ -13,7 +12,6 @@ function App() {
     <div className="App">
       <Header />
       <Navigation />
-
       <Fattail />
       <Crested />
       <Leopard />

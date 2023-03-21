@@ -1,6 +1,8 @@
 import { DivMorphCalc } from '../MorphCalc.styled';
 import { useLocation } from 'react-router-dom';
 import { CalPieChart } from './CalPieChart';
+import { Header } from '../../common/Header/Header';
+import { Navigation } from '../../common/Navigation/Navigation';
 import styled from 'styled-components';
 
 export default function CalResult() {
@@ -19,42 +21,46 @@ export default function CalResult() {
   });
 
   return (
-    <DivMorphCalc>
-      <CalPieChart data={data} />
-      <ResultBox>
-        <ResultTable>
-          <ResultTableHead>
-            <ResultTableHeadRow>
-              <ResultTableHeadCol>확률</ResultTableHeadCol>
-              <ResultTableHeadCol>유전자</ResultTableHeadCol>
-              <ResultTableHeadCol>Combo</ResultTableHeadCol>
-              <ResultTableHeadCol>/</ResultTableHeadCol>
-            </ResultTableHeadRow>
-          </ResultTableHead>
-          <ResultTableBody>
-            {result.map((item, index) => (
-              <ResultTableBodyRow key={index}>
-                {/* <ResultTableBodyCol>{index + 1}</ResultTableBodyCol> */}
-                <ResultTableBodyCol>{item.percent}%</ResultTableBodyCol>
-                {/* <ResultTableBodyCol>{item.hetName}</ResultTableBodyCol> */}
-                <ResultTableBodyCol>
-                  {item.visual.map((item, id) => (
-                    <Li key={id}>{item}</Li>
-                  ))}
-                  {item.hetName.map((item, id) => (
-                    <Li key={id}>{item}</Li>
-                  ))}
-                </ResultTableBodyCol>
-                <ResultTableBodyCol>
-                  {item.visual.length + item.hetName.length}
-                </ResultTableBodyCol>
-                <ResultTableBodyCol>{item.percent2}</ResultTableBodyCol>
-              </ResultTableBodyRow>
-            ))}
-          </ResultTableBody>
-        </ResultTable>
-      </ResultBox>
-    </DivMorphCalc>
+    <div className="App">
+      <DivMorphCalc>
+        <Header />
+        <CalPieChart data={data} />
+        <ResultBox>
+          <ResultTable>
+            <ResultTableHead>
+              <ResultTableHeadRow>
+                <ResultTableHeadCol>확률</ResultTableHeadCol>
+                <ResultTableHeadCol>유전자</ResultTableHeadCol>
+                <ResultTableHeadCol>Combo</ResultTableHeadCol>
+                <ResultTableHeadCol>/</ResultTableHeadCol>
+              </ResultTableHeadRow>
+            </ResultTableHead>
+            <ResultTableBody>
+              {result.map((item, index) => (
+                <ResultTableBodyRow key={index}>
+                  {/* <ResultTableBodyCol>{index + 1}</ResultTableBodyCol> */}
+                  <ResultTableBodyCol>{item.percent}%</ResultTableBodyCol>
+                  {/* <ResultTableBodyCol>{item.hetName}</ResultTableBodyCol> */}
+                  <ResultTableBodyCol>
+                    {item.visual.map((item, id) => (
+                      <Li key={id}>{item}</Li>
+                    ))}
+                    {item.hetName.map((item, id) => (
+                      <Li key={id}>{item}</Li>
+                    ))}
+                  </ResultTableBodyCol>
+                  <ResultTableBodyCol>
+                    {item.visual.length + item.hetName.length}
+                  </ResultTableBodyCol>
+                  <ResultTableBodyCol>{item.percent2}</ResultTableBodyCol>
+                </ResultTableBodyRow>
+              ))}
+            </ResultTableBody>
+          </ResultTable>
+        </ResultBox>
+        <Navigation></Navigation>
+      </DivMorphCalc>
+    </div>
   );
 }
 
@@ -67,7 +73,6 @@ const Li = styled.li`
 `;
 
 const ResultBox = styled.div`
-  margin-top: 100px;
   text-align: center;
   font-size: 20px;
 `;
@@ -99,6 +104,8 @@ const ResultTableHeadCol = styled.th`
 
 const ResultTableBody = styled.tbody`
   border: 1px solid #000;
+  background-color: red;
+  margin-bottom: 30px;
 `;
 
 const ResultTableBodyRow = styled.tr`

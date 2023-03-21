@@ -1,9 +1,7 @@
-
-import styled from "styled-components";
-import { Logo } from "./Logo";
-import { Menu } from "../Menu/Menu";
-import { Notification } from "./Notification";
-
+import styled from 'styled-components';
+import { Logo } from './Logo';
+import { Menu } from '../Menu/Menu';
+import { Notification } from './Notification';
 
 const StyledHeader = styled.header`
   display: flex;
@@ -12,17 +10,17 @@ const StyledHeader = styled.header`
   align-items: center;
   /* background: '#fffff'; */
   background: pink;
-  height: 70px;
+  height: 100px;
+  width: 100%;
   padding: 0 20px;
-`
+`;
 
 export function Header() {
-
   return (
     <StyledHeader>
       <Menu />
       <Logo />
       <Notification />
     </StyledHeader>
-  )
+  );
 }

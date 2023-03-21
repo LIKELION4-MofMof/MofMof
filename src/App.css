@@ -5,3 +5,11 @@
   height: 100vh;
   padding-top: 30px;
 }
+
+body {
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
