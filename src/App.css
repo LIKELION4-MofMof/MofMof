@@ -1,7 +1,6 @@
 .App {
   width: 375px;
   border: 1px solid black;
-  border-radius: 10px;
   height: 100vh;
   overflow: scroll;
 }

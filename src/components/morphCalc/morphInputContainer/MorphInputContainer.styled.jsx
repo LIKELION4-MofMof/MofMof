@@ -1,8 +1,13 @@
 import styled, { css } from 'styled-components';
 import ArrowChevron from 'assets/icon/ArrowChevron.svg';
+import Mlogo from 'assets/logo/mlogo.svg';
 import close from 'assets/icon/close.svg';
 
 /* Morph Input Container */
+export const SectionInputContainer = styled.section`
+  background: url(${Mlogo}) no-repeat 50% 50%;
+`;
+
 export const InputTitle = styled.div`
   width: 335px;
   height: 30px;

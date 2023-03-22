@@ -11,6 +11,8 @@ import {
   DivMorphCalc,
   MorphCalcBtnContainer,
 } from './MorphCalc.styled';
+import { Header } from 'components/common/Header/Header';
+import { Navigation } from 'components/common/Navigation/Navigation';
 
 const MorphCalc = () => {
   const [FSelectedMorph, setFSelectedMorph] = useState([]);
@@ -70,6 +72,10 @@ const MorphCalc = () => {
   FSelectedMorph.map((morph) => parentList1.push(morph.korName));
   MSelectedMorph.map((morph) => parentList2.push(morph.korName));
 
+  const resetSelectedMorph = () => {
+    setFSelectedMorph([]);
+    setMSelectedMorph([]);
+  };
   return (
     <div className="App">
       <Header />
@@ -94,6 +100,9 @@ const MorphCalc = () => {
             onClick={() => calculate(parentList1, parentList2, setResult)}
           >
             계산하기
+          </BtnCalc>
+          <BtnCalc reset={true} type="button" onClick={resetSelectedMorph}>
+            다시하기
           </BtnCalc>
         </MorphCalcBtnContainer>
       </DivMorphCalc>
