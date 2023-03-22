@@ -1,15 +1,15 @@
 
 import { StyledHeader } from "./Header.styled";
-import Logo from "components/common/Header/Logo";
 import Menu from "components/common/Menu/Menu";
-import Notification from "components/common/Header/Notification";
+import Notification from "components/common/Header/Notification"; 
+import LogoHorizon from './LogoHorizon';
 
 export function Header() {
 
   return (
     <StyledHeader>
       <Menu />
-        <Logo Logo fill="#F26A3B"/>
+      <LogoHorizon />
       <Notification />
     </StyledHeader>
   )

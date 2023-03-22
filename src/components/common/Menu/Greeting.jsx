@@ -1,12 +1,12 @@
 
-import { LoginRegister, LoginWrapper, Circle, LoginBtnWrapper, LoginBtn, LoginIndex, LoginBtnIcon } from "./Menu.styled"
+import { LoginRegister, LoginWrapper, UserProfile, LoginBtnWrapper, LoginBtn, LoginIndex, LoginBtnIcon } from "./Menu.styled"
 
 
 
 function GuestGreeting(props) {
   return (
   <LoginRegister>
-    <Circle />
+    <UserProfile />
     <LoginWrapper>
       <LoginBtnWrapper>
         <LoginBtn type="button">로그인 & 가입하기</LoginBtn>
@@ -21,7 +21,7 @@ function GuestGreeting(props) {
 function UserGreeting(props) {
   return(
     <LoginRegister>
-      <Circle />
+      <UserProfile />
       <LoginWrapper>
         <LoginBtnWrapper>
           <LoginBtn type="button">도마뱀귀엽조</LoginBtn>
