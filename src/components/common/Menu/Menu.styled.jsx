@@ -1,16 +1,16 @@
-import styled, { keyframes } from "styled-components/macro"
+import styled from "styled-components/macro"
 
 import menuIcon from 'assets/icon/menuIcon.svg';
-import carrot from 'assets/icon/carrot.svg';
 import right from "assets/icon/right.svg";
+import userProfile from 'assets/icon/userProfile.svg';
+
 // Menu
 export const MenuWrapper = styled.div`
   position: relative;
+  
 `
 export const MenuButton = styled.button`
   background: url(${menuIcon});
-  border-style: none;
-  cursor: pointer;
   width: 24px;
   height: 24px;
   padding: 0;
@@ -22,12 +22,10 @@ export const HeaderMenu = styled.div`
   align-items: center;
   width: 287px;
   height: 100vh;
-  background: #F26A3B;
+  background: #FF5500;
   position: fixed;
   margin: 0 auto;
-  border-radius: 0 0 0 10px;
-  z-index: 10;
-  top: -21px;
+  top: -37px;
   left: -20px;
   position: relative;
   position: absolute;
@@ -39,21 +37,20 @@ export const HeaderMenu = styled.div`
 export const Bar = styled.div`
   border-top: 1px solid #ffff;
   width: 245px;
-  margin: 17px auto;
+  margin: 0 auto 33px;
 `
 
 export const CloseBtn = styled.button`
-  border: none;
-  background: transparent;
-  cursor: pointer;
   position: absolute;
-  right: 0;
-  top: 10px;
-
-
+  right: 10px;
+  top: 30px;
+  padding: 10px 10px;
+  width: 42px;
+  height: 42px;
 `
+
 export const UserMenu = styled.ul`
-  color: white;
+  color: #ffff;
 `
 
 
@@ -64,21 +61,25 @@ export const UserMenuList = styled.li`
   margin: 0 0 34px 33px;
 ` 
 
+export const UserMenuBtn = styled.button`
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffff;
+`
+
 // MenuDropDown
 export const GeckoMainMenu = styled.div`
   display: flex;
   align-items: center;
-  margin: 0 0 34px 33px;
+  margin: 0 20px 34px 33px;
   gap: 12px;
-  padding: 0 20px 0 0;
+  /* padding: 0 20px 0 0; */
   font-weight: 500;
+  width: 236px;
 `
 
 export const DropDownBtn = styled.button`
-  border-style: none;
-  background: transparent;
-  cursor: pointer;
-  margin-left: 120px;
+  /* margin-left: 120px; */
   padding: 0;
   height: 24px;
 `
@@ -89,24 +90,29 @@ export const GeckoSubMenu = styled.ul`
   flex-direction: column;
 `
 
-export const GeckoMainMenuIcon = styled.span`
-    content: "";
-    background: url(${carrot});
-    width: 24px;
-    height: 24px;
-    display: inline-block;
+// export const GeckoMainMenuIcon = styled.span`
+//     content: "";
+//     background: url(${carrot});
+//     width: 24px;
+//     height: 24px;
+//     display: inline-block;
+// `
+
+export const MainMenuTitle = styled.button`
+  color: #ffff;
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffff;
+  flex-grow: 1;
+  text-align: left;
 `
 
-export const GeckoMainMenuTitle = styled.h4`
-  /* width: 50px; */
-`
-
-export const GeckoMenuListItem = styled.li`
+export const GeckoMenuListItem = styled.button`
   color: #DEDEDE;
   margin-bottom: 33px;
   margin-left: 70px;
   display: flex;
-  flex-direction: column;
+  font-size: 16px;
 `
 
 //Greeting
@@ -122,12 +128,13 @@ export const LoginWrapper = styled.div`
   width: 157px;
 `
 
-export const Circle = styled.span`
+export const UserProfile = styled.span`
   display: inline-block;
   width: 65px;
   height: 65px;
   border-radius: 50%;
-  background: #D9D9D9;
+  /* background: url(${userProfile}); */
+  background: #DEDEDE;
 `
 
 export const LoginBtnWrapper = styled.div`
@@ -135,13 +142,12 @@ export const LoginBtnWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 157px;
+  width: 161px;
   margin-bottom: 11px;
+  text-align: left;
 `
 
 export const LoginBtn = styled.button`
-  border: none;
-  background: transparent;
   color: #ffff;
   font-size: 20px;
   font-weight: 500;
@@ -161,4 +167,10 @@ export const LoginIndex = styled.p`
   font-size: 12px;
   display: inline-block;
   width: 144px;
+`
+
+export const UserMenuIcon = styled.img`
+  width: 24px;
+  height: 24px;
+  display: inline-block;
 `

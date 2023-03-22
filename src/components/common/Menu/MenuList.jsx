@@ -11,8 +11,8 @@ const MenuList = () => {
     <>
       <div>
         <ul>
-          {menuLists.map((menuList) => {
-            return <li><MenuDropDown key={menuList.id} {...menuList}/></li>
+          {menuLists.map((menuList, idx) => {
+            return <li><MenuDropDown key={menuList.idx} {...menuList}/></li>
           })}
         </ul>
       </div> 
