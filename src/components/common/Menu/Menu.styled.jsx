@@ -1,13 +1,13 @@
 import styled from "styled-components/macro"
 
 import menuIcon from 'assets/icon/menuIcon.svg';
-import carrot from 'assets/icon/carrot.svg';
 import right from "assets/icon/right.svg";
 import userProfile from 'assets/icon/userProfile.svg';
 
 // Menu
 export const MenuWrapper = styled.div`
   position: relative;
+  
 `
 export const MenuButton = styled.button`
   background: url(${menuIcon});
