@@ -6,13 +6,13 @@ import { calculate } from './CalculateFattail';
 import { Navigation } from '../common/Navigation/Navigation';
 import SelectedBtn from 'components/morphCalc/morphInputContainer/SelectedBtn';
 import { Header } from '../common/Header/Header';
+import { MorphDropdown } from '../morphCalc/morphCalcResult/MorphDropdown';
+
 import {
   BtnCalc,
   DivMorphCalc,
   MorphCalcBtnContainer,
 } from './MorphCalc.styled';
-import { Header } from 'components/common/Header/Header';
-import { Navigation } from 'components/common/Navigation/Navigation';
 
 const MorphCalc = () => {
   const [FSelectedMorph, setFSelectedMorph] = useState([]);
@@ -79,7 +79,9 @@ const MorphCalc = () => {
   return (
     <div className="App">
       <Header />
-      <DivMorphCalc className="mainContainer">
+
+      <DivMorphCalc>
+        <MorphDropdown />
         <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
           {FSelectedMorph.map((morph) => (
             <li key={morph.id}>
