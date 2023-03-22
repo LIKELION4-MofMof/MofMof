@@ -1,5 +1,8 @@
 import { Header } from 'components/common/Header/Header';
 import { Navigation } from 'components/common/Navigation/Navigation';
+import { db } from 'firebase/app';
+import { collection, getDocs } from 'firebase/firestore';
+import { useLayoutEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FattailMorphListItem from './FattailMorphListItem';
 import { MorphInfoMain, MorphListUL } from './MorphInfo.styled';
@@ -65,7 +68,18 @@ const fattailMorphList = [
   },
 ];
 
+// 'posts' 컬렉션의 모든 문서들을 가져옴
 const MorphInfo = () => {
+  useLayoutEffect(() => {
+    (async () => {
+      const querySnapshot = await getDocs(
+        collection(db, 'fat-tail-morph-list'),
+      );
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+      });
+    })();
+  }, []);
   return (
     <div className="App">
       <Header />
