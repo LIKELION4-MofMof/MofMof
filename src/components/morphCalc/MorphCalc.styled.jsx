@@ -33,8 +33,8 @@ export const BtnCalc = styled.button`
   ${(props) =>
     props.reset &&
     css`
-      background: #ffffff;
-      color: #f26a3b;
-      border: 2px solid #f26a3b;
+      background: #5f0bce;
+      color: #ffff;
+      border: 2px solid #5f0bce;
     `}
 `;

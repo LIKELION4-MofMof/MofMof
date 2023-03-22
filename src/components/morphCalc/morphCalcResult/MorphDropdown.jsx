@@ -3,11 +3,9 @@ import styled from 'styled-components';
 
 export function MorphDropdown() {
   const [dropdown, setDropdown] = useState(false);
-  const [BtnBgColor, setBtnBgColor] = useState('#D9D9D9');
 
   function handleQNA() {
     setDropdown(!dropdown);
-    setBtnBgColor('#5f0bce');
   }
 
   return (

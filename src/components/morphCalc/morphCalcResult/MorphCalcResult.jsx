@@ -4,6 +4,8 @@ import { CalPieChart } from './CalPieChart';
 import { Header } from '../../common/Header/Header';
 import { Navigation } from '../../common/Navigation/Navigation';
 import styled from 'styled-components';
+import { MorphDropdown } from './MorphDropdown';
+import { ParentMorphCon } from './ParentMorphCon';
 
 export default function CalResult() {
   const location = useLocation();
@@ -24,7 +26,9 @@ export default function CalResult() {
     <div className="App">
       <Header />
 
-      <DivMorphCalc className="mainContainer">
+      <DivMorphCalc>
+        <MorphDropdown />
+        <ParentMorphCon />
         <CalPieChart data={data} />
         <ResultBox>
           <ResultTable>

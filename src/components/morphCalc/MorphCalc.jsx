@@ -26,7 +26,9 @@ const MorphCalc = () => {
     // setParentList1(parentsName1);
     // setParentList2(parentsName2);
     if (result.length > 0) {
-      navigate('/fattail-calcResult', { state: result });
+      navigate('/fattail-calcResult', {
+        state: result,
+      });
     }
   }, [result]);
 
@@ -104,7 +106,7 @@ const MorphCalc = () => {
             계산하기
           </BtnCalc>
           <BtnCalc reset={true} type="button" onClick={resetSelectedMorph}>
-            다시하기
+            전체삭제
           </BtnCalc>
         </MorphCalcBtnContainer>
       </DivMorphCalc>
