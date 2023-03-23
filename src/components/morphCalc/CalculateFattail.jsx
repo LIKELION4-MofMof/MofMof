@@ -394,7 +394,7 @@ export const calculate = (gene1, gene2, setResult) => {
       hetGeneList.forEach((hetGene) => {
         if (item.alphaCode === hetGene.alphaCode) {
           if (item.het === 100) {
-            het100.push('100% 헷 ' + hetGene.engName);
+            het100.push('헷 ' + hetGene.engName);
           } else if (item.het === 67) {
             het66.push('66% 헷 ' + hetGene.engName);
           } else if (item.het === 50) {
@@ -435,7 +435,6 @@ export const calculate = (gene1, gene2, setResult) => {
   for (let i = 0; i < morphList.length; i++) {
     morphList[i].percent2 = fraction(morphList[i].percent);
   }
-  console.log('최종 결과물', morphList);
 
   setResult(morphList); // morphList는 리스트로 받아와야 한다.
 };

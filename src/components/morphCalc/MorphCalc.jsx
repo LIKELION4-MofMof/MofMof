@@ -23,14 +23,16 @@ const MorphCalc = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // setParentList1(parentsName1);
-    // setParentList2(parentsName2);
     if (result.length > 0) {
       navigate('/fattail-calcResult', {
-        state: result,
+        state: {
+          result,
+          parentList1,
+          parentList2,
+        },
       });
     }
-  }, [result]);
+  }, [navigate, result]);
 
   const insertFSelectedBox = useCallback(
     (newSelectedMorph) => {

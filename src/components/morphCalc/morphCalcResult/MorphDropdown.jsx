@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-export function MorphDropdown() {
+export function MorphDropdown(a, b) {
   const [dropdown, setDropdown] = useState(false);
 
   function handleQNA() {
@@ -38,10 +38,11 @@ const DropdownContainer = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  position: absolute;
-  z-index: 1000;
   top: 70px;
-  right: 25px;
+  left: 816px;
+  z-index: 1000;
+
+  position: fixed;
 `;
 const DropdownText = styled.span`
   cursor: pointer;

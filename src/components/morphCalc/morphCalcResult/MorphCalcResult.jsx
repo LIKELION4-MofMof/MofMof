@@ -9,8 +9,7 @@ import { ParentMorphCon } from './ParentMorphCon';
 
 export default function CalResult() {
   const location = useLocation();
-  const result = location.state;
-  console.log('result state값이다', result);
+  const { result, parentList1, parentList2 } = location.state;
 
   const data = result.map((item) => {
     let visual = item.visual || [];
@@ -22,13 +21,17 @@ export default function CalResult() {
     };
   });
 
+  console.log(result.length, '나 리절트야!!');
+
   return (
     <div className="App">
       <Header />
-
       <DivMorphCalc>
         <MorphDropdown />
-        <ParentMorphCon />
+        <ParentMorphCon parentList1={parentList1} parentList2={parentList2} />
+        <Allcount>
+          총 <span>{result.length}</span> 개의 결과가 나왔습니다.
+        </Allcount>
         <CalPieChart data={data} />
         <ResultBox>
           <ResultTable>
@@ -62,6 +65,7 @@ export default function CalResult() {
               ))}
             </ResultTableBody>
           </ResultTable>
+          <RetryBtn>다시 하기</RetryBtn>
         </ResultBox>
       </DivMorphCalc>
       <Navigation />
@@ -120,4 +124,23 @@ const ResultTableBodyRow = styled.tr`
 const ResultTableBodyCol = styled.td`
   border: 1px solid #000;
   padding: 10px;
+`;
+
+const RetryBtn = styled.button`
+  border: 1px solid #000;
+  padding: 10px;
+  width: 100px;
+  height: 70px;
+  margin-bottom: 50px;
+`;
+
+const Allcount = styled.div`
+  font-size: 20px;
+  font-weight: 500;
+
+  span {
+    font-size: 25px;
+    font-weight: 700;
+    color: #5f0bce;
+  }
 `;

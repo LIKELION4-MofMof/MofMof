@@ -1,4 +1,5 @@
 import { PieChart, Pie, Legend, Tooltip, Cell } from 'recharts';
+import styled from 'styled-components';
 
 const colors = [
   '#0088FE',
@@ -41,11 +42,11 @@ export function CalPieChart(props) {
   const { data } = props;
 
   return (
-    <PieChart width={400} height={400}>
+    <PieChart width={400} height={280}>
       <Pie
         data={data}
-        cx={300}
-        cy={200}
+        cx={200}
+        cy={100}
         labelLine={false}
         label={renderCustomizedLabel}
         outerRadius={80}
