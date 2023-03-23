@@ -394,7 +394,7 @@ export const calculate = (gene1, gene2, setResult) => {
       hetGeneList.forEach((hetGene) => {
         if (item.alphaCode === hetGene.alphaCode) {
           if (item.het === 100) {
-            het100.push('헷 ' + hetGene.engName);
+            het100.push('헷' + hetGene.engName);
           } else if (item.het === 67) {
             het66.push('66% 헷 ' + hetGene.engName);
           } else if (item.het === 50) {
