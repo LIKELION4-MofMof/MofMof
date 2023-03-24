@@ -7,7 +7,7 @@ import {
   DivMorphCalc,
   MorphCalcBtnContainer,
 } from './MorphCalc.styled';
-import { Header } from 'components/common/Header/Header';
+import HeaderVersion from 'components/common/Header/HeaderVersion';
 import { Navigation } from 'components/common/Navigation/Navigation';
 
 const MorphCalc = () => {
@@ -71,7 +71,7 @@ const MorphCalc = () => {
   };
   return (
     <div className="App">
-      <Header />
+      <HeaderVersion />
       <DivMorphCalc className="mainContainer">
         <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
           {FSelectedMorph.map((morph) => (
