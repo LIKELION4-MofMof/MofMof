@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import reset from 'styled-reset'
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 import Pretendard from 'assets/fonts/Pretendard-Regular.woff';
 
 export const GlobalStyle = createGlobalStyle`
@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   .mainContainer {
-    margin-top: 100px;
+    margin-top: 110px;
     margin-bottom: 70px;
   }
 
@@ -29,4 +29,4 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.15; /* 1 */
     margin: 0; /* 2 */
 }
-`
+`;

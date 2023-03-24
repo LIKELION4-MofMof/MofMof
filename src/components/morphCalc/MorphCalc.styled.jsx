@@ -4,10 +4,12 @@ import styled, { css } from 'styled-components';
 export const DivMorphCalc = styled.div`
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 110px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   gap: 8px;
+  position: relative;
 `;
 
 /* 버튼 container*/
@@ -31,8 +33,8 @@ export const BtnCalc = styled.button`
   ${(props) =>
     props.reset &&
     css`
-      background: #ffffff;
-      color: #f26a3b;
-      border: 2px solid #f26a3b;
+      background: #fff;
+      color: #ff5500;
+      border: 2px solid #ff5500;
     `}
 `;
