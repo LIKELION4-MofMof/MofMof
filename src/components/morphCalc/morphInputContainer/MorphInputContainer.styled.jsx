@@ -1,8 +1,13 @@
 import styled, { css } from 'styled-components';
 import ArrowChevron from 'assets/icon/ArrowChevron.svg';
+import Mlogo from 'assets/logo/mlogo.svg';
 import close from 'assets/icon/close.svg';
 
 /* Morph Input Container */
+export const SectionInputContainer = styled.section`
+  background: url(${Mlogo}) no-repeat 50% 50%;
+`;
+
 export const InputTitle = styled.div`
   width: 335px;
   height: 30px;
@@ -34,10 +39,12 @@ export const InputWrapper = styled.div`
   .searchInput {
     flex-grow: 1;
     border: none;
+    text-align: center;
   }
   .searchInput::placeholder {
-    color: #332ff2;
+    color: #ff5500;
     font-size: 16px;
+    font-weight: 500;
   }
   .btnShowMorphList {
     width: 24px;
@@ -98,17 +105,26 @@ export const SelectedBtnContainer = styled.div`
   flex-flow: row nowrap;
   align-items: center;
   gap: 3px;
-  border: 1px solid black;
   border-radius: 10px;
-  padding: 5px 8px;
+  padding: 10px 12px;
   span {
     font-size: 12px;
   }
+  ${(props) =>
+    props.type === 'dominant'
+      ? css`
+          background: #fa806e;
+          color: #ffff;
+        `
+      : css`
+          background: #d9a61c;
+          color: #ffff;
+        `}
 `;
 export const SelectedBtnClose = styled.button`
   background: url(${close}) no-repeat 0 0 / cover;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border: none;
   cursor: pointer;
 `;
