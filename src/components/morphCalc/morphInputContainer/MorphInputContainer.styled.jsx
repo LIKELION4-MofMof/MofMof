@@ -42,7 +42,7 @@ export const InputWrapper = styled.div`
     text-align: center;
   }
   .searchInput::placeholder {
-    color: #5f0bce;
+    color: #ff5500;
     font-size: 16px;
     font-weight: 500;
   }

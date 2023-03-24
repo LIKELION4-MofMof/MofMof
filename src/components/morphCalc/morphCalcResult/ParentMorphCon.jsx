@@ -31,8 +31,8 @@ export function ParentMorphCon({ parentList1, parentList2 }) {
 const ParentCon = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
   position: relative;
+  top: 10px;
   /* border: 2px solid #ff5500; */
   width: 100%;
   height: fit-content;

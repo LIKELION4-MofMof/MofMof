@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 export const DivMorphCalc = styled.div`
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 100px;
+  padding-top: 110px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -33,8 +33,8 @@ export const BtnCalc = styled.button`
   ${(props) =>
     props.reset &&
     css`
-      background: #5f0bce;
-      color: #ffff;
-      border: 2px solid #5f0bce;
+      background: #fff;
+      color: #ff5500;
+      border: 2px solid #ff5500;
     `}
 `;
