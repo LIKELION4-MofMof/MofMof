@@ -12,7 +12,7 @@ const MenuList = () => {
       <div>
         <ul>
           {menuLists.map((menuList, idx) => {
-            return <li><MenuDropDown key={menuList.idx} {...menuList}/></li>
+            return <li key={idx}><MenuDropDown  {...menuList}/></li>
           })}
         </ul>
       </div> 
