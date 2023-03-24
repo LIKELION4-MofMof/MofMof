@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { ReactComponent as Search } from 'assets/icon/Search.svg';
+import { ReactComponent as Search } from 'assets/icon/searching.svg';
 import MorphListDropBox from './MorphListDropBox';
 import {
   InputTitle,

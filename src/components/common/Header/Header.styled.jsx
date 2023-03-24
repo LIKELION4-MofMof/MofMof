@@ -12,10 +12,15 @@ export const StyledHeader = styled.header`
   position: fixed;
   width: 373px;
   z-index: 100;
+  box-shadow: 0 0.1px 5px 1px rgba(190, 190, 190, 0.2);
 `;
 
 export const NotificationIcon = styled.button`
   width: 24px;
   height: 24px;
   background: url(${notification});
+`;
+
+export const LogoBtn = styled.button`
+  margin: 40px 0 10px 20px;
 `;

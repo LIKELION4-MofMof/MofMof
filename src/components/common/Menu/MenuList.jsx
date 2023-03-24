@@ -1,7 +1,6 @@
 import { useState } from "react";
 import data from "components/common/Menu/data";
 import MenuDropDown from "components/common/Menu/MenuDropDown";
-import { MainMenuTitle } from './Menu.styled';
 
 
 
@@ -12,8 +11,8 @@ const MenuList = () => {
     <>
       <div>
         <ul>
-          {menuLists.map((menuList) => {
-            return <li><MenuDropDown key={menuList.id} {...menuList}/></li>
+          {menuLists.map((menuList, idx) => {
+            return <li><MenuDropDown key={menuList.idx} {...menuList}/></li>
           })}
         </ul>
       </div> 

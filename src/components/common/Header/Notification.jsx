@@ -1,5 +1,4 @@
 import {NotificationIcon} from "./Header.styled";
-import notification from "assets/icon/notification.svg";
 
 
 const Notification = ({children, ...restProps}) => {
