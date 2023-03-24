@@ -14,7 +14,6 @@ import {
   MorphCalcBtnContainer,
 } from './MorphCalc.styled';
 import HeaderVersion from 'components/common/Header/HeaderVersion';
-import { Navigation } from 'components/common/Navigation/Navigation';
 
 const MorphCalc = () => {
   const [FSelectedMorph, setFSelectedMorph] = useState([]);
@@ -85,7 +84,7 @@ const MorphCalc = () => {
   return (
     <div className="App">
       <HeaderVersion />
-      <DivMorphCalc className="mainContainer">
+      <DivMorphCalc>
         <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
           {FSelectedMorph.map((morph) => (
             <li key={morph.id}>
