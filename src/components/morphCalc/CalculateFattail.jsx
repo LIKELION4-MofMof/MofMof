@@ -248,13 +248,13 @@ export const calculate = (gene1, gene2, setResult) => {
               break;
             }
             // 우성 대문자 두개면
-            else if (
-              traitList[i].alphaCode[j] === traitList[i].alphaCode[j + 1]
-            ) {
-              tmp.push('Super ' + mixGeneList[k].engName);
-              j += 1;
-              break;
-            }
+            // else if (
+            //   traitList[i].alphaCode[j] === traitList[i].alphaCode[j + 1]
+            // ) {
+            //   tmp.push('Super ' + mixGeneList[k].engName);
+            //   j += 1;
+            //   break;
+            // }
             // 우성 대문자 하고 뒤에 'N' 이면
             else if (traitList[i].alphaCode[j + 1] === 'N') {
               tmp.push(mixGeneList[k].engName);

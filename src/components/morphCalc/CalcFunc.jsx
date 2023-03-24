@@ -68,19 +68,19 @@ export const checkName = (gene, alphaValues) => {
           return;
         }
         // super 유전자일 경우
-        else if ('Super' + item.engName === inputList[i]) {
-          inputMorphList.push({
-            // 영어 or 한글
-            // "engName" : item.engName,
-            engName: item.korName,
-            alphaCode: String.fromCharCode(alphaValues.uppercase),
-            type: item.type,
-            character: 'Super',
-          });
-          alphaValues.uppercase += 1;
-          return;
-        }
-        // het 유전자일 경우
+        // else if ('Super' + item.engName === inputList[i]) {
+        //   inputMorphList.push({
+        //     // 영어 or 한글
+        //     // "engName" : item.engName,
+        //     engName: item.korName,
+        //     alphaCode: String.fromCharCode(alphaValues.uppercase),
+        //     type: item.type,
+        //     character: 'Super',
+        //   });
+        //   alphaValues.uppercase += 1;
+        //   return;
+        // }
+        // // het 유전자일 경우
         else if ('Het' + item.engName === inputList[i]) {
           inputMorphList.push({
             // 영어 or 한글

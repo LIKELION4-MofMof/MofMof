@@ -6,20 +6,18 @@ import { Navigation } from '../../common/Navigation/Navigation';
 import styled from 'styled-components';
 import { MorphDropdown } from './MorphDropdown';
 import { ParentMorphCon } from './ParentMorphCon';
+import { useNavigate } from 'react-router-dom';
+import { ReactComponent as RotateLeft } from '../../../assets/icon/rotateLeft.svg';
 
 export default function CalResult() {
+  const navigate = useNavigate();
   const location = useLocation();
   const { result, parentList1, parentList2 } = location.state;
 
-  const data = result.map((item) => {
-    let visual = item.visual || [];
-    let hetName = item.hetName || [];
-    let combinedArr = [...visual, ...hetName];
-    return {
-      name: combinedArr, //그래프 명시되는 이름
-      value: item.percent,
-    };
-  });
+  const data = result.map((item) => ({
+    name: [...(item.visual || []), ...(item.hetName || [])],
+    value: item.percent,
+  }));
 
   console.log(result.length, '나 리절트야!!');
 
@@ -47,11 +45,15 @@ export default function CalResult() {
               {result.map((item, index) => (
                 <ResultTableBodyRow key={index}>
                   {/* <ResultTableBodyCol>{index + 1}</ResultTableBodyCol> */}
-                  <ResultTableBodyCol>{item.percent}%</ResultTableBodyCol>
+                  <ResultTableBodyCol>
+                    {Math.floor(item.percent)}%
+                  </ResultTableBodyCol>
                   {/* <ResultTableBodyCol>{item.hetName}</ResultTableBodyCol> */}
                   <ResultTableBodyCol>
                     {item.visual.map((item, id) => (
-                      <Li key={id}>{item}</Li>
+                      <Li key={id} isOdd={id % 2 === 0}>
+                        {item}
+                      </Li>
                     ))}
                     {item.hetName.map((item, id) => (
                       <Li key={id}>{item}</Li>
@@ -65,7 +67,14 @@ export default function CalResult() {
               ))}
             </ResultTableBody>
           </ResultTable>
-          <RetryBtn>다시 하기</RetryBtn>
+          <Retrydiv>
+            <RetryBtn onClick={() => navigate(-1)}>
+              <RotateLeft
+                style={{ position: 'relative', bottom: '2px', right: '5px' }}
+              />
+              다시 하기
+            </RetryBtn>
+          </Retrydiv>
         </ResultBox>
       </DivMorphCalc>
       <Navigation />
@@ -74,26 +83,37 @@ export default function CalResult() {
 }
 
 const Li = styled.li`
-  border: 1px solid black;
-  padding: 2px;
+  border-radius: 10px;
+  padding: 5px;
   display: inline-block;
   cursor: pointer;
   margin-right: 5px;
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: #fff;
+
+  background-color: ${({ isOdd }) => (isOdd ? '#d9a61c' : '#fa806e')};
 `;
 
 const ResultBox = styled.div`
   text-align: center;
   font-size: 20px;
+  margin-bottom: 130px;
 `;
 const ResultTable = styled.table`
   /* margin: 0 auto; */
   width: 100%;
   border-collapse: collapse;
-  border: 1px solid #000;
+  border: 1px solid #ff5500;
 `;
 
 const ResultTableHead = styled.thead`
-  border: 1px solid #000;
+  border: 1px solid #ff5500;
+  &:nth-child(odd) {
+    background-color: #ff5500;
+  }
+  color: #fff;
+  font-weight: 500;
 `;
 
 const ResultTableHeadRow = styled.tr`
@@ -113,25 +133,44 @@ const ResultTableHeadCol = styled.th`
 
 const ResultTableBody = styled.tbody`
   border: 1px solid #000;
-  background-color: red;
-  margin-bottom: 30px;
 `;
 
 const ResultTableBodyRow = styled.tr`
   border: 1px solid #000;
+  text-align: center;
 `;
 
 const ResultTableBodyCol = styled.td`
   border: 1px solid #000;
   padding: 10px;
+
+  background-color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0;
+  &:nth-child(odd) {
+    background-color: #fde2d9;
+  }
 `;
 
 const RetryBtn = styled.button`
-  border: 1px solid #000;
   padding: 10px;
-  width: 100px;
-  height: 70px;
-  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 157px;
+  height: 40px;
+  margin-bottom: 70px;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 0;
+  background-color: #ffff;
+  color: #f26a3b;
+  border: 1.5px solid #f26a3b;
+  &:hover {
+    background-color: #f26a3b;
+    color: #fff;
+  }
 `;
 
 const Allcount = styled.div`
@@ -141,6 +180,11 @@ const Allcount = styled.div`
   span {
     font-size: 25px;
     font-weight: 700;
-    color: #5f0bce;
+    color: #ff5500;
   }
+`;
+
+const Retrydiv = styled.div`
+  display: flex;
+  justify-content: center;
 `;

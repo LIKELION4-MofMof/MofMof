@@ -31,6 +31,7 @@ export function ParentMorphCon({ parentList1, parentList2 }) {
 const ParentCon = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
   position: relative;
   /* border: 2px solid #ff5500; */
   width: 100%;
@@ -42,6 +43,7 @@ const ParentCon = styled.div`
 const FatherCon = styled.div`
   width: 100%;
   border: 1px dotted #ff5500;
+  /* background-color: #fde2d9; */
   height: auto;
   border-radius: 10px;
   text-align: center;
@@ -54,6 +56,8 @@ const FatherCon = styled.div`
 
 const MommyCon = styled.div`
   border: 1px dotted #ff5500;
+  /* background-color: #fde2d9; */
+
   flex-direction: column;
   display: flex;
   position: relative;
@@ -76,7 +80,7 @@ const FatherHead = styled.p`
   border: 1px solid #ffff;
   color: #ffff;
   background-color: #ff5500;
-  width: 25%;
+  width: 100%;
   height: 20px;
   border-radius: 10px;
   line-height: 20px; /* height와 같은 값으로 설정 */
@@ -123,7 +127,7 @@ const MommyHead = styled.p`
   border: 1px solid #ffff;
   color: #ffff;
   background-color: #ff5500;
-  width: 25%;
+  width: 100%;
   height: 20px;
   border-radius: 10px;
   line-height: 20px; /* height와 같은 값으로 설정 */
@@ -136,7 +140,7 @@ const MorphSpan = styled.span`
   border: 1px solid #ffff;
   color: #ffff;
   background-color: ${(props) =>
-    props.index % 2 === 0 ? '#5f0bce' : '#01BFDA'};
+    props.index % 2 === 0 ? '#fa806e' : '#d9a61c'};
 
   padding: 4px;
   height: auto;

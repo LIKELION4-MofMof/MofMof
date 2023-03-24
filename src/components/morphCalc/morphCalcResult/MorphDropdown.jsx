@@ -26,6 +26,7 @@ export function MorphDropdown(a, b) {
               <p>1. 아빠 엄마의 모프를 선택한다.</p>
               <p>2. 계산하기를 누르면 선택한 모프들을 조합하여 계산</p>
               <p>3. 열성유전자는 빨간색 우성유전자는 파랑색입니다.</p>
+              <p>4. 공백은 노말을 뜻합니다.</p>
             </DropdownContentUl>
           </DropdownContent>
         )}
