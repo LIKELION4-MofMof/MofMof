@@ -2,7 +2,13 @@ import { Header } from 'components/common/Header/Header';
 import { Navigation } from 'components/common/Navigation/Navigation';
 import { db } from 'firebase-db/app';
 import { collection, getDocs } from 'firebase/firestore';
-import { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { Link } from 'react-router-dom';
 import {
   MorphInfoMain,
@@ -18,8 +24,10 @@ import MorphListItem from './MorphListItem';
 
 const MorphInfo = () => {
   const [morphList, setMorphList] = useState([]);
+  const [dropDownList, setDropDownList] = useState([]);
   const [onDropDown, setOnDropDown] = useState(false);
   const searchContainerEl = useRef(null);
+  const [inputValue, setInputValue] = useState('');
 
   useLayoutEffect(() => {
     (async () => {
@@ -32,9 +40,10 @@ const MorphInfo = () => {
         docsData.push({ id: doc.id, ...doc.data() });
       });
       setMorphList(docsData);
+      setDropDownList(docsData);
     })();
   }, []);
-  console.log('모프소개 페이지');
+  console.log(morphList);
 
   const dropDownHandler = useCallback(() => {
     setOnDropDown(true);
@@ -42,6 +51,21 @@ const MorphInfo = () => {
   const closeDropDown = useCallback((e) => {
     !searchContainerEl.current.contains(e.target) && setOnDropDown(false);
   }, []);
+  const changeInputValue = useCallback((e) => {
+    setInputValue(e.target.value);
+  }, []);
+  const filterDropDown = () => {
+    if (inputValue !== '') {
+      const filterMorph = morphList.filter((morph) =>
+        morph.name.includes(inputValue),
+      );
+      setDropDownList(filterMorph);
+    } else {
+      setDropDownList(morphList);
+    }
+  };
+  useEffect(filterDropDown, [morphList, inputValue]);
+
   return (
     <div className="App">
       <Header />
@@ -54,6 +78,8 @@ const MorphInfo = () => {
               name="searchFatTailMorph"
               placeholder="모프를 검색해 보세요."
               onFocus={dropDownHandler}
+              value={inputValue}
+              onChange={changeInputValue}
             />
             <button
               type="reset"
@@ -66,7 +92,7 @@ const MorphInfo = () => {
               <SearchIcon stroke="#ffffff" />
             </button>
           </MorphInfoSearchForm>
-          {onDropDown && <MorphListDropDown morphList={morphList} />}
+          {onDropDown && <MorphListDropDown morphList={dropDownList} />}
         </SearchContainer>
         <MorphListUL>
           {morphList.map((morph) => (

@@ -55,7 +55,7 @@ export const MorphListDropDownUl = styled.ul`
   position: absolute;
   top: 39px;
   width: 100%;
-  height: 140px;
+  max-height: 140px;
   overflow-y: scroll;
   border: 2px solid #ff5500;
   padding-top: 1px;
