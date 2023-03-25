@@ -2,7 +2,7 @@ import { Header } from 'components/common/Header/Header';
 import { Navigation } from 'components/common/Navigation/Navigation';
 import { db } from 'firebase-db/app';
 import { collection, getDocs } from 'firebase/firestore';
-import { useLayoutEffect, useState } from 'react';
+import { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   MorphInfoMain,
@@ -19,6 +19,7 @@ import MorphListItem from './MorphListItem';
 const MorphInfo = () => {
   const [morphList, setMorphList] = useState([]);
   const [onDropDown, setOnDropDown] = useState(false);
+  const searchContainerEl = useRef(null);
 
   useLayoutEffect(() => {
     (async () => {
@@ -33,17 +34,19 @@ const MorphInfo = () => {
       setMorphList(docsData);
     })();
   }, []);
-  console.log(morphList);
+  console.log('모프소개 페이지');
 
-  const dropDownHandler = () => {
-    console.log('input focus');
+  const dropDownHandler = useCallback(() => {
     setOnDropDown(true);
-  };
+  }, []);
+  const closeDropDown = useCallback((e) => {
+    !searchContainerEl.current.contains(e.target) && setOnDropDown(false);
+  }, []);
   return (
     <div className="App">
       <Header />
-      <MorphInfoMain className="mainContainer">
-        <SearchContainer>
+      <MorphInfoMain className="mainContainer" onClick={closeDropDown}>
+        <SearchContainer ref={searchContainerEl}>
           <MorphInfoSearchForm>
             {/* <label for="searchFatTailMorph">모프 소개 검색창</label> */}
             <input
