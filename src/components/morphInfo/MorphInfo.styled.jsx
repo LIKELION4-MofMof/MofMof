@@ -1,6 +1,5 @@
 import styled from 'styled-components/macro';
-import closeIcon from 'assets/icon/close.svg';
-import searchingIcon from 'assets/icon/searching.svg';
+import arrow from 'assets/icon/ArrowChevron.svg';
 
 /* MorphInfo */
 export const MorphInfoMain = styled.main`
@@ -31,9 +30,10 @@ export const MorphInfoSearchForm = styled.form`
     font-size: 14px;
     font-weight: 500;
   }
-  .btnReset {
+  .btnDropDown {
     width: 22px;
     height: 22px;
+    background: url(${arrow}) no-repeat 0 0 / cover;
   }
   .btnSubmit {
     width: 40px;
@@ -53,12 +53,12 @@ export const MorphListLi = styled.li`
 /* MorphListDropDown*/
 export const MorphListDropDownUl = styled.ul`
   position: absolute;
-  top: 39px;
+  top: 38px;
   width: 100%;
   max-height: 140px;
   overflow-y: scroll;
   border: 2px solid #ff5500;
-  padding-top: 1px;
+  padding-top: 2px;
   background: #ffffff;
 `;
 

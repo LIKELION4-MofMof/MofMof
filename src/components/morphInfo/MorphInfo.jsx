@@ -17,7 +17,6 @@ import {
   MorphListUL,
   SearchContainer,
 } from './MorphInfo.styled';
-import { ReactComponent as CloseIcon } from 'assets/icon/close.svg';
 import { ReactComponent as SearchIcon } from 'assets/icon/searching.svg';
 import MorphListDropDown from './MorphListDropDown';
 import MorphListItem from './MorphListItem';
@@ -45,7 +44,7 @@ const MorphInfo = () => {
   }, []);
   console.log(morphList);
 
-  const dropDownHandler = useCallback(() => {
+  const showdropDown = useCallback(() => {
     setOnDropDown(true);
   }, []);
   const closeDropDown = useCallback((e) => {
@@ -65,6 +64,9 @@ const MorphInfo = () => {
     }
   };
   useEffect(filterDropDown, [morphList, inputValue]);
+  const dropDownHandler = () => {
+    setOnDropDown(!onDropDown);
+  };
 
   return (
     <div className="App">
@@ -77,17 +79,16 @@ const MorphInfo = () => {
               type="text"
               name="searchFatTailMorph"
               placeholder="모프를 검색해 보세요."
-              onFocus={dropDownHandler}
+              onFocus={showdropDown}
               value={inputValue}
               onChange={changeInputValue}
             />
             <button
-              type="reset"
-              className="btnReset"
-              aria-label="입력값 지우기"
-            >
-              <CloseIcon fill="#a7a6a5" />
-            </button>
+              type="button"
+              className="btnDropDown"
+              aria-label="모프 리스트 보기"
+              onClick={dropDownHandler}
+            ></button>
             <button type="submit" className="btnSubmit" aria-label="검색하기">
               <SearchIcon stroke="#ffffff" />
             </button>
