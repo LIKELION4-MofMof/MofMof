@@ -85,7 +85,7 @@ const MorphInfo = () => {
       <MorphInfoMain className="mainContainer">
         <SearchContainer ref={searchContainerEl}>
           <MorphInfoSearchForm onSubmit={searchMorph}>
-            {/* <label for="searchFatTailMorph">모프 소개 검색창</label> */}
+            <label for="searchFatTailMorph">모프 소개 검색창</label>
             <input
               type="text"
               name="searchFatTailMorph"

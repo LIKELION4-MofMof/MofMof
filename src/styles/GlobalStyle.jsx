@@ -29,4 +29,12 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.15; /* 1 */
     margin: 0; /* 2 */
 }
+.a11yHidden,
+label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
 `;
