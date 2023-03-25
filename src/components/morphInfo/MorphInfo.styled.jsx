@@ -7,6 +7,9 @@ export const MorphInfoMain = styled.main`
   padding-left: 20px;
   padding-right: 20px;
 `;
+export const SearchContainer = styled.div`
+  position: relative;
+`;
 export const MorphInfoSearchForm = styled.form`
   width: 100%;
   height: 40px;
@@ -42,6 +45,30 @@ export const MorphListUL = styled.ul`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+`;
+
+/* MorphListDropDown*/
+export const MorphListDropDownUl = styled.ul`
+  position: absolute;
+  top: 39px;
+  width: 100%;
+  height: 140px;
+  overflow-y: scroll;
+  border: 2px solid #ff5500;
+  padding-top: 1px;
+  background: #ffffff;
+`;
+
+/* MorphListDropDownItem */
+export const DropDownItemBtn = styled.button`
+  font-size: 16px;
+  line-height: 20px;
+  width: 100%;
+  padding: 5px 0px;
+  &:hover,
+  &:focus {
+    background: #f2f4f7;
+  }
 `;
 
 /* MorphListItem */

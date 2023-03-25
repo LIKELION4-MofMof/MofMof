@@ -4,17 +4,21 @@ import { db } from 'firebase-db/app';
 import { collection, getDocs } from 'firebase/firestore';
 import { useLayoutEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import FattailMorphListItem from './FattailMorphListItem';
 import {
   MorphInfoMain,
   MorphInfoSearchForm,
   MorphListUL,
+  SearchContainer,
 } from './MorphInfo.styled';
 import { ReactComponent as CloseIcon } from 'assets/icon/close.svg';
 import { ReactComponent as SearchIcon } from 'assets/icon/searching.svg';
+import MorphListDropDown from './MorphListDropDown';
+import MorphListItem from './MorphListItem';
 
 const MorphInfo = () => {
   const [morphList, setMorphList] = useState([]);
+  const [onDropDown, setOnDropDown] = useState(false);
+
   useLayoutEffect(() => {
     (async () => {
       const querySnapshot = await getDocs(
@@ -29,29 +33,42 @@ const MorphInfo = () => {
     })();
   }, []);
   console.log(morphList);
+
+  const dropDownHandler = () => {
+    console.log('input focus');
+    setOnDropDown(true);
+  };
   return (
     <div className="App">
       <Header />
       <MorphInfoMain className="mainContainer">
-        <MorphInfoSearchForm>
-          {/* <label for="searchFatTailMorph">모프 소개 검색창</label> */}
-          <input
-            type="text"
-            name="searchFatTailMorph"
-            placeholder="모프를 검색해 보세요."
-          />
-          <button type="reset" className="btnReset" aria-label="입력값 지우기">
-            <CloseIcon fill="#a7a6a5" />
-          </button>
-          <button type="submit" className="btnSubmit" aria-label="검색하기">
-            <SearchIcon stroke="#ffffff" />
-          </button>
-        </MorphInfoSearchForm>
+        <SearchContainer>
+          <MorphInfoSearchForm>
+            {/* <label for="searchFatTailMorph">모프 소개 검색창</label> */}
+            <input
+              type="text"
+              name="searchFatTailMorph"
+              placeholder="모프를 검색해 보세요."
+              onFocus={dropDownHandler}
+            />
+            <button
+              type="reset"
+              className="btnReset"
+              aria-label="입력값 지우기"
+            >
+              <CloseIcon fill="#a7a6a5" />
+            </button>
+            <button type="submit" className="btnSubmit" aria-label="검색하기">
+              <SearchIcon stroke="#ffffff" />
+            </button>
+          </MorphInfoSearchForm>
+          {onDropDown && <MorphListDropDown morphList={morphList} />}
+        </SearchContainer>
         <MorphListUL>
           {morphList.map((morph) => (
             <li key={morph.id}>
               <Link to="/">
-                <FattailMorphListItem morph={morph} />
+                <MorphListItem morph={morph} />
               </Link>
             </li>
           ))}
