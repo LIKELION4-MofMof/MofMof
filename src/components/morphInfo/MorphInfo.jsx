@@ -22,6 +22,7 @@ import MorphListDropDown from './MorphListDropDown';
 import MorphListItem from './MorphListItem';
 
 const MorphInfo = () => {
+  const [morph, setMorph] = useState([]);
   const [morphList, setMorphList] = useState([]);
   const [dropDownList, setDropDownList] = useState([]);
   const [onDropDown, setOnDropDown] = useState(false);
@@ -39,8 +40,8 @@ const MorphInfo = () => {
       querySnapshot.forEach((doc) => {
         docsData.push({ id: doc.id, ...doc.data() });
       });
+      setMorph(docsData);
       setMorphList(docsData);
-      setDropDownList(docsData);
     })();
   }, []);
   console.log(morphList);
@@ -51,17 +52,18 @@ const MorphInfo = () => {
   const changeInputValue = useCallback((e) => {
     setInputValue(e.target.value);
   }, []);
+
   const filterDropDown = () => {
     if (inputValue !== '') {
-      const filterMorph = morphList.filter((morph) =>
+      const filterMorph = morph.filter((morph) =>
         morph.name.includes(inputValue),
       );
       setDropDownList(filterMorph);
     } else {
-      setDropDownList(morphList);
+      setDropDownList([...morph]);
     }
   };
-  useEffect(filterDropDown, [morphList, inputValue]);
+  useEffect(filterDropDown, [inputValue, morph]);
 
   const dropDownHandler = () => {
     setOnDropDown(!onDropDown);
@@ -71,12 +73,10 @@ const MorphInfo = () => {
       e.preventDefault();
       setInputValue('');
       setOnDropDown(false);
-      setMorphList(
-        morphList.filter((morph) => morph.name.includes(inputValue)),
-      );
+      setMorphList(morph.filter((morph) => morph.name.includes(inputValue)));
       inputEl.current.blur();
     },
-    [inputValue, morphList],
+    [inputValue, morph],
   );
 
   return (
@@ -85,7 +85,7 @@ const MorphInfo = () => {
       <MorphInfoMain className="mainContainer">
         <SearchContainer ref={searchContainerEl}>
           <MorphInfoSearchForm onSubmit={searchMorph}>
-            <label for="searchFatTailMorph">모프 소개 검색창</label>
+            <label htmlFor="searchFatTailMorph">모프 소개 검색창</label>
             <input
               type="text"
               name="searchFatTailMorph"
