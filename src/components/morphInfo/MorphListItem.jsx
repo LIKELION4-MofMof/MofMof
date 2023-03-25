@@ -1,6 +1,6 @@
 import { MorphListItemFigure } from './MorphInfo.styled';
 
-const FattailMorphListItem = ({ morph }) => {
+const MorphListItem = ({ morph }) => {
   return (
     <MorphListItemFigure>
       <img src={morph.imgUrl[0]} alt={morph.alt[0]} />
@@ -9,4 +9,4 @@ const FattailMorphListItem = ({ morph }) => {
   );
 };
 
-export default FattailMorphListItem;
+export default MorphListItem;
