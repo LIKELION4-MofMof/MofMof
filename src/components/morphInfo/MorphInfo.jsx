@@ -58,7 +58,9 @@ const MorphInfo = () => {
       const filterMorph = morph.filter((morph) =>
         morph.name.includes(inputValue),
       );
-      setDropDownList(filterMorph);
+      filterMorph.length === 0
+        ? setDropDownList([{ id: 'none', name: '검색 결과가 없습니다.' }])
+        : setDropDownList(filterMorph);
     } else {
       setDropDownList([...morph]);
     }
