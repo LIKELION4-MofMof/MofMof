@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import {
   MorphInfoMain,
   MorphInfoSearchForm,
+  MorphListLi,
   MorphListUL,
   SearchContainer,
 } from './MorphInfo.styled';
@@ -66,11 +67,11 @@ const MorphInfo = () => {
         </SearchContainer>
         <MorphListUL>
           {morphList.map((morph) => (
-            <li key={morph.id}>
+            <MorphListLi key={morph.id}>
               <Link to="/">
                 <MorphListItem morph={morph} />
               </Link>
-            </li>
+            </MorphListLi>
           ))}
         </MorphListUL>
       </MorphInfoMain>

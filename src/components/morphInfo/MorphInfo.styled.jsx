@@ -46,6 +46,9 @@ export const MorphListUL = styled.ul`
   flex-flow: row wrap;
   justify-content: space-between;
 `;
+export const MorphListLi = styled.li`
+  width: 158px;
+`;
 
 /* MorphListDropDown*/
 export const MorphListDropDownUl = styled.ul`
@@ -85,5 +88,9 @@ export const MorphListItemFigure = styled.figure`
     color: #000000;
     font-size: 16px;
     margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    padding: 0 5px;
+    line-height: 1.6;
   }
 `;
