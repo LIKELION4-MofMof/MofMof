@@ -27,6 +27,7 @@ const MorphInfo = () => {
   const [onDropDown, setOnDropDown] = useState(false);
   const searchContainerEl = useRef(null);
   const [inputValue, setInputValue] = useState('');
+  const inputEl = useRef(null);
 
   useLayoutEffect(() => {
     (async () => {
@@ -46,9 +47,6 @@ const MorphInfo = () => {
 
   const showdropDown = useCallback(() => {
     setOnDropDown(true);
-  }, []);
-  const closeDropDown = useCallback((e) => {
-    !searchContainerEl.current.contains(e.target) && setOnDropDown(false);
   }, []);
   const changeInputValue = useCallback((e) => {
     setInputValue(e.target.value);
@@ -76,6 +74,7 @@ const MorphInfo = () => {
       setMorphList(
         morphList.filter((morph) => morph.name.includes(inputValue)),
       );
+      inputEl.current.blur();
     },
     [inputValue, morphList],
   );
@@ -83,7 +82,7 @@ const MorphInfo = () => {
   return (
     <div className="App">
       <Header />
-      <MorphInfoMain className="mainContainer" onClick={closeDropDown}>
+      <MorphInfoMain className="mainContainer">
         <SearchContainer ref={searchContainerEl}>
           <MorphInfoSearchForm onSubmit={searchMorph}>
             {/* <label for="searchFatTailMorph">모프 소개 검색창</label> */}
@@ -94,6 +93,7 @@ const MorphInfo = () => {
               onFocus={showdropDown}
               value={inputValue}
               onChange={changeInputValue}
+              ref={inputEl}
             />
             <button
               type="button"
