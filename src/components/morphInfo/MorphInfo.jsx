@@ -64,16 +64,28 @@ const MorphInfo = () => {
     }
   };
   useEffect(filterDropDown, [morphList, inputValue]);
+
   const dropDownHandler = () => {
     setOnDropDown(!onDropDown);
   };
+  const searchMorph = useCallback(
+    (e) => {
+      e.preventDefault();
+      setInputValue('');
+      setOnDropDown(false);
+      setMorphList(
+        morphList.filter((morph) => morph.name.includes(inputValue)),
+      );
+    },
+    [inputValue, morphList],
+  );
 
   return (
     <div className="App">
       <Header />
       <MorphInfoMain className="mainContainer" onClick={closeDropDown}>
         <SearchContainer ref={searchContainerEl}>
-          <MorphInfoSearchForm>
+          <MorphInfoSearchForm onSubmit={searchMorph}>
             {/* <label for="searchFatTailMorph">모프 소개 검색창</label> */}
             <input
               type="text"
