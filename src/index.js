@@ -17,6 +17,7 @@ import MyPage from './pages/MyPage/MyPage';
 
 import { GlobalStyle } from './styles/GlobalStyle';
 import MorphCalcResult from 'components/morphCalc/morphCalcResult/MorphCalcResult';
+import MorphDetail from 'components/morphInfo/MorphDetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -29,6 +30,7 @@ root.render(
         <Route path="/crested-home" element={<CrestedHome />} />
         <Route path="/leopard-home" element={<LeopardHome />} />
         <Route path="/fattail-info" element={<FattailMofInfo />} />
+        <Route path="/fattail-morph/:id/:morphName" element={<MorphDetail />} />
         <Route path="/fattail-calc" element={<MorphCalc />} />
         <Route path="/fattail-calcResult" element={<MorphCalcResult />} />
         <Route path="/diary" element={<Diary />} />

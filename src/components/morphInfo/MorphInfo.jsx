@@ -142,7 +142,7 @@ const MorphInfo = () => {
         <MorphListUL>
           {morphList.map((morph) => (
             <MorphListLi key={morph.id}>
-              <Link to="/">
+              <Link to={`/fattail-morph/${morph.id}/${morph.name}`}>
                 <MorphListItem morph={morph} />
               </Link>
             </MorphListLi>
