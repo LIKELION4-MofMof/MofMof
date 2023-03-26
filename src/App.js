@@ -12,12 +12,14 @@ function App() {
   const [isLoding, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const isSplashShown = localStorage.getItem('isSplashShown');
-    if (isSplashShown) {
-      setIsLoading(false); // 스플래시 이미지를 보여주지 않는다
-    } else {
-      localStorage.setItem('isSplashShown', true); // 로컬 스토리지에 값을 저장
-      setTimeout(() => setIsLoading(false), 3000);
+    const isSplashShown = JSON.parse(localStorage.getItem('isSplashShown'));
+
+    if (!isSplashShown) {
+      setIsLoading(true);
+      setTimeout(() => {
+        localStorage.setItem('isSplashShown', JSON.stringify(true));
+        setIsLoading(false);
+      }, 3000);
     }
   }, []);
   return (
