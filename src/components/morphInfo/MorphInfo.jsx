@@ -17,6 +17,7 @@ import {
   MorphListUL,
   SearchContainer,
 } from './MorphInfo.styled';
+import { ReactComponent as Arrow } from 'assets/icon/ArrowChevron.svg';
 import { ReactComponent as SearchIcon } from 'assets/icon/searching.svg';
 import MorphListDropDown from './MorphListDropDown';
 import MorphListItem from './MorphListItem';
@@ -102,7 +103,9 @@ const MorphInfo = () => {
               className="btnDropDown"
               aria-label="모프 리스트 보기"
               onClick={dropDownHandler}
-            ></button>
+            >
+              {onDropDown ? <Arrow className="isActive" /> : <Arrow />}
+            </button>
             <button type="submit" className="btnSubmit" aria-label="검색하기">
               <SearchIcon stroke="#ffffff" />
             </button>

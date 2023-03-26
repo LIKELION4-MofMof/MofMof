@@ -1,5 +1,4 @@
 import styled from 'styled-components/macro';
-import arrow from 'assets/icon/ArrowChevron.svg';
 
 /* MorphInfo */
 export const MorphInfoMain = styled.main`
@@ -33,7 +32,11 @@ export const MorphInfoSearchForm = styled.form`
   .btnDropDown {
     width: 22px;
     height: 22px;
-    background: url(${arrow}) no-repeat 0 0 / cover;
+    display: flex;
+    align-items: center;
+  }
+  .isActive {
+    transform: scaleY(-1);
   }
   .btnSubmit {
     width: 40px;
