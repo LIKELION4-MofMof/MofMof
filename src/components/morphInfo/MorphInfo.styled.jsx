@@ -52,6 +52,20 @@ export const MorphListUL = styled.ul`
 export const MorphListLi = styled.li`
   width: 158px;
 `;
+export const FilterContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 15px;
+  margin-top: 10px;
+  padding-left: 5px;
+  button {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6f6f6f;
+    cursor: pointer;
+    padding: 5px;
+  }
+`;
 
 /* MorphListDropDown*/
 export const MorphListDropDownUl = styled.ul`
@@ -79,7 +93,7 @@ export const DropDownItemBtn = styled.button`
 
 /* MorphListItem */
 export const MorphListItemFigure = styled.figure`
-  margin-top: 20px;
+  margin-top: 15px;
   img {
     width: 158px;
     height: 200px;

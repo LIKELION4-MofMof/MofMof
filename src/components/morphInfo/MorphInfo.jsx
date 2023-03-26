@@ -11,6 +11,7 @@ import {
 } from 'react';
 import { Link } from 'react-router-dom';
 import {
+  FilterContainer,
   MorphInfoMain,
   MorphInfoSearchForm,
   MorphListLi,
@@ -81,6 +82,18 @@ const MorphInfo = () => {
     },
     [inputValue, morph],
   );
+  const showAll = () => {
+    setMorphList(morph);
+  };
+  const showSingle = () => {
+    setMorphList(morph.filter((morph) => morph.group === '단일'));
+  };
+  const showTwoCombo = () => {
+    setMorphList(morph.filter((morph) => morph.group === '2콤보'));
+  };
+  const showThreeCombo = () => {
+    setMorphList(morph.filter((morph) => morph.group === '3콤보'));
+  };
 
   return (
     <div className="App">
@@ -112,6 +125,20 @@ const MorphInfo = () => {
           </MorphInfoSearchForm>
           {onDropDown && <MorphListDropDown morphList={dropDownList} />}
         </SearchContainer>
+        <FilterContainer>
+          <button type="button" onClick={showAll}>
+            전체
+          </button>
+          <button type="button" onClick={showSingle}>
+            단일
+          </button>
+          <button type="button" onClick={showTwoCombo}>
+            2콤보
+          </button>
+          <button type="button" onClick={showThreeCombo}>
+            3콤보
+          </button>
+        </FilterContainer>
         <MorphListUL>
           {morphList.map((morph) => (
             <MorphListLi key={morph.id}>
