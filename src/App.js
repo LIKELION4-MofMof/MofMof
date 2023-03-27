@@ -1,12 +1,15 @@
 // import FattailHome from 'pages/FattailHome/FattailHome';
 import './App.css';
-import Fattail from './components/main/Fattail';
-import Crested from './components/main/Crested';
-import Leopard from './components/main/Leopard';
+// import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+// import Layout from './components/common/Layout/Layout';
+import Main from './components/main/Main';
+
 import { Header } from 'components/common/Header/Header';
 import { Navigation } from 'components/common/Navigation/Navigation';
 import { React, useEffect, useState } from 'react';
 import { ReactComponent as Splash } from './assets/icon/splash.svg';
+
+
 
 function App() {
   // 로딩 상태 초기 값은 false
@@ -46,9 +49,7 @@ function App() {
         <>
           <Header />
           <div className="mainContainer">
-            <Fattail />
-            <Crested />
-            <Leopard />
+            <Main />
           </div>
           <Navigation />
         </>
