@@ -9,6 +9,7 @@ export const DivMorphCalc = styled.div`
   flex-flow: column nowrap;
   align-items: center;
   gap: 8px;
+  margin-bottom: 70px;
   position: relative;
 `;
 

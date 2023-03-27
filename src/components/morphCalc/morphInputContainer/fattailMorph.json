@@ -1,0 +1,33 @@
+[
+  {
+    "id": "fm1",
+    "engName": "Normal",
+    "korName": "노말",
+    "type": "dominant"
+  },
+
+  {
+    "id": "fm2",
+    "engName": "Oreo",
+    "korName": "오레오",
+    "type": "recessive"
+  },
+  {
+    "id": "fm3",
+    "engName": "Whiteout",
+    "korName": "화이트아웃",
+    "type": "dominant"
+  },
+  {
+    "id": "fm4",
+    "engName": "Stinger",
+    "korName": "스팅어",
+    "type": "dominant"
+  },
+  {
+    "id": "fm5",
+    "engName": "Zero",
+    "korName": "제로",
+    "type": "recessive"
+  }
+]
