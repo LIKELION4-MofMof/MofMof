@@ -4,10 +4,15 @@ import { db } from 'firebase-db/app';
 import { doc, getDoc } from 'firebase/firestore';
 import { useLayoutEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import {
+  ImgGallery,
+  MorphDetailDev,
+  MorphInfoDetail,
+} from './MorphDetail.styled';
 
 const MorphDetail = () => {
   const params = useParams();
-  console.log(params);
+  const [isLoading, setIsLoading] = useState(true);
   const [morph, setMorph] = useState(null);
   useLayoutEffect(() => {
     (async () => {
@@ -15,22 +20,40 @@ const MorphDetail = () => {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         setMorph(docSnap.data());
+        setIsLoading(false);
       } else {
         console.log('No such document!');
+        setIsLoading(false);
       }
     })();
   }, [params.id]);
-  console.log(morph);
-  return (
-    <div className="App">
-      <Header />
-      <div className="mainContainer">
-        <div>모프 갤러리</div>
-        <div>모프 이름 + 정보</div>
+  if (isLoading) {
+    return <div role="alert">모프 상세 페이지 로딩 중...</div>;
+  } else {
+    return (
+      <div className="App">
+        <Header />
+        <MorphDetailDev className="mainContainer">
+          <ImgGallery>
+            <img className="mainImg" src={morph.imgUrl[0]} alt={morph.alt[0]} />
+            {morph.imgUrl.map((img, idx) => (
+              <img
+                className="subImg"
+                key={idx}
+                src={img}
+                alt={morph.alt[idx]}
+              />
+            ))}
+          </ImgGallery>
+          <MorphInfoDetail>
+            <span className="morphName">{morph.name}</span>
+            <span className="morphInfo">{morph.info}</span>
+          </MorphInfoDetail>
+        </MorphDetailDev>
+        <Navigation />
       </div>
-      <Navigation />
-    </div>
-  );
+    );
+  }
 };
 
 export default MorphDetail;

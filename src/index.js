@@ -16,7 +16,6 @@ import EssentialGuide from 'pages/EssentialGuide/EssentialGuide';
 import MyPage from './pages/MyPage/MyPage';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
-
 import { GlobalStyle } from './styles/GlobalStyle';
 import MorphCalcResult from 'components/morphCalc/morphCalcResult/MorphCalcResult';
 import MorphDetail from 'components/morphInfo/morphDetail/MorphDetail';
