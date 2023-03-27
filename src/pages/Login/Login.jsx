@@ -6,7 +6,7 @@ import { Navigation } from 'components/common/Navigation/Navigation';
 const Login = () => {
   return (
     <div className="App">
-      <HeaderVersion />
+      <HeaderVersion title="로그인" />
       <LoginContainer className='mainContainer'>
         <LoginForm>
           <LoginInput type="text" placeholder='아이디를 입력해주세요.' required/>
