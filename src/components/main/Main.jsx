@@ -70,7 +70,5 @@ const CardList = styled.div`
   gap: 17px;
 `
 
-const categoriess = styled.button`
-  background-color: aqua;
-`
+
 
