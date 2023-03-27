@@ -8,7 +8,7 @@ export const Lists = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  height: 60px;
   width: 373px;
   position: fixed;
   bottom: 0;

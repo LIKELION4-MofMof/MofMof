@@ -78,6 +78,32 @@ const MorphInputContainer = ({ title, insert, children }) => {
   };
   useEffect(showFilterDropBox, [inputValue]);
 
+  // const onKeyPress = (e) => {
+  //   if (e.isComposing) return; // 한글 2번 입력 방지
+
+  //   //input에 값이 있을때만 작동
+  //   if (1) {
+  //     if (
+  //       e.key === 'ArrowDown' &&
+  //       fattailMorph.length - 1 > dropDownItemIndex
+  //     ) {
+  //       // setDropDownItemIndex(dropDownItemIndex + 1);
+  //       alert(123);
+  //     }
+
+  // else if (e.key === 'ArrowUp' && dropDownItemIndex >= 0) {
+  //   setDropDownItemIndex(dropDownItemIndex - 1);
+  // }
+
+  // // else if (e.key === 'Enter' && dropDownItemIndex >= 0) {
+  // //   clickDropDownItem(fattailMorph[dropDownItemIndex]);
+  // //   setDropDownItemIndex(-1);
+  // // }
+  // else if (e.key === 'Enter' && dropDownItemIndex < 0) {
+  // }
+  //   }
+  // };
+
   return (
     <SectionInputContainer>
       <InputTitle>
@@ -87,10 +113,17 @@ const MorphInputContainer = ({ title, insert, children }) => {
         <Search className="searchIcon" />
         <input
           type="text"
-          placeholder={`${title}를 검색해보세요.`}
+          placeholder={`${title}를 선택해보세요.`}
           className="searchInput"
           value={inputValue}
           onChange={changeInputValue}
+          onClick={toggleMorphList}
+          onFocus={(e) => {
+            e.target.placeholder = '';
+          }}
+          onBlur={(event) => {
+            event.target.placeholder = '선택하였습니다';
+          }}
         />
         <button
           type="button"

@@ -39,10 +39,12 @@ export const InputWrapper = styled.div`
   .searchInput {
     flex-grow: 1;
     border: none;
+    text-align: center;
   }
   .searchInput::placeholder {
-    color: #332ff2;
+    color: #ff5500;
     font-size: 16px;
+    font-weight: 500;
   }
   .btnShowMorphList {
     width: 24px;
@@ -104,23 +106,25 @@ export const SelectedBtnContainer = styled.div`
   align-items: center;
   gap: 3px;
   border-radius: 10px;
-  padding: 5px 8px;
+  padding: 10px 12px;
   span {
     font-size: 12px;
   }
   ${(props) =>
     props.type === 'dominant'
       ? css`
-          background: #f26a3b;
+          background: #fa806e;
+          color: #ffff;
         `
       : css`
-          background: #ebbb48;
+          background: #d9a61c;
+          color: #ffff;
         `}
 `;
 export const SelectedBtnClose = styled.button`
   background: url(${close}) no-repeat 0 0 / cover;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border: none;
   cursor: pointer;
 `;

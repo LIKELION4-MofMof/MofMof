@@ -1,14 +1,19 @@
 import MorphInputContainer from './morphInputContainer/MorphInputContainer';
 import { ReactComponent as Mate } from 'assets/icon/close.svg';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { calculate } from './CalculateFattail';
+import { Navigation } from '../common/Navigation/Navigation';
 import SelectedBtn from 'components/morphCalc/morphInputContainer/SelectedBtn';
+import { Header } from '../common/Header/Header';
+import { MorphDropdown } from '../morphCalc/morphCalcResult/MorphDropdown';
+
 import {
   BtnCalc,
   DivMorphCalc,
   MorphCalcBtnContainer,
 } from './MorphCalc.styled';
 import HeaderVersion from 'components/common/Header/HeaderVersion';
-import { Navigation } from 'components/common/Navigation/Navigation';
 
 const MorphCalc = () => {
   const [FSelectedMorph, setFSelectedMorph] = useState([]);
@@ -16,6 +21,19 @@ const MorphCalc = () => {
   const parentList1 = [];
   const parentList2 = [];
   const [result, setResult] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (result.length > 0) {
+      navigate('/fattail-calcResult', {
+        state: {
+          result,
+          parentList1,
+          parentList2,
+        },
+      });
+    }
+  }, [navigate, result]);
 
   const insertFSelectedBox = useCallback(
     (newSelectedMorph) => {
@@ -59,12 +77,6 @@ const MorphCalc = () => {
   FSelectedMorph.map((morph) => parentList1.push(morph.korName));
   MSelectedMorph.map((morph) => parentList2.push(morph.korName));
 
-  const calculate = () => {
-    console.log('모프계산기 실행!');
-    console.log(parentList1);
-    console.log(parentList2);
-  };
-
   const resetSelectedMorph = () => {
     setFSelectedMorph([]);
     setMSelectedMorph([]);
@@ -95,7 +107,7 @@ const MorphCalc = () => {
             계산하기
           </BtnCalc>
           <BtnCalc reset={true} type="button" onClick={resetSelectedMorph}>
-            다시하기
+            전체삭제
           </BtnCalc>
         </MorphCalcBtnContainer>
       </DivMorphCalc>

@@ -17,7 +17,7 @@ const HeaderVersion = (props) => {
         {isShare ? <ShareBtn/> : <EmptyBtn/>}  
       </HeaderVersionWrapper>
     </HeaderContainer>
-  )
-}
+  );
+};
 
 export default HeaderVersion;
