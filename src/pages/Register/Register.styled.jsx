@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 import checkOrange from "assets/icon/checkOrange.svg"
 import check from "assets/icon/check.svg"
 import checkAgreementAll from "assets/icon/checkAgreementAll.svg"
@@ -65,12 +65,22 @@ export const PasswordInput = styled.input`
   height: 44px;
   padding-left: 10px;
   color: #A7A7A7;
+  margin-bottom: 10px;
 `
 
-export const PasswordWarning = styled.p`
+export const PasswordConfirmInput = styled.input`
+border: #C1C1C1 1px solid;
+border-radius: 5px;
+width: 335px;
+height: 44px;
+padding-left: 10px;
+color: #A7A7A7;
+`
+
+export const ErrorMessage = styled.p`
   font-size: 10px;
   line-height: 12px;
-  color: #3BA017;
+  color: #FF2E2E;
   margin: 4px 0;
 `
 
