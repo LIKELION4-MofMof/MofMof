@@ -1,11 +1,8 @@
 // import FattailHome from 'pages/FattailHome/FattailHome';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Layout from './components/common/Layout/Layout';
-import Fattail from './components/main/Fattail';
-import Crested from './components/main/Crested';
-import Leopard from './components/main/Leopard';
-mport Main from 'components/main/Main';
+// import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+// import Layout from './components/common/Layout/Layout';
+import Main from './components/main/Main';
 
 import { Header } from 'components/common/Header/Header';
 import { Navigation } from 'components/common/Navigation/Navigation';
@@ -52,12 +49,9 @@ function App() {
         <>
           <Header />
           <div className="mainContainer">
-            <Fattail />
-            <Crested />
-            <Leopard />
+            <Main />
           </div>
           <Navigation />
-          <Main />
         </>
       )}
     </div>

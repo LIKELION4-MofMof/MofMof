@@ -5,11 +5,11 @@ import StarFill from '../../assets/icon/star-f.svg'
 import { Link } from 'react-router-dom';
 
 
-export default function Card({key, name, imgUrl,link}) {
+export default function Card({id, name, imgUrl,link}) {
   return (
     <Link to={link}>
     <StyledCard>
-      <CardTitle key={key}>
+      <CardTitle>
         <p>{name}</p>
         <StyledButton></StyledButton>
       </CardTitle>

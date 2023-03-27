@@ -52,8 +52,8 @@ export default function Main() {
         category={category}
         setCategory={setCategory}/>
     <CardList>
-      {lizardList.map((item, index) => 
-        (<Card key={index} name={item.name} imgUrl={item.imgUrl} link={item.link} />)
+      {lizardList.map((item) => 
+        (<Card key={item.id} name={item.name} imgUrl={item.imgUrl} link={item.link} />)
       )}
       
     </CardList>
@@ -73,4 +73,3 @@ const CardList = styled.div`
 const StyledCategoryButton = styled.button`
   background-color: aqua;
 `
-export default Main;
