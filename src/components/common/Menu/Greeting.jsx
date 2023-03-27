@@ -1,6 +1,6 @@
 
 import { LoginRegister, LoginWrapper, UserProfile, LoginBtnWrapper, LoginBtn, LoginIndex, LoginBtnIcon } from "./Menu.styled"
-
+import { Link } from 'react-router-dom';
 
 
 function GuestGreeting(props) {
@@ -8,10 +8,12 @@ function GuestGreeting(props) {
   <LoginRegister>
     <UserProfile />
     <LoginWrapper>
+    <Link to={"/login"}>
       <LoginBtnWrapper>
         <LoginBtn type="button">로그인 & 가입하기</LoginBtn>
-        <LoginBtnIcon></LoginBtnIcon>
+        <LoginBtnIcon/>
     </LoginBtnWrapper>
+    </Link>
       <LoginIndex>로그인하고 모프모프 서비스를 자유롭게 이용해보세요</LoginIndex>
     </LoginWrapper>
   </LoginRegister>
