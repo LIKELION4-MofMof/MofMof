@@ -8,9 +8,9 @@ import menuLists from "components/common/Menu/data"
 const MenuDropDown = ({title, list, icon}) => {
 
   const GeckoSubMenuList = menuLists.map((menuList, idx) =>
-    <>
-      <GeckoMenuListItem key={menuList.idex}>{menuList.list[idx]}</GeckoMenuListItem>
-    </>
+    <li key={menuList.id}>
+      <GeckoMenuListItem>{menuList.list[idx]}</GeckoMenuListItem>
+    </li>
 )
 
 
@@ -18,7 +18,6 @@ const MenuDropDown = ({title, list, icon}) => {
   return (
     <>
       <GeckoMainMenu>
-        {/* <GeckoMainMenuIcon></GeckoMainMenuIcon> */}
         <span>{icon()}</span>
         <MainMenuTitle>{title}</MainMenuTitle>
         <DropDownBtn aria-label='하위 메뉴보기' onClick={() => setActiveList(!activeList)}>
@@ -26,9 +25,7 @@ const MenuDropDown = ({title, list, icon}) => {
         </DropDownBtn>
       </GeckoMainMenu>
       <GeckoSubMenu>
-        <li>
           {activeList && GeckoSubMenuList}
-        </li>
       </GeckoSubMenu>  
     </>
   )

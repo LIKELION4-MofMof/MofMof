@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 export const DivMorphCalc = styled.div`
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 110px;
+  padding-top: 100px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
