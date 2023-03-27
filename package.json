@@ -8,11 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "create-react-app": "^5.0.1",
-<<<<<<< HEAD
-    "firebase": "^9.16.0",
-=======
     "firebase": "^9.17.1",
->>>>>>> develop
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
