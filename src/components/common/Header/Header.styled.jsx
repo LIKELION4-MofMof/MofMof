@@ -39,10 +39,10 @@ export const HeaderContainer = styled.div`
 
 export const HeaderVersionWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 63px;
-  padding-top: 22px;
+  padding: 22px 20px 0 20px;
 `
 
 export const BackBtn = styled.button`
@@ -54,10 +54,16 @@ export const BackBtn = styled.button`
 export const HeaderVersionTitle = styled.h3`
   font-weight: 600;
   font-size: 20px;
+  white-space: nowrap;
 `
 
 export const ShareBtn = styled.button`
   background: url(${share});
+  width: 24px;
+  height: 24px;
+`
+
+export const EmptyBtn = styled.button`
   width: 24px;
   height: 24px;
 `
