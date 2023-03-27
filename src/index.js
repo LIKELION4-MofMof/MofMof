@@ -17,7 +17,7 @@ import MyPage from './pages/MyPage/MyPage';
 
 import { GlobalStyle } from './styles/GlobalStyle';
 import MorphCalcResult from 'components/morphCalc/morphCalcResult/MorphCalcResult';
-import MorphDetail from 'components/morphInfo/MorphDetail';
+import MorphDetail from 'components/morphInfo/morphDetail/MorphDetail';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
