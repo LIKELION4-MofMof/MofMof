@@ -1,82 +1,88 @@
+import { Nav, Lists, IconWrapper } from "components/common/Navigation/Navigation.styled";
+import { Link } from "react-router-dom";
 
-import styled from "styled-components";
 
-const Nav = styled.nav`
-`
-
-const Lists = styled.ul`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 90px;
-  width: 388px;
-  position: fixed;
-  bottom: 0;
-  background: skyblue;
-`
-
-const IconWrapper = styled.div` 
-`
-
-const navLists = [
-  {
-    id: 1,
-    title: '검색',
-    icon: () => (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M15.75 15.75L20.25 20.25M17.25 11.25C17.25 14.5637 14.5637 17.25 11.25 17.25C7.93629 17.25 5.25 14.5637 5.25 11.25C5.25 7.93629 7.93629 5.25 11.25 5.25C14.5637 5.25 17.25 7.93629 17.25 11.25Z" stroke="#F26A3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    )
-  },
-  {
-    id: 2,
-    title: '필수가이드',
-    icon: () => (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M5 20V14M5 14V4H19L15 9L19 14H5Z" stroke="#F26A3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    )
-  },
-  {
-    id: 3,
-    title: '홈',
-    icon: () => (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4.33283 9.28591L11.0828 4.06346C11.623 3.64551 12.377 3.64551 12.9172 4.06347L19.6672 9.28591C20.0348 9.57031 20.25 10.0092 20.25 10.4743V18.7481C20.25 19.5776 19.5784 20.25 18.75 20.25H15.75C14.9216 20.25 14.25 19.5784 14.25 18.75V16.4953C14.25 15.2511 13.2426 14.2425 12 14.2425C10.7574 14.2425 9.75 15.2511 9.75 16.4953V18.75C9.75 19.5784 9.07843 20.25 8.25 20.25H5.25C4.42157 20.25 3.75 19.5776 3.75 18.7481V10.4743C3.75 10.0092 3.96524 9.57031 4.33283 9.28591Z" stroke="#F26A3B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    )
-  },
-  {
-    id: 3,
-    title: '다이어리',
-    icon: () => (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8.25 3.75V6.75M3.75 9.75L20.25 9.75M15.75 3.75V6.75M5.25 20.25H18.75C19.5784 20.25 20.25 19.5784 20.25 18.75V6.75C20.25 5.92157 19.5784 5.25 18.75 5.25H5.25C4.42157 5.25 3.75 5.92157 3.75 6.75V18.75C3.75 19.5784 4.42157 20.25 5.25 20.25Z" stroke="#F26A3B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    )
-  },
-  {
-    id: 4,
-    title: '마이페이지',
-    icon: () => (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 11.25C14.0711 11.25 15.75 9.57107 15.75 7.5C15.75 5.42893 14.0711 3.75 12 3.75C9.92893 3.75 8.24999 5.42893 8.24999 7.5C8.24999 9.57107 9.92893 11.25 12 11.25Z" stroke="#F26A3B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M6.74999 18.75C5.92157 18.75 5.23127 18.045 5.61174 17.3091C6.52894 15.5351 9.08088 14.25 12 14.25C14.9191 14.25 17.471 15.5351 18.3882 17.3091C18.7687 18.045 18.0784 18.75 17.25 18.75H6.74999Z" stroke="#F26A3B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    )
-  },
-]
 
 
 export function Navigation() {
+  const navLists = [
+    {
+      id: 1,
+      title: '검색',
+      icon: () => (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g>
+        <path d="M15.5 16.5L20 21M17 12C17 15.3137 14.3137 18 11 18C7.68629 18 5 15.3137 5 12C5 8.68629 7.68629 6 11 6C14.3137 6 17 8.68629 17 12Z" stroke="#FF5500" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        </svg>
+      ),
+      link: 'search'
+    },
+    {
+      id: 2,
+      title: '필수가이드',
+      icon: () => (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <path d="M5 22V16M5 16V6H19L15 11L19 16H5Z" stroke="#FF5500" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        </svg>
+      ),
+      link: 'essentialGuide'
+    },
+    {
+      id: 3,
+      title: '홈',
+      icon: () => (
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="24" fill="#FF5500"/>
+        <g>
+          <path d="M15.055 20.8336L22.93 14.7407C23.5602 14.2531 24.4398 14.2531 25.07 14.7407L32.945 20.8336C33.3739 21.1654 33.625 21.6774 33.625 22.22V31.8728C33.625 32.8405 32.8415 33.625 31.875 33.625H28.125C27.2966 33.625 26.625 32.9534 26.625 32.125V29.2445C26.625 27.793 25.4497 26.6162 24 26.6162C22.5503 26.6162 21.375 27.793 21.375 29.2445V32.125C21.375 32.9534 20.7034 33.625 19.875 33.625H16.125C15.1585 33.625 14.375 32.8405 14.375 31.8728V22.22C14.375 21.6774 14.6261 21.1654 15.055 20.8336Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        </svg>
+  
+      ),
+      link: '/'
+    },
+    {
+      id: 4,
+      title: '다이어리',
+      icon: () => (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g> 
+          <path d="M8.5 5V8M4 11L20.5 11M16 5V8M5.5 21.5H19C19.8284 21.5 20.5 20.8284 20.5 20V8C20.5 7.17157 19.8284 6.5 19 6.5H5.5C4.67157 6.5 4 7.17157 4 8V20C4 20.8284 4.67157 21.5 5.5 21.5Z" stroke="#FF5500" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        </svg>
+      ),
+      link: 'diary'
+    },
+    {
+      id: 5,
+      title: '마이페이지',
+      icon: () => (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <path d="M12.4956 13.5C14.5667 13.5 16.2456 11.8211 16.2456 9.75C16.2456 7.67893 14.5667 6 12.4956 6C10.4245 6 8.7456 7.67893 8.7456 9.75C8.7456 11.8211 10.4245 13.5 12.4956 13.5Z" stroke="#FF5500" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M7.2456 21C6.41717 21 5.72687 20.295 6.10735 19.5591C7.02455 17.7851 9.57648 16.5 12.4956 16.5C15.4147 16.5 17.9666 17.7851 18.8839 19.5591C19.2643 20.295 18.574 21 17.7456 21H7.2456Z" stroke="#FF5500" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+        </g>
+        </svg>
+  
+      ),
+      link: 'myPage'
+    },
+  ]
+
+
   return (
     <Nav>
       <Lists>
-        {navLists.map(({title, icon}) => (
-          <li>
-            <IconWrapper>
-              {icon()}
-            </IconWrapper>
+        {navLists.map((item) => (
+          <li key={item.id}>
+            <Link to={`${item.link}`}>
+              <IconWrapper aria-label={item.title}>
+                {item.icon()} 
+              </IconWrapper>
+            </Link>
           </li>
         ))}
       </Lists>

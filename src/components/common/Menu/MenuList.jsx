@@ -1,10 +1,6 @@
 import { useState } from "react";
-import {styled} from 'styled-components';
-import data from "./data";
-import MenuDropDown from "./MenuDropDown";
-
-
-
+import data from "components/common/Menu/data";
+import MenuDropDown from "components/common/Menu/MenuDropDown";
 
 
 
@@ -15,8 +11,8 @@ const MenuList = () => {
     <>
       <div>
         <ul>
-          {menuLists.map((menuList) => {
-            return <li><MenuDropDown key={menuList.id} {...menuList}/></li>
+          {menuLists.map((menuList, idx) => {
+            return <li key={idx}><MenuDropDown  {...menuList}/></li>
           })}
         </ul>
       </div> 

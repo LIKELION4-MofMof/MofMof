@@ -1,3 +1,4 @@
+
 import Slider from './Slider';
 import Card from './Card';
 import styled from 'styled-components';
@@ -12,7 +13,7 @@ function FilterButton({categories, catergory, setCategory}){
     if(categories.length === 0) return;
 
     return categories.map((item, index)=>(
-      <button key={index} className={item.value === catergory ? "category-child selected" : "category-child"} onClick={()=>{setCategory(item.value); }} >{item.name}</button>
+      <StyledCategoryButton key={index} className={item.value === catergory ? "category-child selected" : "category-child"} onClick={()=>{setCategory(item.value); }} >{item.name}</StyledCategoryButton>
     ))
   }
 
@@ -69,6 +70,7 @@ const CardList = styled.div`
   align-items: center;
   gap: 17px;
 `
-
-
-
+const StyledCategoryButton = styled.button`
+  background-color: aqua;
+`
+export default Main;

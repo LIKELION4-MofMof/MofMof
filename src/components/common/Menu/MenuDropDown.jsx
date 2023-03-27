@@ -1,53 +1,35 @@
 import { useState } from 'react';
-import styled from 'styled-components';
-import down from '../../../assets/icon/down.svg'
-import up from '../../../assets/icon/up.svg'
-import carrot from "../../../assets/icon/carrot.svg"
-
-const AccordionBtn = styled.button`
-  border-style: none;
-  background: transparent;
-  cursor: pointer;
-`
-
-const AccordionTitle = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 50px;
-`
-
-const GeckoList = styled.div`
-  display: flex;
-  flex-direction: column;
-`
-const GeckoListTitle = styled.h4`
-  &::before{
-    content: "";
-    background: url(${carrot});
-    width: 24px;
-    height: 24px;
-    background-size: 24px;
-    display: inline-block;
-  }
-`
+import down from 'assets/icon/down.svg';
+import up from 'assets/icon/up.svg';
+import { DropDownBtn, GeckoMainMenu, MainMenuTitle, GeckoSubMenu, GeckoMainMenuIcon, GeckoMenuListItem } from 'components/common/Menu/Menu.styled';
+import menuLists from "components/common/Menu/data"
 
 
-const MenuDropDown = ({title, list}) => {
+const MenuDropDown = ({title, list, icon}) => {
+
+  const GeckoSubMenuList = menuLists.map((menuList, idx) =>
+    <>
+      <GeckoMenuListItem key={menuList.idex}>{menuList.list[idx]}</GeckoMenuListItem>
+    </>
+)
 
 
   const [activeList, setActiveList] = useState(false);
   return (
     <>
-      <AccordionTitle>
-        <GeckoListTitle>{title}</GeckoListTitle>
-        <AccordionBtn onClick={() => setActiveList(!activeList)}>
+      <GeckoMainMenu>
+        {/* <GeckoMainMenuIcon></GeckoMainMenuIcon> */}
+        <span>{icon()}</span>
+        <MainMenuTitle>{title}</MainMenuTitle>
+        <DropDownBtn aria-label='하위 메뉴보기' onClick={() => setActiveList(!activeList)}>
           {activeList ? <img src={up} /> : <img src={down} />}
-        </AccordionBtn>
-      </AccordionTitle>
-      <GeckoList>
-        {activeList && <li>{list}</li>}
-      </GeckoList>  
+        </DropDownBtn>
+      </GeckoMainMenu>
+      <GeckoSubMenu>
+        <li>
+          {activeList && GeckoSubMenuList}
+        </li>
+      </GeckoSubMenu>  
     </>
   )
 };

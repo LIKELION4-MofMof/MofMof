@@ -1,0 +1,39 @@
+[
+  {
+    "engName": "Normal",
+    "korName": "노말",
+    "type": "dominant",
+    "imageUrl": "./8.jpg"
+  },
+  {
+    "engName": "Oreo",
+    "korName": "오레오",
+    "type": "recessive",
+    "imageUrl": "./8.jpg"
+  },
+  {
+    "engName": "Whiteout",
+    "korName": "화이트아웃",
+    "type": "dominant"
+  },
+  {
+    "engName": "Stripe",
+    "korName": "스트라이프",
+    "type": "dominant"
+  },
+  {
+    "engName": "Zero",
+    "korName": "제로",
+    "type": "recessive"
+  },
+  {
+    "engName": "Caramel",
+    "korName": "카라멜",
+    "type": "recessive"
+  },
+  {
+    "engName": "Ghost",
+    "korName": "고스트",
+    "type": "recessive"
+  }
+]
