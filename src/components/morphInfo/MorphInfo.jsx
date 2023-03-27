@@ -101,10 +101,10 @@ const MorphInfo = () => {
       <MorphInfoMain className="mainContainer">
         <SearchContainer ref={searchContainerEl}>
           <MorphInfoSearchForm onSubmit={searchMorph}>
-            <label htmlFor="searchFatTailMorph">모프 소개 검색창</label>
             <input
               type="text"
               name="searchFatTailMorph"
+              label="모프 소개 검색창"
               placeholder="모프를 검색해 보세요."
               onFocus={showdropDown}
               value={inputValue}
