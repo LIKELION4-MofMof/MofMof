@@ -1,7 +1,7 @@
 import MorphButton from './MorphButton';
 import { ButtonUl } from './MorphInputContainer.styled';
 
-const MorphListDropBox = ({ morphList, insert }) => {
+const MorphListDropBox = ({ morphList, set, insert }) => {
   return (
     <ButtonUl>
       {morphList.length === 0 ? (
