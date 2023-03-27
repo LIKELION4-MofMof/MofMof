@@ -60,7 +60,7 @@ body {
   -ms-overflow-style: none;
 }
 
-::-webkit-scrollbar {
+.App::-webkit-scrollbar {
   display: none;
 }
 
