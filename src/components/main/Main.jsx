@@ -72,4 +72,5 @@ const CardList = styled.div`
 `
 const StyledCategoryButton = styled.button`
   background-color: aqua;
+  padding: 20px 0 0 20px;
 `

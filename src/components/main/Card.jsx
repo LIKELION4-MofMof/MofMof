@@ -24,6 +24,7 @@ const StyledCard = styled.div`
   width: 158px;
   height: 240px;
   background: #5F0BCE;
+  color: white;
   border-radius: 20px;
   padding: 20px 10px;
 `
