@@ -1,8 +1,12 @@
 .App {
   width: 375px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 100vh;
   overflow: scroll;
+  background-color: white;
+  box-shadow: -60px 0px 100px -90px #000000, 60px 0px 100px -90px #000000;
+  position: absolute;
+  left: 45%;
 }
 
 .splash {
