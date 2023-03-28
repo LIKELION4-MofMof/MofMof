@@ -12,7 +12,7 @@ export const StyledHeader = styled.header`
   height: 100px;
   padding: 0 20px;
   position: fixed;
-  width: 373px;
+  width: 375px;
   z-index: 100;
   box-shadow: 0 0.1px 5px 1px rgba(190, 190, 190, 0.2);
 `;
@@ -32,7 +32,7 @@ export const HeaderContainer = styled.div`
   background: #ffffff;
   box-shadow: 0 0.1px 5px 1px rgba(190, 190, 190, 0.5);
   position: fixed;
-  width: 373px;
+  width: 375px;
   z-index: 100;
 `;
 
