@@ -83,7 +83,7 @@ const MorphCalc = () => {
   };
   return (
     <div className="App">
-      <HeaderVersion num={'1'} />
+      <HeaderVersion title="펫테일게코 모프계산기" isShare/>
       <DivMorphCalc>
         <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
           {FSelectedMorph.map((morph) => (

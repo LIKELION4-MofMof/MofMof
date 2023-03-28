@@ -14,7 +14,8 @@ import Board from 'pages/Board/Board';
 import Search from 'pages/Search/Search';
 import EssentialGuide from 'pages/EssentialGuide/EssentialGuide';
 import MyPage from './pages/MyPage/MyPage';
-
+import Register from './pages/Register/Register';
+import Login from './pages/Login/Login';
 import { GlobalStyle } from './styles/GlobalStyle';
 import MorphCalcResult from 'components/morphCalc/morphCalcResult/MorphCalcResult';
 import MorphDetail from 'components/morphInfo/morphDetail/MorphDetail';
@@ -38,6 +39,8 @@ root.render(
         <Route path="/search" element={<Search />} />
         <Route path="/essentialGuide" element={<EssentialGuide />} />
         <Route path="/myPage" element={<MyPage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   </React.StrictMode>,

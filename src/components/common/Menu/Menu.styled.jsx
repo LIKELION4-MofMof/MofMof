@@ -90,13 +90,6 @@ export const GeckoSubMenu = styled.ul`
   flex-direction: column;
 `
 
-// export const GeckoMainMenuIcon = styled.span`
-//     content: "";
-//     background: url(${carrot});
-//     width: 24px;
-//     height: 24px;
-//     display: inline-block;
-// `
 
 export const MainMenuTitle = styled.button`
   color: #ffff;
@@ -113,6 +106,9 @@ export const GeckoMenuListItem = styled.button`
   margin-left: 70px;
   display: flex;
   font-size: 16px;
+  :hover{
+    font-weight: 800;
+  }
 `
 
 //Greeting
