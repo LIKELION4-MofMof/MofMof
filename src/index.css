@@ -6,8 +6,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
+<<<<<<< HEAD
   background: url('../src/assets/image/bgmofmof.svg') no-repeat;
   background-size: 80%;
+=======
+  background: url('../src/assets/image/bgmofmof.svg') no-repeat 0 0 / cover;
+>>>>>>> 5906d1fa9db3c5379bcc7b47381d5e730174e75c
   position: relative;
 }
 code {
