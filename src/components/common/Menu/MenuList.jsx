@@ -11,7 +11,7 @@ const MenuList = () => {
         <ul>
           {menuLists.map((menuList) => {
             return (
-              <li>
+              <li key={menuList.id}>
                 <MenuDropDown {...menuList} />
               </li>
             );
