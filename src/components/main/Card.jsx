@@ -23,8 +23,8 @@ export default function Card({id, name, imgUrl,link}) {
 const StyledCard = styled.div`
   width: 158px;
   height: 240px;
-  background: #5F0BCE;
-  color: white;
+  background: #F6DFA4;
+  color: #000000;
   border-radius: 20px;
   padding: 20px 10px;
 `
