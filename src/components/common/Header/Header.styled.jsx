@@ -48,6 +48,7 @@ export const BackBtn = styled.button`
   background: url(${backIcon});
   width: 10px;
   height: 18px;
+  margin-right: 5px;
 `;
 
 export const HeaderVersionTitle = styled.h3`
