@@ -14,6 +14,8 @@ const MorphDetail = () => {
   const params = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [morph, setMorph] = useState(null);
+  const [arrayIndex, setArrayIndex] = useState(0);
+
   useLayoutEffect(() => {
     (async () => {
       const docRef = doc(db, 'fat-tail-morph-list', params.id);
@@ -27,6 +29,12 @@ const MorphDetail = () => {
       }
     })();
   }, [params.id]);
+
+  const imgHandler = (e) => {
+    if (e.target.className.includes('subImg')) {
+      setArrayIndex(e.target.className.slice(7));
+    } else return;
+  };
   if (isLoading) {
     return <div role="alert">모프 상세 페이지 로딩 중...</div>;
   } else {
@@ -34,11 +42,15 @@ const MorphDetail = () => {
       <div className="App">
         <Header />
         <MorphDetailDev className="mainContainer">
-          <ImgGallery>
-            <img className="mainImg" src={morph.imgUrl[0]} alt={morph.alt[0]} />
+          <ImgGallery onClick={imgHandler}>
+            <img
+              className="mainImg"
+              src={morph.imgUrl[arrayIndex]}
+              alt={morph.alt[arrayIndex]}
+            />
             {morph.imgUrl.map((img, idx) => (
               <img
-                className="subImg"
+                className={`subImg ${idx}`}
                 key={idx}
                 src={img}
                 alt={morph.alt[idx]}

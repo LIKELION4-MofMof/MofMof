@@ -23,6 +23,7 @@ export const ImgGallery = styled.div`
     width: 70px;
     height: 70px;
     border-radius: 10px;
+    cursor: pointer;
   }
 `;
 export const MorphInfoDetail = styled.div`
