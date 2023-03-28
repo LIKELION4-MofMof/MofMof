@@ -14,6 +14,7 @@ import Board from 'pages/Board/Board';
 import Search from 'pages/Search/Search';
 import EssentialGuide from 'pages/EssentialGuide/EssentialGuide';
 import MyPage from './pages/MyPage/MyPage';
+import Fixmypage from './pages/MyPage/Fixmypage';
 import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import { GlobalStyle } from './styles/GlobalStyle';
@@ -39,6 +40,8 @@ root.render(
         <Route path="/search" element={<Search />} />
         <Route path="/essentialGuide" element={<EssentialGuide />} />
         <Route path="/myPage" element={<MyPage />} />
+        <Route path="/fix-myPage" element={<Fixmypage />} />
+
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>

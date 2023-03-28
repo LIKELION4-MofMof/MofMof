@@ -1,4 +1,4 @@
-import { Header } from 'components/common/Header/Header';
+import HeaderVersion from 'components/common/Header/HeaderVersion';
 import { Navigation } from 'components/common/Navigation/Navigation';
 import { db } from 'firebase-db/app';
 import { collection, getDocs } from 'firebase/firestore';
@@ -95,7 +95,7 @@ const MorphInfo = () => {
 
   return (
     <div className="App">
-      <Header />
+      <HeaderVersion title="펫테일게코 모프소개" isShare />
       <MorphInfoMain className="mainContainer">
         <SearchContainer ref={searchContainerEl}>
           <MorphInfoSearchForm onSubmit={searchMorph}>
