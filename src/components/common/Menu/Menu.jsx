@@ -11,14 +11,13 @@ import {
   MainMenuTitle,
   UserMenu,
   UserMenuList,
-  GeckoMainMenuIcon,
   UserMenuIcon,
 } from './Menu.styled';
 import { ReactComponent as CloseIcon } from 'assets/icon/close.svg';
 import customer from 'assets/icon/customer.svg';
 import logOut from 'assets/icon/logOut.svg';
 import setting from 'assets/icon/setting.svg';
-import { useAuthState, useSignOut } from 'firebase-db/auth-db/index';
+import { useSignOut } from 'firebase-db/auth-db/index';
 
 const Menu = ({ children, ...restProps }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
