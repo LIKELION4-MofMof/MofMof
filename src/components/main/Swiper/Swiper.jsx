@@ -2,6 +2,6 @@
 
 export const Swiper = () => {
   return (
-    <div>ㅎ2ㅎ2잘보이십니까</div>
+    <div>메인스와이퍼</div>
   )
 }
