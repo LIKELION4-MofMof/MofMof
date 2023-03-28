@@ -1,12 +1,9 @@
-
 import Slider from './Slider';
 import Card from './Card';
 import styled from 'styled-components';
 import {lizardcardlist} from './Lizardmainlist';
 import { useEffect, useState } from 'react';
 import { categories } from './filter';
-
-const LS_KEY_CATEGORY = "LS_KEY_CATEGORY";
 
 function FilterButton({categories, catergory, setCategory}){
   const makeCategories = () =>{
@@ -16,13 +13,6 @@ function FilterButton({categories, catergory, setCategory}){
       <StyledCategoryButton key={index} className={item.value === catergory ? "category-child selected" : "category-child"} onClick={()=>{setCategory(item.value); }} >{item.name}</StyledCategoryButton>
     ))
   }
-
-  // const init = () => {
-  //   let data = localStorage.getItem(LS_KEY_CATEGORY);
-  //   if (data !== null) setCategory(data);
-  // };
-
-  // useEffect(init, []);
 
   return (
     <div>
@@ -44,7 +34,6 @@ export default function Main() {
     )
   }, [category])
 
-  
   return (
     <>
     <Slider />
@@ -71,5 +60,6 @@ const CardList = styled.div`
   gap: 17px;
 `
 const StyledCategoryButton = styled.button`
-  background-color: aqua;
+  /* background-color: aqua; */
+  padding: 20px 0 0 20px;
 `

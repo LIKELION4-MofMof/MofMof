@@ -37,7 +37,6 @@ const MorphInfo = () => {
       const querySnapshot = await getDocs(
         collection(db, 'fat-tail-morph-list'),
       );
-      console.log(querySnapshot);
       let docsData = [];
       querySnapshot.forEach((doc) => {
         docsData.push({ id: doc.id, ...doc.data() });
@@ -46,7 +45,6 @@ const MorphInfo = () => {
       setMorphList(docsData);
     })();
   }, []);
-  console.log(morphList);
 
   const showdropDown = useCallback(() => {
     setOnDropDown(true);
