@@ -4,8 +4,7 @@
   height: 100vh;
   overflow: scroll;
   background-color: white;
-  box-shadow: -60px 0px 100px -90px #000000,
-  60px 0px 100px -90px #000000;
+  box-shadow: -60px 0px 100px -90px #000000, 60px 0px 100px -90px #000000;
   position: absolute;
   left: 45%;
 }
