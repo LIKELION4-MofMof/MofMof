@@ -67,9 +67,9 @@ const MorphInfo = () => {
   };
   useEffect(filterDropDown, [inputValue, morph]);
 
-  const dropDownHandler = () => {
+  const dropDownHandler = useCallback(() => {
     setOnDropDown(!onDropDown);
-  };
+  }, [onDropDown]);
   const searchMorph = useCallback(
     (e) => {
       e.preventDefault();
@@ -80,18 +80,18 @@ const MorphInfo = () => {
     },
     [inputValue, morph],
   );
-  const showAll = () => {
+  const showAll = useCallback(() => {
     setMorphList(morph);
-  };
-  const showSingle = () => {
+  }, [morph]);
+  const showSingle = useCallback(() => {
     setMorphList(morph.filter((morph) => morph.group === '단일'));
-  };
-  const showTwoCombo = () => {
+  }, [morph]);
+  const showTwoCombo = useCallback(() => {
     setMorphList(morph.filter((morph) => morph.group === '2콤보'));
-  };
-  const showThreeCombo = () => {
+  }, [morph]);
+  const showThreeCombo = useCallback(() => {
     setMorphList(morph.filter((morph) => morph.group === '3콤보'));
-  };
+  }, [morph]);
 
   return (
     <div className="App">

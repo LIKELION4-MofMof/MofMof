@@ -28,13 +28,13 @@ export const ImgGallery = styled.div`
 `;
 export const MorphInfoDetail = styled.div`
   border-radius: 10px 10px 0 0px;
-  background: #5f0bce;
+  background: #f6dfa4;
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 20px;
   padding: 35px 20px;
-  color: #ffffff;
+  color: #000000;
   .morphName {
     font-weight: 800;
     font-size: 24px;

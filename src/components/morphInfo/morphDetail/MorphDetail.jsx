@@ -1,4 +1,4 @@
-import { Header } from 'components/common/Header/Header';
+import HeaderVersion from 'components/common/Header/HeaderVersion';
 import { Navigation } from 'components/common/Navigation/Navigation';
 import { db } from 'firebase-db/app';
 import { doc, getDoc } from 'firebase/firestore';
@@ -40,7 +40,7 @@ const MorphDetail = () => {
   } else {
     return (
       <div className="App">
-        <Header />
+        <HeaderVersion title={morph.name} isShare />
         <MorphDetailDev className="mainContainer">
           <ImgGallery onClick={imgHandler}>
             <img
