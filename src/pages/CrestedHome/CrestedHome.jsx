@@ -18,7 +18,7 @@ const CrestedHome = () => {
         <GeckoPageTop>
           <GeckoPageTitleWrapper>
             <GeckoImg src={fattailPageGecko} alt="펫테일게코 이미지" />
-            <GeckoPageTitle>레오파드 게코</GeckoPageTitle>
+            <GeckoPageTitle>크레스티드 게코</GeckoPageTitle>
             <FavoriteBtn />
           </GeckoPageTitleWrapper>
           <GeckoPageDescription>"둥글고 통통한 몸집을 가지고 있고 소심한 성격을 가지고 있어요."</GeckoPageDescription>

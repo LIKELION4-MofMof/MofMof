@@ -8,13 +8,16 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "create-react-app": "^5.0.1",
+    "firebase": "^9.17.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.43.8",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
     "recharts": "^2.5.0",
     "styled-components": "^5.3.8",
     "styled-reset": "^4.4.5",
+    "swiper": "^9.1.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
