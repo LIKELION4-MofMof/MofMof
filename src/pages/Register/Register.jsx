@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSignUp, useAuthState } from 'firebase-db/auth-db/index';
 // import { useDocumentTitle } from '@/hooks';
 import { useCreateAuthUser } from 'firebase-db/firestore-db/index';
@@ -24,7 +24,14 @@ const Register = () => {
   const formStateRef = useRef(initialFormState);
 
   //비밀번호 확인 에러메세지
-  const [errorMessage, setErrorMessage] = useState(false);
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState(false);
+  const [emailErrorMessage, setEmailErrorMessage] = useState(false);
+  const [nameErrorMessage, setNameErrorMessage] = useState(false);
+
+  //유효성 검사
+  const [isEmail, setIsEmail] = useState(false)
+  const [isName, setIsName] = useState(false)
+  const [isPasswordConfirm, setIsPasswordConfirm] = useState(false)
 
   //약관 동의하기
   const [allCheck, setAllCheck] = useState(false);
@@ -33,52 +40,58 @@ const Register = () => {
   const [privacyCheck, setPrivacyCheck] = useState(false);
   const [advertisementCheck, setAdvertisementCheck] = useState(false);
 
+  const navigate = useNavigate();
+
 
 
   const handleReset = () => {
     console.log('reset');
   };
 
+  const { name, email, password, passwordConfirm } = formStateRef.current;
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const { name, email, password, passwordConfirm } = formStateRef.current;
+    
+        //유효성 검사
+        if (!name || name.trim().length < 2) {
+          setNameErrorMessage(true);
+          setIsName(false);
+        } else setNameErrorMessage(false);
+          setIsName(true);
+
+        if (!Object.is(password, passwordConfirm)) {
+          setPasswordErrorMessage(true);
+          setIsPasswordConfirm(false);
+        } else setPasswordErrorMessage(false);
+          setIsPasswordConfirm(true);
+      
+
+      const emailRegex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+      if (email !== emailRegex) {
+        setEmailErrorMessage(true)
+        setIsEmail(false)
+      } else setEmailErrorMessage(false);
+        setIsEmail(true)
 
 
-    // 유효성 검사
-    if (!name || name.trim().length < 2) {
-      setErrorMessage(true)
-    } else setErrorMessage(false);
+        const user = await signUp(email, password, name);
+        createAuthUser(user, {});
+        // return navigate.push('/login');
+        setTimeout(() => {
+          navigate('/login');
 
-    if (!Object.is(password, passwordConfirm)) {
-      setErrorMessage(true)
-    } else setErrorMessage(false);
-
-   const emailRegex = /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-
-   if (email !== emailRegex) {
-    setErrorMessage(true)
-  } else setErrorMessage(false);
-   
-
-    const user = await signUp(email, password, name);
-    await createAuthUser(user, {});
-  };
-
-  // useEffect(() => {
-  //   if(user) {
-  //     (async () => {
-  //       const { name, email } = formStateRef.current;
-  //       await createAuthUser(user, { name, email });
-  //     })();
-  //   }
-  // }, [createAuthUser, user]);
-
+        }, 1000);
+  }
+  
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
     formStateRef.current[name] = value;
   }
+  
   
 
 
@@ -156,7 +169,7 @@ const Register = () => {
               // minLength="5"
               onChange={handleChangeInput}
             />
-            {errorMessage && <ErrorMessage>올바른 이메일 형식을 입력해주세요.</ErrorMessage>}
+            {emailErrorMessage && <ErrorMessage>올바른 이메일 형식을 입력해주세요.</ErrorMessage>}
             <RequiredLabel htmlFor="password">비밀번호</RequiredLabel>
             <PasswordInput 
               type="password" 
@@ -167,17 +180,14 @@ const Register = () => {
               required 
               placeholder="숫자, 영문 조합 최소 8자"
               />
-            {/* <PasswordWarning>알맞은 비밀번호입니다.</PasswordWarning> */}
             <PasswordConfirmInput type="password" name="passwordConfirm" minlength="8" required placeholder="비밀번호 재입력" onChange={handleChangeInput} />
-            {errorMessage && <ErrorMessage>두 비밀번호가 달라요. 확인해 보시겠어요?</ErrorMessage>}
+            {passwordErrorMessage && <ErrorMessage>두 비밀번호가 달라요. 확인해 보시겠어요?</ErrorMessage>}
           </fieldset>
           <fieldset>
             <RegisterLegend>개인 정보</RegisterLegend>
             <RequiredLabel htmlFor="name">이름</RequiredLabel>
             <RegisterInput type="text" id="name" name="name" onChange={handleChangeInput} required placeholder="이름(실명) 입력해주세요."/>
-            {errorMessage && <ErrorMessage>이름은 두 글자 이상 입력해주세요.</ErrorMessage>}
-            {/* <RequiredLabel htmlFor="email">이메일</RequiredLabel>
-            <RegisterInput type="text" id="email" onChange={handleChangeInput} required placeholder="예) mmooff@gmail.com"/> */}
+            {nameErrorMessage && <ErrorMessage>이름은 두 글자 이상 입력해주세요.</ErrorMessage>}
             <RequiredLabel htmlFor="gender">성별</RequiredLabel>
             <GenderCheck>
               <label htmlFor="genderMale">남자</label>
@@ -215,7 +225,7 @@ const Register = () => {
               <AgreementInput type="checkbox" id="agreementAdvertisement" checked={advertisementCheck} onChange={advertiseBtnEvent}/>
               <label htmlFor="agreementAdvertisement">[선택] 광고성 정보 수신 동의</label>
             </div>
-            <SubmitBtn type="submit">본인인증하고 가입하기</SubmitBtn>
+            <SubmitBtn type="submit" disabled={(isEmail && isName && isPasswordConfirm)}>본인인증하고 가입하기</SubmitBtn>
           </Agreement>
         </RegisterForm>
       </RegisterContainer>

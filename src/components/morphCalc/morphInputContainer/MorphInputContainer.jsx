@@ -51,6 +51,12 @@ const fattailMorph = [
     korName: '고스트',
     type: 'recessive',
   },
+  {
+    id: 'fm8',
+    engName: 'Amelanistic',
+    korName: '아멜라니스틱',
+    type: 'recessive',
+  },
 ];
 
 const MorphInputContainer = ({ title, insert, children }) => {

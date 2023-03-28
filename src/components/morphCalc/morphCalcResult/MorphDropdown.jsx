@@ -39,7 +39,7 @@ const DropdownContainer = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  top: 70px;
+  top: 80px;
   left: 816px;
   z-index: 1000;
 

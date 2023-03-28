@@ -30,5 +30,28 @@ export const lizardcardlist = [
     category : "category1",
     link: "/fattail-home",
   },
+  { 
+    id: 5,
+    name : "펫테일게코",
+    imgUrl : "lizard05",
+    category : "category1",
+    link: "/fattail-home",
+  },
+  {
+    id: 6,
+    name : "레오파드게코",
+    imgUrl : "lizard02",
+    category : "category1"
+    ,
+    link: "/fattail-home",
+  },
+  {
+    id: 7,
+    name : "레오파드게코",
+    imgUrl : "lizard02",
+    category : "category2"
+    ,
+    link: "/fattail-home",
+  },
 ];
 

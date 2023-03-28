@@ -18,10 +18,12 @@ import { ReactComponent as CloseIcon } from 'assets/icon/close.svg';
 import customer from 'assets/icon/customer.svg';
 import logOut from 'assets/icon/logOut.svg';
 import setting from 'assets/icon/setting.svg';
+import { useAuthState, useSignOut } from 'firebase-db/auth-db/index';
 
 const Menu = ({ children, ...restProps }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const menuRef = useRef();
+  const { signOut } = useSignOut();
 
   //menu toggle
   const toggleChange = (e) => {
@@ -39,6 +41,13 @@ const Menu = ({ children, ...restProps }) => {
 
   const clickMenuOutside = (e) => {
     if (CloseBtn && !menuRef.current.contains(e.target)) setToggleMenu();
+  };
+
+
+
+  const handleSignOut = async () => {
+    console.log('로그아웃');
+    signOut();
   };
 
   return (
@@ -69,7 +78,7 @@ const Menu = ({ children, ...restProps }) => {
             </UserMenuList>
             <UserMenuList>
               <UserMenuIcon src={logOut} alt="로그아웃 아이콘" />
-              <MainMenuTitle>로그아웃</MainMenuTitle>
+              <MainMenuTitle onClick={handleSignOut}>로그아웃</MainMenuTitle>
             </UserMenuList>
           </UserMenu>
         </div>
