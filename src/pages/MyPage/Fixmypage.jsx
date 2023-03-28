@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { ReactComponent as Profile } from './profile.svg';
 import { ReactComponent as Profile2 } from './profilebtn2.svg';
 import { useState } from 'react';
-import { hover } from '@testing-library/user-event/dist/hover';
 
 const Fixmypage = () => {
   const [isHovered, setIsHovered] = useState(false);

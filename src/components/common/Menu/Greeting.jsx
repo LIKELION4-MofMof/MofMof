@@ -33,10 +33,6 @@ function GuestGreeting() {
 
 function UserGreeting() {
   const user = auth.currentUser;
-  if (user !== null) {
-    const displayName = user.displayName;
-    const email = user.email;
-  }
   return (
     <LoginRegister>
       <UserProfile />

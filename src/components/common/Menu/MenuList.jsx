@@ -1,10 +1,7 @@
-import { useState } from 'react';
-import data from 'components/common/Menu/data';
 import MenuDropDown from 'components/common/Menu/MenuDropDown';
+import menuLists from './data.jsx';
 
 const MenuList = () => {
-  const [menuLists, setMenuLists] = useState(data);
-
   return (
     <>
       <div>

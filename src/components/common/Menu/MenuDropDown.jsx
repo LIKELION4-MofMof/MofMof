@@ -6,10 +6,8 @@ import {
   GeckoMainMenu,
   MainMenuTitle,
   GeckoSubMenu,
-  GeckoMainMenuIcon,
   GeckoMenuListItem,
 } from 'components/common/Menu/Menu.styled';
-import menuLists from 'components/common/Menu/data';
 
 const MenuDropDown = ({ title, list, icon }) => {
   const GeckoSubMenuList = list.map((item, idx) => (
@@ -28,7 +26,11 @@ const MenuDropDown = ({ title, list, icon }) => {
           aria-label="하위 메뉴보기"
           onClick={() => setActiveList(!activeList)}
         >
-          {activeList ? <img src={up} /> : <img src={down} />}
+          {activeList ? (
+            <img src={up} alt="하위 메뉴 닫기" />
+          ) : (
+            <img src={down} alt="하위 메뉴 보기" />
+          )}
         </DropDownBtn>
       </GeckoMainMenu>
       <GeckoSubMenu>{activeList && GeckoSubMenuList}</GeckoSubMenu>

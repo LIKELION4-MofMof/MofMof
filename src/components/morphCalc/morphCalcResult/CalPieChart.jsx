@@ -1,5 +1,4 @@
 import { PieChart, Pie, Legend, Tooltip, Cell } from 'recharts';
-import styled from 'styled-components';
 
 const colors = [
   '#0088FE',

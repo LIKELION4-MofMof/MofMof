@@ -16,7 +16,9 @@ import HeaderVersion from 'components/common/Header/HeaderVersion';
 const MorphCalc = () => {
   const [FSelectedMorph, setFSelectedMorph] = useState([]);
   const [MSelectedMorph, setMSelectedMorph] = useState([]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const parentList1 = [];
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const parentList2 = [];
   const [result, setResult] = useState([]);
   const navigate = useNavigate();
@@ -31,7 +33,7 @@ const MorphCalc = () => {
         },
       });
     }
-  }, [navigate, result]);
+  }, [navigate, parentList1, parentList2, result]);
 
   const insertFSelectedBox = useCallback(
     (newSelectedMorph) => {
