@@ -20,7 +20,7 @@ const Slider = () => {
     <div style={{position:'relative', width:'375px', height:'190px'}}>
     <Swiper
     allowTouchMove={false}
-    autoplay={{ delay: 3000 }}
+    autoplay={{ delay: 2000 }}
     className={'h2h2'}
     slidesPerView={1}
     spaceBetween={0}
