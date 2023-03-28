@@ -1,20 +1,47 @@
-import {HeaderContainer, HeaderVersionWrapper, HeaderVersionTitle, BackBtn, ShareBtn, EmptyBtn} from './Header.styled'
+import {
+  HeaderContainer,
+  HeaderVersionWrapper,
+  HeaderVersionTitle,
+  BackBtn,
+  ShareBtn,
+  EmptyBtn,
+  DropDiv,
+} from './Header.styled';
+import { ReactComponent as Diagonal } from 'assets/icon/diagonal.svg';
+import { ReactComponent as Kakao } from 'assets/icon/kakao.svg';
 
-
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const HeaderVersion = (props) => {
   const { title } = props;
   const isShare = props.isShare;
-  // const HeaderLists = [
-  //   '로그인','회원가입','모프소개','고스트','펫테일게코 모프계산기','펫테일게코 모프계산결과'
-  // ]
+  const navigate = useNavigate();
+
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const handleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
 
   return (
     <HeaderContainer>
       <HeaderVersionWrapper>
-        <BackBtn></BackBtn>
+        <BackBtn onClick={() => navigate(-1)}></BackBtn>
         <HeaderVersionTitle>{title}</HeaderVersionTitle>
-        {isShare ? <ShareBtn/> : <EmptyBtn/>}  
+        {isShare ? <ShareBtn onClick={handleDropdown} /> : <EmptyBtn />}
+        {showDropdown && (
+          <DropDiv>
+            <button onClick={() => alert('링크를 복사하였습니다')}>
+              <Diagonal />
+              링크복사
+            </button>
+            <button onClick={() => alert('카카오톡 링크 복사하였습니다')}>
+              <Kakao />
+              카카오톡
+            </button>
+          </DropDiv>
+        )}
       </HeaderVersionWrapper>
     </HeaderContainer>
   );

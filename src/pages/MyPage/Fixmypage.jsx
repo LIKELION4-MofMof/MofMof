@@ -1,43 +1,39 @@
 import HeaderVersion from 'components/common/Header/HeaderVersion';
 import { Navigation } from 'components/common/Navigation/Navigation';
-import { useNavigate } from 'react-router-dom';
-
-import { ReactComponent as Profile } from './profile.svg';
-import { ReactComponent as Pen } from './pen.svg';
-import { ReactComponent as Profilebtn } from './profilebtn.svg';
-
 import styled from 'styled-components';
+import { ReactComponent as Profile } from './profile.svg';
+import { ReactComponent as Profile2 } from './profilebtn2.svg';
+import { useState } from 'react';
+import { hover } from '@testing-library/user-event/dist/hover';
 
-const MyPage = () => {
-  const navigate = useNavigate();
+const Fixmypage = () => {
+  const [isHovered, setIsHovered] = useState(false);
 
-  const handleProfileNameClick = () => {
-    navigate('/fix-mypage');
+  const handleMouseOver = () => {
+    setIsHovered(!isHovered);
   };
 
-  const handleProfileBtnClick = () => {
-    navigate('/fattail-home');
+  const handleMouseOut = () => {
+    setIsHovered(false);
   };
   return (
     <div className="App">
-      <HeaderVersion title="마이페이지" />
-
+      <HeaderVersion title="프로필 변경" />
       <Mypagediv>
-        <Profile />
-        <ProfileName onClick={handleProfileNameClick}>
-          함종석 <Pen />
-        </ProfileName>
+        {isHovered ? (
+          <Profile2 />
+        ) : (
+          <Profile onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} />
+        )}
+        <ProfileName>함종석</ProfileName>
+        <ProfileCom>
+          2자 이상 10자 이내의 한글, 영문, 숫자 입력 가능합니다.
+        </ProfileCom>
         <ProfileP>
           <span>안녕하세요</span> <br />
           <span>펫테일게코를 키우는 함종석입니다</span>
         </ProfileP>
-        <Profilestar>
-          즐겨찾기 <hr />
-        </Profilestar>
-        <Profilebtndiv>
-          <Profilebtn onClick={handleProfileBtnClick} />
-          <Profilebtn onClick={handleProfileBtnClick} />
-        </Profilebtndiv>
+        <Profilestar></Profilestar>
       </Mypagediv>
 
       <Navigation />
@@ -45,7 +41,7 @@ const MyPage = () => {
   );
 };
 
-export default MyPage;
+export default Fixmypage;
 
 const Mypagediv = styled.div`
   padding-top: 110px;
@@ -53,15 +49,20 @@ const Mypagediv = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
 `;
 
-const ProfileName = styled.span`
+const ProfileName = styled.p`
   color: #ff5500;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  margin-right: 20px;
   font-size: 20px;
   margin-left: 20px;
+  width: 300px;
   font-weight: bolder;
-  border-bottom: #ff5500;
+  margin-top: 30px;
+  border: 1px solid #ff5500;
   &:hover {
     cursor: pointer;
   }
@@ -73,11 +74,18 @@ const ProfileP = styled.p`
   justify-content: center;
   align-items: center;
   border: 2px solid #ff5500;
-  background-color: #f6dfa4;
+  background-color: #fff;
   border-radius: 15px;
   line-height: 13px;
-  width: 240px;
+  width: 300px;
   height: 100px;
+`;
+
+const ProfileCom = styled.p`
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 50px;
+  margin-top: 10px;
 `;
 
 const Profilestar = styled.span`
@@ -93,17 +101,5 @@ const Profilestar = styled.span`
     border: none;
     border-top: 1px solid black;
     width: 200px;
-  }
-`;
-
-const Profilebtndiv = styled.div`
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 80px;
-  &:hover {
-    cursor: pointer;
   }
 `;

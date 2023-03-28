@@ -5,8 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { calculate } from './CalculateFattail';
 import { Navigation } from '../common/Navigation/Navigation';
 import SelectedBtn from 'components/morphCalc/morphInputContainer/SelectedBtn';
-import { Header } from '../common/Header/Header';
-import { MorphDropdown } from '../morphCalc/morphCalcResult/MorphDropdown';
 
 import {
   BtnCalc,
@@ -83,7 +81,7 @@ const MorphCalc = () => {
   };
   return (
     <div className="App">
-      <HeaderVersion title="펫테일게코 모프계산기" isShare/>
+      <HeaderVersion title="펫테일게코 모프계산기" isShare />
       <DivMorphCalc>
         <MorphInputContainer title={'아빠'} insert={insertFSelectedBox}>
           {FSelectedMorph.map((morph) => (

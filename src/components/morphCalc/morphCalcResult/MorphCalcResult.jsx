@@ -1,7 +1,7 @@
 import { DivMorphCalc } from '../MorphCalc.styled';
 import { useLocation } from 'react-router-dom';
 import { CalPieChart } from './CalPieChart';
-import { Header } from '../../common/Header/Header';
+import HeaderVersion from '../../common/Header/HeaderVersion';
 import { Navigation } from '../../common/Navigation/Navigation';
 import styled from 'styled-components';
 import { MorphDropdown } from './MorphDropdown';
@@ -23,7 +23,7 @@ export default function CalResult() {
 
   return (
     <div className="App">
-      <Header />
+      <HeaderVersion title="모프 계산기 결과" isShare />
       <DivMorphCalc>
         <MorphDropdown />
         <ParentMorphCon parentList1={parentList1} parentList2={parentList2} />
@@ -98,7 +98,7 @@ const Li = styled.li`
 const ResultBox = styled.div`
   text-align: center;
   font-size: 20px;
-  margin-bottom: 130px;
+  margin-bottom: 110px;
 `;
 const ResultTable = styled.table`
   /* margin: 0 auto; */
