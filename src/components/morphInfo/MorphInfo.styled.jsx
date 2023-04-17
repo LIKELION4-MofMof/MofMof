@@ -44,14 +44,6 @@ export const MorphInfoSearchForm = styled.form`
     background: #ff5500;
   }
 `;
-export const MorphListUL = styled.ul`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-`;
-export const MorphListLi = styled.li`
-  width: 158px;
-`;
 export const FilterContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
