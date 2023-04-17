@@ -14,6 +14,8 @@ import {
   FilterContainer,
   MorphInfoMain,
   MorphInfoSearchForm,
+  MorphListLi,
+  MorphListUL,
   SearchContainer,
 } from './MorphInfo.styled';
 import { ReactComponent as Arrow } from 'assets/icon/ArrowChevron.svg';
@@ -102,6 +104,9 @@ const MorphInfo = () => {
       [morphList[12], morphList[13]],
     ];
     const morph = newMorphList[rowIndex][columnIndex];
+    if (morph === undefined) {
+      return;
+    }
     return (
       <Link
         to={`/fattail-morph/${morph.id}/${morph.name}`}
@@ -158,15 +163,27 @@ const MorphInfo = () => {
             3콤보
           </button>
         </FilterContainer>
-        <Grid
-          cellRenderer={cellRenderer}
-          columnCount={2}
-          columnWidth={158}
-          height={550}
-          rowCount={morphList.length / 2}
-          rowHeight={275}
-          width={335}
-        />
+        {morphList.length > 4 ? (
+          <Grid
+            cellRenderer={cellRenderer}
+            columnCount={2}
+            columnWidth={158}
+            height={550}
+            rowCount={Math.ceil(morphList.length / 2)}
+            rowHeight={275}
+            width={335}
+          />
+        ) : (
+          <MorphListUL>
+            {morphList.map((morph) => (
+              <MorphListLi key={morph.id}>
+                <Link to={`/fattail-morph/${morph.id}/${morph.name}`}>
+                  <MorphListItem morph={morph} />
+                </Link>
+              </MorphListLi>
+            ))}
+          </MorphListUL>
+        )}
       </MorphInfoMain>
       <Navigation />
     </div>
