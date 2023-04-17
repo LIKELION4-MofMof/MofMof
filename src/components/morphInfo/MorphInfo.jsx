@@ -170,7 +170,7 @@ const MorphInfo = () => {
             columnWidth={158}
             height={550}
             rowCount={Math.ceil(morphList.length / 2)}
-            rowHeight={275}
+            rowHeight={270}
             width={335}
           />
         ) : (
