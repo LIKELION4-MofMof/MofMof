@@ -69,6 +69,7 @@ export const MorphListDropDownUl = styled.ul`
   border: 2px solid #ff5500;
   padding-top: 2px;
   background: #ffffff;
+  z-index: 5;
 `;
 
 /* MorphListDropDownItem */
