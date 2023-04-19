@@ -56,7 +56,7 @@ export const FilterContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
   gap: 15px;
-  margin-top: 10px;
+  margin: 10px 0;
   padding-left: 5px;
   button {
     font-size: 14px;
@@ -77,6 +77,7 @@ export const MorphListDropDownUl = styled.ul`
   border: 2px solid #ff5500;
   padding-top: 2px;
   background: #ffffff;
+  z-index: 5;
 `;
 
 /* MorphListDropDownItem */
@@ -93,7 +94,6 @@ export const DropDownItemBtn = styled.button`
 
 /* MorphListItem */
 export const MorphListItemFigure = styled.figure`
-  margin-top: 15px;
   img {
     width: 158px;
     height: 200px;

@@ -22,6 +22,7 @@ import { ReactComponent as Arrow } from 'assets/icon/ArrowChevron.svg';
 import { ReactComponent as SearchIcon } from 'assets/icon/searching.svg';
 import MorphListDropDown from './MorphListDropDown';
 import MorphListItem from './MorphListItem';
+import { Grid } from 'react-virtualized';
 
 const MorphInfo = () => {
   const [morph, setMorph] = useState([]);
@@ -92,6 +93,31 @@ const MorphInfo = () => {
   const showThreeCombo = useCallback(() => {
     setMorphList(morph.filter((morph) => morph.group === '3콤보'));
   }, [morph]);
+  const cellRenderer = ({ columnIndex, key, rowIndex, style }) => {
+    const newMorphList = [
+      [morphList[0], morphList[1]],
+      [morphList[2], morphList[3]],
+      [morphList[4], morphList[5]],
+      [morphList[6], morphList[7]],
+      [morphList[8], morphList[9]],
+      [morphList[10], morphList[11]],
+      [morphList[12], morphList[13]],
+    ];
+    const morph = newMorphList[rowIndex][columnIndex];
+    if (morph === undefined) {
+      return;
+    }
+    return (
+      <Link
+        to={`/fattail-morph/${morph.id}/${morph.name}`}
+        key={key}
+        style={style}
+        className="morphLink"
+      >
+        <MorphListItem morph={morph} />
+      </Link>
+    );
+  };
 
   return (
     <div className="App">
@@ -137,15 +163,27 @@ const MorphInfo = () => {
             3콤보
           </button>
         </FilterContainer>
-        <MorphListUL>
-          {morphList.map((morph) => (
-            <MorphListLi key={morph.id}>
-              <Link to={`/fattail-morph/${morph.id}/${morph.name}`}>
-                <MorphListItem morph={morph} />
-              </Link>
-            </MorphListLi>
-          ))}
-        </MorphListUL>
+        {morphList.length > 4 ? (
+          <Grid
+            cellRenderer={cellRenderer}
+            columnCount={2}
+            columnWidth={158}
+            height={550}
+            rowCount={Math.ceil(morphList.length / 2)}
+            rowHeight={270}
+            width={335}
+          />
+        ) : (
+          <MorphListUL>
+            {morphList.map((morph) => (
+              <MorphListLi key={morph.id}>
+                <Link to={`/fattail-morph/${morph.id}/${morph.name}`}>
+                  <MorphListItem morph={morph} />
+                </Link>
+              </MorphListLi>
+            ))}
+          </MorphListUL>
+        )}
       </MorphInfoMain>
       <Navigation />
     </div>
