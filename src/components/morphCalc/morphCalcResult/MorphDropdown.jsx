@@ -36,14 +36,13 @@ export function MorphDropdown(a, b) {
 }
 
 const DropdownContainer = styled.div`
-  display: inline-flex;
+  display: flex;
+  flex-flow: row nowrap;
   align-items: center;
   gap: 10px;
+  position: absolute;
   top: 80px;
-  left: 816px;
-  z-index: 1000;
-
-  position: fixed;
+  right: 20px;
 `;
 const DropdownText = styled.span`
   cursor: pointer;
@@ -63,10 +62,11 @@ const DropdownButton = styled.button`
   align-items: center;
 `;
 const DropdownContent = styled.div`
-  position: fixed;
+  position: absolute;
   padding: 20px;
-  top: 100px;
-  right: 535px;
+  top: 20px;
+  right: 0;
+  z-index: 5;
   flex-direction: column;
   background-color: #f9f9f9;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);

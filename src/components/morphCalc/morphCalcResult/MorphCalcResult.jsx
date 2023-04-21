@@ -19,8 +19,6 @@ export default function CalResult() {
     value: item.percent,
   }));
 
-  console.log(result.length, '나 리절트야!!');
-
   return (
     <div className="App">
       <HeaderVersion title="모프 계산기 결과" isShare />
