@@ -4,7 +4,13 @@ import HeaderVersion from 'components/common/Header/HeaderVersion';
 import { Navigation } from 'components/common/Navigation/Navigation';
 import { db } from 'firebase-db/app';
 import { collection, getDocs } from 'firebase/firestore';
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
 import { Link } from 'react-router-dom';
 import { Grid } from 'react-virtualized';
 import {
@@ -37,7 +43,7 @@ const MorphList = ({ morphList }) => {
             to={`/fattail-morph/${morph.id}/${morph.name}`}
             key={key}
             style={style}
-            className='morphLink'
+            className="morphLink"
           >
             <MorphListItem morph={morph} />
           </Link>
@@ -144,46 +150,48 @@ const MorphInfo = () => {
   }, [morph]);
 
   return (
-    <div className='App'>
-      <HeaderVersion title='펫테일게코 모프소개' isShare />
-      <MorphInfoMain className='mainContainer'>
+    <div className="App">
+      <HeaderVersion title="펫테일게코 모프소개" isShare />
+      <MorphInfoMain className="mainContainer">
         <SearchContainer ref={searchContainerEl}>
           <MorphInfoSearchForm onSubmit={searchMorph}>
+            <label htmlFor="searchFatTailMorph" className="a11yHidden">
+              모프 소개 검색창
+            </label>
             <input
-              type='text'
-              name='searchFatTailMorph'
-              label='모프 소개 검색창'
-              placeholder='모프를 검색해 보세요.'
+              type="text"
+              name="searchFatTailMorph"
+              placeholder="모프를 검색해 보세요."
               onFocus={showdropDown}
               value={inputValue}
               onChange={changeInputValue}
               ref={inputEl}
             />
             <button
-              type='button'
-              className='btnDropDown'
-              aria-label='모프 리스트 보기'
+              type="button"
+              className="btnDropDown"
+              aria-label="모프 리스트 보기"
               onClick={dropDownHandler}
             >
-              {onDropDown ? <Arrow className='isActive' /> : <Arrow />}
+              {onDropDown ? <Arrow className="isActive" /> : <Arrow />}
             </button>
-            <button type='submit' className='btnSubmit' aria-label='검색하기'>
-              <SearchIcon stroke='#ffffff' />
+            <button type="submit" className="btnSubmit" aria-label="검색하기">
+              <SearchIcon stroke="#ffffff" />
             </button>
           </MorphInfoSearchForm>
           {onDropDown && <MorphListDropDown morphList={dropDownList} />}
         </SearchContainer>
         <FilterContainer>
-          <button type='button' onClick={showAll}>
+          <button type="button" onClick={showAll}>
             전체
           </button>
-          <button type='button' onClick={showSingle}>
+          <button type="button" onClick={showSingle}>
             단일
           </button>
-          <button type='button' onClick={showTwoCombo}>
+          <button type="button" onClick={showTwoCombo}>
             2콤보
           </button>
-          <button type='button' onClick={showThreeCombo}>
+          <button type="button" onClick={showThreeCombo}>
             3콤보
           </button>
         </FilterContainer>
